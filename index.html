@@ -1,222 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BJ Video Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-      color: #f1f1f1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ Video Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
 
-    /* Header superior */
-    header {
-      background-color: #1f1f1f;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
+        header {
+            background-color: #222;
+            padding: 15px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    header nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #f1f1f1;
-      font-weight: bold;
-    }
+        header a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-    header nav a:hover {
-      color: #ffcc00;
-    }
+        header a:hover {
+            color: #ffcc00;
+        }
 
-    /* Sidebar de categorías */
-    aside {
-      position: fixed;
-      top: 70px;
-      left: 0;
-      width: 200px;
-      height: calc(100% - 70px);
-      background-color: #1a1a1a;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+        nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 220px;
+            height: calc(100% - 60px);
+            background-color: #111;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    aside h2 {
-      font-size: 18px;
-      color: #ffcc00;
-      margin-bottom: 15px;
-    }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    aside a {
-      display: block;
-      margin-bottom: 10px;
-      color: #ddd;
-      text-decoration: none;
-    }
+        nav li {
+            margin-bottom: 15px;
+        }
 
-    aside a:hover {
-      color: #ffcc00;
-    }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+        }
 
-    /* Contenido principal */
-    main {
-      margin-left: 220px;
-      padding: 90px 40px 40px;
-    }
+        nav a:hover {
+            color: #fff;
+        }
 
-    .categoria {
-      margin-bottom: 40px;
-    }
+        #contenido {
+            margin-left: 240px;
+            margin-top: 80px;
+            padding: 20px;
+        }
 
-    .juego {
-      background-color: #1e1e1e;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      margin-top: 10px;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
+        .categoria {
+            margin-bottom: 30px;
+        }
 
-    .juego img {
-      width: 200px;
-      border-radius: 8px;
-    }
+        .juego {
+            margin-top: 10px;
+        }
 
-    .juego p {
-      margin: 5px 0;
-    }
+        .juego a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-    /* Footer con redes */
-    footer {
-      background-color: #1f1f1f;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      margin-left: 220px;
-    }
+        .juego a:hover {
+            text-decoration: underline;
+        }
 
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+        .juego img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+        }
 
-    footer a:hover {
-      color: #ffcc00;
-    }
-  </style>
+        .detalle-juego {
+            margin: 60px 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .detalle-juego img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        footer a {
+            color: #ccc;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <a href="#inicio">Inicio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#registrarse">Registrarse</a>
+    </header>
 
-  <!-- Encabezado superior -->
-  <header>
-    <h1>BJ Video Games</h1>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#registrarse">Registrarse</a>
+        <ul>
+            <li><a href="#aventura">Aventura</a></li>
+            <li><a href="#accion">Acción</a></li>
+            <li><a href="#rpg">RPG</a></li>
+            <li><a href="#shooter">Shooter</a></li>
+            <li><a href="#deportes">Deportes</a></li>
+            <li><a href="#indie">Indie</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- Categorías a la izquierda -->
-  <aside>
-    <h2>Categorías</h2>
-    <a href="#aventura">Aventura</a>
-    <a href="#accion">Acción</a>
-    <a href="#rpg">RPG</a>
-    <a href="#shooter">Shooter</a>
-    <a href="#deportes">Deportes</a>
-    <a href="#indie">Indie</a>
-  </aside>
+    <div id="contenido">
+        <h1 id="inicio">Bienvenido a BJ Video Games</h1>
+        <p>Explora una amplia selección de videojuegos para todos los gustos.</p>
 
-  <!-- Contenido principal -->
-  <main>
-    <section id="aventura" class="categoria">
-      <h2>Aventura</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=Zelda+Breath+of+the+Wild" alt="">
-        <div>
-          <p><strong>The Legend of Zelda: Breath of the Wild</strong></p>
-          <p>Explora, resuelve acertijos y lucha en el mundo abierto de Hyrule.</p>
+        <!-- Categorías con enlaces -->
+        <div class="categoria" id="aventura">
+            <h2>Aventura</h2>
+            <div class="juego">
+                <a href="#zelda">
+                    <img src="https://via.placeholder.com/300x200?text=Zelda+Breath+of+the+Wild">
+                    <p><strong>The Legend of Zelda: Breath of the Wild</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="accion" class="categoria">
-      <h2>Acción</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=Spider-Man" alt="">
-        <div>
-          <p><strong>Spider-Man (PS4)</strong></p>
-          <p>Combate en tercera persona en la piel de Peter Parker.</p>
+        <div class="categoria" id="accion">
+            <h2>Acción</h2>
+            <div class="juego">
+                <a href="#spiderman">
+                    <img src="https://via.placeholder.com/300x200?text=Spider-Man">
+                    <p><strong>Spider-Man (PS4)</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="rpg" class="categoria">
-      <h2>RPG</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=The+Witcher+3" alt="">
-        <div>
-          <p><strong>The Witcher 3: Wild Hunt</strong></p>
-          <p>Una historia profunda con jugabilidad envolvente como Geralt de Rivia.</p>
+        <div class="categoria" id="rpg">
+            <h2>RPG</h2>
+            <div class="juego">
+                <a href="#witcher">
+                    <img src="https://via.placeholder.com/300x200?text=The+Witcher+3">
+                    <p><strong>The Witcher 3: Wild Hunt</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="shooter" class="categoria">
-      <h2>Shooter</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=DOOM+Eternal" alt="">
-        <div>
-          <p><strong>DOOM Eternal</strong></p>
-          <p>Desata el caos como Doom Slayer contra hordas de demonios.</p>
+        <div class="categoria" id="shooter">
+            <h2>Shooter</h2>
+            <div class="juego">
+                <a href="#doom">
+                    <img src="https://via.placeholder.com/300x200?text=DOOM+Eternal">
+                    <p><strong>DOOM Eternal</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="deportes" class="categoria">
-      <h2>Deportes</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=FIFA+23" alt="">
-        <div>
-          <p><strong>FIFA 23</strong></p>
-          <p>Compite en torneos y ligas con realismo futbolístico.</p>
+        <div class="categoria" id="deportes">
+            <h2>Deportes</h2>
+            <div class="juego">
+                <a href="#fifa">
+                    <img src="https://via.placeholder.com/300x200?text=FIFA+23">
+                    <p><strong>FIFA 23</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="indie" class="categoria">
-      <h2>Indie</h2>
-      <div class="juego">
-        <img src="https://via.placeholder.com/300x200?text=Hollow+Knight" alt="">
-        <div>
-          <p><strong>Hollow Knight</strong></p>
-          <p>Aventura 2D con exploración, combate y un mundo misterioso.</p>
+        <div class="categoria" id="indie">
+            <h2>Indie</h2>
+            <div class="juego">
+                <a href="#hollow">
+                    <img src="https://via.placeholder.com/300x200?text=Hollow+Knight">
+                    <p><strong>Hollow Knight</strong></p>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer con redes sociales -->
-  <footer>
-    <p>&copy; 2025 BJ Video Games</p>
-    <a href="#">Facebook</a> |
-    <a href="#">Twitter</a> |
-    <a href="#">Instagram</a>
-  </footer>
+        <!-- Secciones detalladas -->
+        <section id="zelda" class="detalle-juego">
+            <h2>The Legend of Zelda: Breath of the Wild</h2>
+            <img src="https://via.placeholder.com/600x300?text=Zelda+Detalle">
+            <p><strong>Desarrollador:</strong> Nintendo</p>
+            <p><strong>Plataforma:</strong> Nintendo Switch</p>
+            <p><strong>Resumen:</strong> Libertad total en un mundo abierto, con mecánicas innovadoras, exploración sin límites y una historia conmovedora de salvación del reino de Hyrule.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
 
+        <section id="spiderman" class="detalle-juego">
+            <h2>Spider-Man (PS4)</h2>
+            <img src="https://via.placeholder.com/600x300?text=Spider-Man+Detalle">
+            <p><strong>Desarrollador:</strong> Insomniac Games</p>
+            <p><strong>Plataforma:</strong> PS4</p>
+            <p><strong>Resumen:</strong> Vuela entre rascacielos, enfréntate a villanos icónicos y descubre una narrativa madura mientras salvas Nueva York como Peter Parker.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
+
+        <section id="witcher" class="detalle-juego">
+            <h2>The Witcher 3: Wild Hunt</h2>
+            <img src="https://via.placeholder.com/600x300?text=Witcher+Detalle">
+            <p><strong>Desarrollador:</strong> CD Projekt Red</p>
+            <p><strong>Plataforma:</strong> Multiplataforma</p>
+            <p><strong>Resumen:</strong> Juega como Geralt en una odisea colosal a través de reinos oscuros y llenos de magia, con decisiones que cambian el destino del mundo.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
+
+        <section id="doom" class="detalle-juego">
+            <h2>DOOM Eternal</h2>
+            <img src="https://via.placeholder.com/600x300?text=DOOM+Detalle">
+            <p><strong>Desarrollador:</strong> id Software</p>
+            <p><strong>Plataforma:</strong> Multiplataforma</p>
+            <p><strong>Resumen:</strong> Lucha contra legiones demoníacas en combates frenéticos, con una banda sonora brutal y armas devastadoras.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
+
+        <section id="fifa" class="detalle-juego">
+            <h2>FIFA 23</h2>
+            <img src="https://via.placeholder.com/600x300?text=FIFA+Detalle">
+            <p><strong>Desarrollador:</strong> EA Sports</p>
+            <p><strong>Plataforma:</strong> Multiplataforma</p>
+            <p><strong>Resumen:</strong> Juega con equipos reales, torneos internacionales y modos en línea, con gráficos realistas y nuevas animaciones mejoradas.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
+
+        <section id="hollow" class="detalle-juego">
+            <h2>Hollow Knight</h2>
+            <img src="https://via.placeholder.com/600x300?text=Hollow+Knight+Detalle">
+            <p><strong>Desarrollador:</strong> Team Cherry</p>
+            <p><strong>Plataforma:</strong> PC, Switch, PS4</p>
+            <p><strong>Resumen:</strong> Una aventura metroidvania con arte dibujado a mano, combates desafiantes y una atmósfera misteriosa en el reino de Hallownest.</p>
+            <a href="#contenido">⬆ Volver arriba</a>
+        </section>
+    </div>
+
+    <footer>
+        <a href="#inicio">Inicio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#registrarse">Registrarse</a>
+        <p>Síguenos en: 
+            <a href="#">Instagram</a> | 
+            <a href="#">YouTube</a> | 
+            <a href="#">Twitter</a>
+        </p>
+        <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
 
