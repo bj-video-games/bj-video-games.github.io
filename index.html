@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BJ Video Games - Tu tienda de videojuegos</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ Video Games</title>
+    <style>
+        /* Estilo general de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Color de fondo suave */
+        }
+
+        /* Quitar la imagen grande */
+        .imagen-grande {
+            display: none;
+        }
+
+        /* Estilo para el menú de navegación */
+        nav {
+            background-color: #e3d9f0; /* Color pastel para el fondo */
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #8e82c4; /* Color pastel para los enlaces */
+            text-decoration: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #d9c3e1; /* Fondo pastel al pasar el ratón */
+        }
+
+        /* Estilo del footer */
+        footer {
+            background-color: #f0e6f6; /* Color pastel para el footer */
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #8e82c4; /* Color pastel para los enlaces del footer */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
 
-  <!-- Barra de navegación superior -->
-  <header class="navbar">
-    <div class="logo">BJ Video Games</div>
-    <nav class="nav-links">
-      <a href="#">Inicio</a>
-      <a href="#">Tienda</a>
-      <a href="#">Ofertas</a>
-      <a href="#">Contáctanos</a>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#registrarse">Registrarse</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- Contenido principal -->
-  <div class="main-content">
-
-    <!-- Barra lateral de categorías -->
-    <aside class="sidebar">
-      <h2>Categorías</h2>
-      <ul>
-        <li><a href="#">Aventura</a></li>
-        <li><a href="#">Acción</a></li>
-        <li><a href="#">RPG</a></li>
-        <li><a href="#">Shooter</a></li>
-        <li><a href="#">Deportes</a></li>
-        <li><a href="#">Indie</a></li>
-      </ul>
-    </aside>
-
-    <!-- Sección de juegos -->
-    <main class="products">
-      <h1>Nuestros Juegos</h1>
-
-      <div class="product-grid">
-
-        <!-- Juego 1 -->
-        <div class="product-card">
-          <img src="https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg" alt="Zelda">
-          <h3>The Legend of Zelda</h3>
-          <p>$59.99</p>
-          <button>Comprar</button>
-        </div>
-
-        <!-- Juego 2 -->
-        <div class="product-card">
-          <img src="https://m.media-amazon.com/images/I/81Qn6lBvSSL.jpg" alt="God of War">
-          <h3>God of War Ragnarök</h3>
-          <p>$69.99</p>
-          <button>Comprar</button>
-        </div>
-
-        <!-- Juego 3 -->
-        <div class="product-card">
-          <img src="https://m.media-amazon.com/images/I/81p5Hc72meL.jpg" alt="Elden Ring">
-          <h3>Elden Ring</h3>
-          <p>$49.99</p>
-          <button>Comprar</button>
-        </div>
-
-      </div>
-    </main>
-
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="social-links">
-      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+    <!-- Sección de contenido (aquí puedes agregar más contenido según lo necesites) -->
+    <div id="inicio">
+        <h1>Bienvenido a BJ Video Games</h1>
+        <p>Explora una amplia selección de videojuegos para todos los gustos.</p>
     </div>
-    <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
-  </footer>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#inicio">Inicio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#registrarse">Registrarse</a>
+        <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
