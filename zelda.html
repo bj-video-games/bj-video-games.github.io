@@ -1,62 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Legend of Zelda: Breath of the Wild</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #000; color: #fff; margin: 0; padding: 0; }
-        header { background-color: #1a1a1a; padding: 10px 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        header nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        main { padding: 80px 20px; margin: 0 auto; max-width: 1200px; }
-        .juego-imagen { width: 100%; max-width: 800px; margin: 20px 0; }
-        footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; }
-        footer a { color: #fff; margin: 0 10px; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Legend of Zelda: Breath of the Wild</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 80px 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .juego-imagen {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .juego-imagen:hover {
+      transform: scale(1.02);
+    }
+
+    /* Estilo del modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #ffcc00;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <div><strong>BJ Video Games</strong></div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="registrarse.html">Registrarse</a>
-    </nav>
+  <div><strong>BJ Video Games</strong></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="registrarse.html">Registrarse</a>
+  </nav>
 </header>
 
 <main>
-    <h1>The Legend of Zelda: Breath of the Wild</h1>
-    <img src="https://via.placeholder.com/800x400?text=Zelda+Breath+of+the+Wild" alt="Zelda" class="juego-imagen">
-    
-    <section>
-        <h2>Descripción</h2>
-        <p>Explora el vasto mundo de Hyrule en *The Legend of Zelda: Breath of the Wild*. Es un juego de aventura en mundo abierto donde podrás enfrentarte a todo tipo de enemigos, resolver acertijos y explorar paisajes impresionantes mientras descubres los secretos de este mundo lleno de historia y magia.</p>
-    </section>
+  <h1>The Legend of Zelda: Breath of the Wild</h1>
+  <img src="zelda.jpg" alt="Zelda" class="juego-imagen" onclick="openModal()">
 
-    <section>
-        <h2>Características Principales</h2>
-        <ul>
-            <li>Mundo abierto con libertad total para explorar.</li>
-            <li>Acércate a la naturaleza, cocina y combate de manera innovadora.</li>
-            <li>Realiza misiones secundarias y resuelve puzzles para desbloquear nuevas habilidades.</li>
-            <li>Gráficos impresionantes y una banda sonora memorable.</li>
-        </ul>
-    </section>
+  <section>
+    <h2>Descripción</h2>
+    <p>Explora el vasto mundo de Hyrule en <em>The Legend of Zelda: Breath of the Wild</em>. Es un juego de aventura en mundo abierto donde podrás enfrentarte a todo tipo de enemigos, resolver acertijos y explorar paisajes impresionantes mientras descubres los secretos de este mundo lleno de historia y magia.</p>
+  </section>
 
-    <section>
-        <h2>Trailer</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zw47_q9dT78" frameborder="0" allowfullscreen></iframe>
-    </section>
+  <section>
+    <h2>Características Principales</h2>
+    <ul>
+      <li>Mundo abierto con libertad total para explorar.</li>
+      <li>Acércate a la naturaleza, cocina y combate de manera innovadora.</li>
+      <li>Realiza misiones secundarias y resuelve puzzles para desbloquear nuevas habilidades.</li>
+      <li>Gráficos impresionantes y una banda sonora memorable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Trailer</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zw47_q9dT78" frameborder="0" allowfullscreen></iframe>
+  </section>
 </main>
 
+<!-- Modal para imagen ampliada -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <span class="close" onclick="closeModal()">×</span>
+  <img class="modal-content" id="modal-img">
+</div>
+
 <footer>
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
-    <a href="#">Instagram</a>
-    <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+  <a href="#">Facebook</a>
+  <a href="#">Twitter</a>
+  <a href="#">Instagram</a>
+  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  function openModal() {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const img = document.querySelector(".juego-imagen");
+
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
-
