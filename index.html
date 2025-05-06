@@ -128,6 +128,7 @@
             border-radius: 10px;
             width: 180px;
             text-align: center;
+            animation: fadein 0.5s;
         }
 
         .juego img {
@@ -186,10 +187,6 @@
             color: #fff;
             margin: 0 15px;
             text-decoration: none;
-        }
-
-        .fade {
-            animation: fadein 0.5s;
         }
 
         @keyframes fadein {
@@ -314,18 +311,7 @@
 
     function addToCart(gameName, price) {
         const li = document.createElement('li');
-        li.classList.add('cart-item', 'fade');
-        li.innerHTML = `${gameName} - $${price.toFixed(2)} <button class="remove-item" onclick="removeItem(this)">X</button>`;
-        cartItems.appendChild(li);
-    }
-
-    function removeItem(button) {
-        button.parentElement.remove();
-    }
-</script>
-
-</body>
-</html>
+        li.classList.add('cart-item
 
 
 
