@@ -78,11 +78,39 @@
         }
 
         .juego img {
-            width: 592px;
-            height: 884px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
             cursor: pointer;
+        }
+
+        .juego h2 {
+            margin-top: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .precio {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            display: block;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 10px auto;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
         }
 
         footer {
@@ -130,39 +158,45 @@
     </section>
 
     <section class="juego">
-        <h2><a href="zelda.html">The Legend of Zelda: Breath of the Wild</a></h2>
         <a href="zelda.html"><img src="zelda.jpg" alt="Zelda"></a>
-        <p>Un juego de aventura en un mundo abierto donde exploras, resuelves acertijos y luchas contra enemigos, todo mientras descubres la historia de Hyrule.</p>
+        <h2>The Legend of Zelda: Breath of the Wild</h2>
+        <div class="precio">$59.99</div>
+        <button class="add-to-cart" onclick="window.location.href='zelda.html'">Añadir al carrito</button>
     </section>
 
     <section class="juego">
-        <h2><a href="spiderman.html">Spider-Man (PS4)</a></h2>
         <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
-        <p>Un juego de acción en tercera persona con intensas secuencias de combate y una historia que sigue las aventuras de Peter Parker como Spider-Man en Nueva York.</p>
+        <h2>Spider-Man (PS4)</h2>
+        <div class="precio">$49.99</div>
+        <button class="add-to-cart" onclick="window.location.href='spiderman.html'">Añadir al carrito</button>
     </section>
 
     <section class="juego">
-        <h2><a href="witcher.html">The Witcher 3: Wild Hunt</a></h2>
         <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
-        <p>Un juego de rol que combina una narrativa profunda con una jugabilidad envolvente en un mundo abierto. Juegas como Geralt de Rivia, un cazador de monstruos en busca de su hija adoptiva.</p>
+        <h2>The Witcher 3: Wild Hunt</h2>
+        <div class="precio">$39.99</div>
+        <button class="add-to-cart" onclick="window.location.href='witcher.html'">Añadir al carrito</button>
     </section>
 
     <section class="juego">
-        <h2><a href="doom.html">DOOM Eternal</a></h2>
         <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
-        <p>Un shooter en primera persona rápido y furioso. Controlas al Doom Slayer mientras luchas contra hordas de demonios en escenarios apocalípticos.</p>
+        <h2>DOOM Eternal</h2>
+        <div class="precio">$59.99</div>
+        <button class="add-to-cart" onclick="window.location.href='doom.html'">Añadir al carrito</button>
     </section>
 
     <section class="juego">
-        <h2><a href="fifa.html">FIFA 23</a></h2>
         <a href="fifa.html"><img src="fifa.jpg" alt="FIFA 23"></a>
-        <p>El juego de fútbol más popular del mundo, con una jugabilidad realista y opciones para competir en ligas, torneos y más.</p>
+        <h2>FIFA 23</h2>
+        <div class="precio">$59.99</div>
+        <button class="add-to-cart" onclick="window.location.href='fifa.html'">Añadir al carrito</button>
     </section>
 
     <section class="juego">
-        <h2><a href="hollow.html">Hollow Knight</a></h2>
         <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
-        <p>Un juego de acción y aventura en 2D que combina exploración, combate y una historia profunda en un mundo subterráneo lleno de criaturas misteriosas.</p>
+        <h2>Hollow Knight</h2>
+        <div class="precio">$29.99</div>
+        <button class="add-to-cart" onclick="window.location.href='hollow.html'">Añadir al carrito</button>
     </section>
 
     <section id="contacto">
@@ -185,6 +219,7 @@
 
 </body>
 </html>
+
 
 
 
