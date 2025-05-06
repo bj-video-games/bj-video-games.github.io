@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BJ Video Games</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             background-color: #000;
             color: #fff;
+            font-family: Arial, sans-serif;
         }
 
         header {
@@ -27,12 +30,13 @@
         }
 
         header nav {
-            margin-left: auto;
+            display: flex;
+            align-items: center;
         }
 
         header nav a {
             color: #fff;
-            margin: 0 15px;
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
         }
@@ -107,6 +111,7 @@
         main {
             margin-left: 270px;
             padding: 100px 20px 60px;
+            flex: 1;
         }
 
         .juegos-container {
@@ -144,20 +149,44 @@
             border-radius: 5px;
         }
 
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .remove-item {
+            background: red;
+            border: none;
+            color: white;
+            padding: 2px 6px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
         footer {
             background-color: #1a1a1a;
             color: #fff;
             text-align: center;
             padding: 20px;
-            position: relative;
-            bottom: 0;
             width: 100%;
+            margin-top: auto;
         }
 
         footer nav a {
             color: #fff;
             margin: 0 15px;
             text-decoration: none;
+        }
+
+        .fade {
+            animation: fadein 0.5s;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -199,37 +228,37 @@
                 <a href="zelda.html"><img src="zelda.jpg" alt="Zelda"></a>
                 <h3>Zelda</h3>
                 <p>$59.99</p>
-                <button onclick="addToCart('Zelda')">Añadir al carrito</button>
+                <button onclick="addToCart('Zelda', 59.99)">Añadir al carrito</button>
             </div>
             <div class="juego">
                 <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
                 <h3>Spider-Man</h3>
                 <p>$49.99</p>
-                <button onclick="addToCart('Spider-Man')">Añadir al carrito</button>
+                <button onclick="addToCart('Spider-Man', 49.99)">Añadir al carrito</button>
             </div>
             <div class="juego">
                 <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
                 <h3>The Witcher 3</h3>
                 <p>$39.99</p>
-                <button onclick="addToCart('The Witcher 3')">Añadir al carrito</button>
+                <button onclick="addToCart('The Witcher 3', 39.99)">Añadir al carrito</button>
             </div>
             <div class="juego">
                 <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
                 <h3>DOOM Eternal</h3>
                 <p>$29.99</p>
-                <button onclick="addToCart('DOOM Eternal')">Añadir al carrito</button>
+                <button onclick="addToCart('DOOM Eternal', 29.99)">Añadir al carrito</button>
             </div>
             <div class="juego">
                 <a href="fifa.html"><img src="fifa.jpg" alt="FIFA 23"></a>
                 <h3>FIFA 23</h3>
                 <p>$39.99</p>
-                <button onclick="addToCart('FIFA 23')">Añadir al carrito</button>
+                <button onclick="addToCart('FIFA 23', 39.99)">Añadir al carrito</button>
             </div>
             <div class="juego">
                 <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
                 <h3>Hollow Knight</h3>
                 <p>$19.99</p>
-                <button onclick="addToCart('Hollow Knight')">Añadir al carrito</button>
+                <button onclick="addToCart('Hollow Knight', 19.99)">Añadir al carrito</button>
             </div>
         </div>
     </section>
@@ -244,7 +273,7 @@
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#registrarse">Registro</a>
-        <a href="#">Carrito</a>
+        <a href="#" onclick="cartSidebar.classList.add('open')">Carrito</a>
     </nav>
     <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
@@ -263,15 +292,22 @@
         cartSidebar.classList.remove('open');
     });
 
-    function addToCart(gameName) {
+    function addToCart(gameName, price) {
         const li = document.createElement('li');
-        li.textContent = gameName;
+        li.classList.add('cart-item', 'fade');
+        li.innerHTML = `${gameName} - $${price.toFixed(2)} <button class="remove-item" onclick="removeItem(this)">X</button>`;
         cartItems.appendChild(li);
+    }
+
+    function removeItem(button) {
+        const item = button.parentElement;
+        item.remove();
     }
 </script>
 
 </body>
 </html>
+
 
 
 
