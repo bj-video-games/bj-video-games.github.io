@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Legend of Zelda: Breath of the Wild</title>
   <style>
     body {
@@ -44,17 +44,25 @@
       flex-wrap: wrap;
       gap: 20px;
       align-items: flex-start;
+      margin-bottom: 40px;
     }
 
-    .juego-imagen {
-      max-width: 400px;
+    .poster {
       width: 100%;
+      max-width: 400px;
       border-radius: 10px;
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
 
-    iframe {
-      flex-shrink: 0;
+    .poster:hover {
+      transform: scale(1.05);
+    }
+
+    .trailer {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
     }
 
     footer {
@@ -68,51 +76,6 @@
       color: #fff;
       margin: 0 10px;
       text-decoration: none;
-    }
-
-    /* Modal para ampliar imagen */
-    #modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    #modal-content {
-      margin: 5% auto;
-      display: block;
-      max-width: 90%;
-    }
-
-    #close-modal {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      color: #fff;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    #close-modal:hover {
-      color: #ffcc00;
-    }
-
-    @media (max-width: 768px) {
-      .contenido-principal {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      iframe {
-        width: 100%;
-        height: auto;
-      }
     }
   </style>
 </head>
@@ -131,9 +94,12 @@
   <h1>The Legend of Zelda: Breath of the Wild</h1>
 
   <div class="contenido-principal">
-    <img src="zelda.jpg" alt="Zelda" class="juego-imagen" onclick="openModal()">
+    <img src="zelda.jpg" alt="Zelda" class="poster">
 
-    <iframe width="400" height="225" src="https://www.youtube.com/embed/zw47_q9dT78" frameborder="0" allowfullscreen></iframe>
+    <video class="trailer" controls poster="zelda.jpg">
+      <source src="videos/zelda_trailer.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
   </div>
 
   <section>
@@ -159,22 +125,7 @@
   <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Modal para imagen -->
-<div id="modal" onclick="closeModal()">
-  <span id="close-modal">&times;</span>
-  <img id="modal-content" src="zelda.jpg" alt="Zelda ampliada">
-</div>
-
-<script>
-  function openModal() {
-    document.getElementById("modal").style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-</script>
-
 </body>
 </html>
+
 
