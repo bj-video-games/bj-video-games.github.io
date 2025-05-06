@@ -67,9 +67,17 @@
             padding: 100px 20px 20px;
         }
 
+        .juegos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
         .juego {
-            margin-bottom: 40px;
+            width: 30%;
             transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
         .juego:hover {
@@ -78,7 +86,7 @@
         }
 
         .juego img {
-            width: 200px;
+            width: 100%;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
@@ -88,12 +96,11 @@
         .juego h2 {
             margin-top: 10px;
             font-size: 18px;
-            text-align: center;
         }
 
         .precio {
-            text-align: center;
             margin: 10px 0;
+            font-size: 16px;
         }
 
         .add-to-cart {
@@ -157,46 +164,50 @@
         <p>Explora una amplia selección de videojuegos para todos los gustos.</p>
     </section>
 
-    <section class="juego">
-        <a href="zelda.html"><img src="zelda.jpg" alt="Zelda"></a>
-        <h2>The Legend of Zelda: Breath of the Wild</h2>
-        <div class="precio">$59.99</div>
-        <button class="add-to-cart" onclick="window.location.href='zelda.html'">Añadir al carrito</button>
+    <section class="juegos-container">
+        <div class="juego">
+            <a href="zelda.html"><img src="zelda.jpg" alt="Zelda"></a>
+            <h2>The Legend of Zelda: Breath of the Wild</h2>
+            <div class="precio">$59.99</div>
+            <button class="add-to-cart" onclick="window.location.href='zelda.html'">Añadir al carrito</button>
+        </div>
+
+        <div class="juego">
+            <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
+            <h2>Spider-Man (PS4)</h2>
+            <div class="precio">$49.99</div>
+            <button class="add-to-cart" onclick="window.location.href='spiderman.html'">Añadir al carrito</button>
+        </div>
+
+        <div class="juego">
+            <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
+            <h2>The Witcher 3: Wild Hunt</h2>
+            <div class="precio">$39.99</div>
+            <button class="add-to-cart" onclick="window.location.href='witcher.html'">Añadir al carrito</button>
+        </div>
     </section>
 
-    <section class="juego">
-        <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
-        <h2>Spider-Man (PS4)</h2>
-        <div class="precio">$49.99</div>
-        <button class="add-to-cart" onclick="window.location.href='spiderman.html'">Añadir al carrito</button>
-    </section>
+    <section class="juegos-container">
+        <div class="juego">
+            <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
+            <h2>DOOM Eternal</h2>
+            <div class="precio">$59.99</div>
+            <button class="add-to-cart" onclick="window.location.href='doom.html'">Añadir al carrito</button>
+        </div>
 
-    <section class="juego">
-        <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
-        <h2>The Witcher 3: Wild Hunt</h2>
-        <div class="precio">$39.99</div>
-        <button class="add-to-cart" onclick="window.location.href='witcher.html'">Añadir al carrito</button>
-    </section>
+        <div class="juego">
+            <a href="fifa.html"><img src="fifa.jpg" alt="FIFA 23"></a>
+            <h2>FIFA 23</h2>
+            <div class="precio">$59.99</div>
+            <button class="add-to-cart" onclick="window.location.href='fifa.html'">Añadir al carrito</button>
+        </div>
 
-    <section class="juego">
-        <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
-        <h2>DOOM Eternal</h2>
-        <div class="precio">$59.99</div>
-        <button class="add-to-cart" onclick="window.location.href='doom.html'">Añadir al carrito</button>
-    </section>
-
-    <section class="juego">
-        <a href="fifa.html"><img src="fifa.jpg" alt="FIFA 23"></a>
-        <h2>FIFA 23</h2>
-        <div class="precio">$59.99</div>
-        <button class="add-to-cart" onclick="window.location.href='fifa.html'">Añadir al carrito</button>
-    </section>
-
-    <section class="juego">
-        <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
-        <h2>Hollow Knight</h2>
-        <div class="precio">$29.99</div>
-        <button class="add-to-cart" onclick="window.location.href='hollow.html'">Añadir al carrito</button>
+        <div class="juego">
+            <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
+            <h2>Hollow Knight</h2>
+            <div class="precio">$29.99</div>
+            <button class="add-to-cart" onclick="window.location.href='hollow.html'">Añadir al carrito</button>
+        </div>
     </section>
 
     <section id="contacto">
@@ -219,6 +230,7 @@
 
 </body>
 </html>
+
 
 
 
