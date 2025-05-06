@@ -47,22 +47,22 @@
       margin-bottom: 40px;
     }
 
-    .poster {
+    .poster,
+    .trailer {
       width: 100%;
       max-width: 400px;
       border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease;
-      cursor: pointer;
     }
 
-    .poster:hover {
+    .poster:hover,
+    .trailer:hover {
       transform: scale(1.05);
     }
 
-    .trailer {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
+    .poster {
+      cursor: pointer;
     }
 
     footer {
@@ -76,6 +76,36 @@
       color: #fff;
       margin: 0 10px;
       text-decoration: none;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -94,11 +124,12 @@
   <h1>The Legend of Zelda: Breath of the Wild</h1>
 
   <div class="contenido-principal">
-    <img src="zelda.jpg" alt="Zelda" class="poster">
+    <img src="zelda.jpg" alt="Zelda" class="poster" onclick="openLightbox()">
 
-    <video class="trailer" controls poster="zelda.jpg">
-      <source src="videos/zelda_trailer.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
+    <!-- VIDEO desde GitHub -->
+    <video class="trailer" controls>
+      <source src="https://tuusuario.github.io/tu-repo/zelda_trailer.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
     </video>
   </div>
 
@@ -118,6 +149,12 @@
   </section>
 </main>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">×</span>
+  <img src="zelda.jpg" alt="Zelda Ampliada">
+</div>
+
 <footer>
   <a href="#">Facebook</a>
   <a href="#">Twitter</a>
@@ -125,7 +162,18 @@
   <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
 
+<script>
+  function openLightbox() {
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
+
 
 
