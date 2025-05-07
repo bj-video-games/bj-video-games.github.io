@@ -47,9 +47,18 @@
       margin-bottom: 40px;
     }
 
-    .poster,
+    .poster {
+      width: 400px;
+      height: 600px;
+      object-fit: fill !important;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
     .trailer {
-      width: 400px !important;
+      width: 600px !important;
       height: 600px !important;
       object-fit: fill !important;
       border-radius: 10px;
@@ -60,10 +69,6 @@
     .poster:hover,
     .trailer:hover {
       transform: scale(1.05);
-    }
-
-    .poster {
-      cursor: pointer;
     }
 
     footer {
@@ -174,6 +179,7 @@
 
 </body>
 </html>
+
 
 
 
