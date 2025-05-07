@@ -49,9 +49,9 @@
 
     .poster,
     .trailer {
-      width: 100%;
-      max-width: 400px;
-      height: 225px;
+      width: 400px; /* Fijamos un ancho constante */
+      height: 225px; /* Fijamos una altura constante */
+      object-fit: fill; /* Fuerza la deformación del contenido para llenar el área */
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease;
@@ -107,14 +107,6 @@
       color: #fff;
       cursor: pointer;
       font-weight: bold;
-    }
-
-    /* Aseguramos que el video y la imagen tengan el mismo tamaño */
-    .trailer {
-      width: 100%;
-      max-width: 400px;
-      height: 225px;
-      object-fit: cover; /* Esto asegura que el video ocupe el área del contenedor */
     }
 
   </style>
@@ -184,6 +176,7 @@
 
 </body>
 </html>
+
 
 
 
