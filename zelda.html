@@ -36,12 +36,13 @@
     main {
       padding: 80px 20px;
       margin: 0 auto;
-      max-width: 1200px;
+      max-width: none;
     }
 
     .contenido-principal {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 20px;
       align-items: flex-start;
       margin-bottom: 40px;
@@ -58,7 +59,7 @@
     }
 
     .trailer {
-      width: 800px !important;
+      width: 900px !important;
       height: 600px !important;
       object-fit: fill !important;
       border-radius: 10px;
@@ -179,6 +180,7 @@
 
 </body>
 </html>
+
 
 
 
