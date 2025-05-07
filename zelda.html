@@ -50,7 +50,7 @@
     .poster,
     .trailer {
       width: 100%;
-      max-width: 400px;
+      max-width: 400px;  /* Ambos, video e imagen, tienen el mismo tamaño máximo */
       height: auto;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -127,7 +127,7 @@
   <div class="contenido-principal">
     <img src="zelda.jpg" alt="Zelda" class="poster" onclick="openLightbox()">
 
-    <!-- VIDEO desde GitHub -->
+    <!-- VIDEO -->
     <video class="trailer" controls>
       <source src="zelda_trailer.mp4" type="video/mp4">
       Tu navegador no soporta videos HTML5.
@@ -175,6 +175,7 @@
 
 </body>
 </html>
+
 
 
 
