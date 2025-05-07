@@ -11,9 +11,6 @@
       padding: 0;
       background-color: #000;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
     header {
@@ -25,13 +22,8 @@
       width: 100%;
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-    }
-
-    header nav {
-      flex-grow: 1;
-      text-align: center;
     }
 
     header nav a {
@@ -94,7 +86,6 @@
     main {
       margin-left: 270px;
       padding: 100px 20px 20px;
-      flex: 1;
     }
 
     .juegos-container {
@@ -182,12 +173,8 @@
       color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: auto;
-    }
-
-    footer img {
-      max-width: 100px;
-      margin-top: 10px;
+      position: relative;
+      margin-top: 40px;
     }
 
     footer a {
@@ -195,12 +182,31 @@
       margin: 0 10px;
       text-decoration: none;
     }
+
+    #notificacion-carrito {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background-color: #00cc66;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 3000;
+      font-weight: bold;
+    }
+
+    #notificacion-carrito.mostrar {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div><strong>BJ Video Games</strong></div>
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#registrarse">Registrarse</a>
@@ -282,9 +288,9 @@
   <a href="#registrarse">Registro</a>
   <a href="#carrito" onclick="toggleCarrito()">Carrito</a>
   <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
-  <!-- Imagen opcional en el footer -->
-  <img src="logo-footer.png" alt="Logo BJ" />
 </footer>
+
+<div id="notificacion-carrito"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -297,6 +303,7 @@
     window.añadirAlCarrito = function(nombre, precio) {
       carrito.push({ nombre, precio });
       actualizarCarrito();
+      mostrarNotificacion(`${nombre} fue añadido al carrito`);
     }
 
     window.toggleCarrito = function() {
@@ -326,11 +333,22 @@
       carrito.splice(index, 1);
       actualizarCarrito();
     }
+
+    function mostrarNotificacion(texto) {
+      const notif = document.getElementById("notificacion-carrito");
+      notif.textContent = texto;
+      notif.classList.add("mostrar");
+
+      setTimeout(() => {
+        notif.classList.remove("mostrar");
+      }, 2000);
+    }
   });
 </script>
 
 </body>
 </html>
+
 
 
 
