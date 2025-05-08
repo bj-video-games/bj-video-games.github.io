@@ -1,61 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spider-Man (PS4)</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #000; color: #fff; margin: 0; padding: 0; }
-        header { background-color: #1a1a1a; padding: 10px 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        header nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        main { padding: 80px 20px; margin: 0 auto; max-width: 1200px; }
-        .juego-imagen { width: 100%; max-width: 800px; margin: 20px 0; }
-        footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; }
-        footer a { color: #fff; margin: 0 10px; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spider-Man (PS4)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #121212;
+      padding: 12px 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header div {
+      font-weight: 600;
+      font-size: 20px;
+      color: #ff3d00;
+    }
+
+    header nav a {
+      color: #f1f1f1;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    header nav a:hover {
+      color: #ff3d00;
+    }
+
+    main {
+      padding: 100px 20px 40px;
+      margin: 0 auto;
+      max-width: none;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff3d00;
+    }
+
+    .contenido-principal {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .poster {
+      width: 400px;
+      height: 600px;
+      object-fit: fill;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 61, 0, 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .trailer {
+      width: 900px !important;
+      height: 600px !important;
+      object-fit: fill;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 61, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .poster:hover,
+    .trailer:hover {
+      transform: scale(1.02);
+    }
+
+    section h2 {
+      color: #ff3d00;
+      margin-top: 30px;
+    }
+
+    section p, section ul {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li::marker {
+      color: #ff3d00;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff3d00;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 61, 0, 0.2);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: #ff3d00;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <div><strong>BJ Video Games</strong></div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="registrarse.html">Registrarse</a>
-    </nav>
+  <div><strong>BJ Video Games</strong></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="registrarse.html">Registrarse</a>
+  </nav>
 </header>
 
 <main>
-    <h1>Spider-Man (PS4)</h1>
-    <img src="https://via.placeholder.com/800x400?text=Spider-Man" alt="Spider-Man" class="juego-imagen">
-    
-    <section>
-        <h2>Descripción</h2>
-        <p>Vive las aventuras de Peter Parker en *Spider-Man (PS4)*. Lucha contra villanos icónicos como Vulture y Kingpin mientras exploras Nueva York. El juego ofrece una jugabilidad fluida y una historia emocionante llena de acción.</p>
-    </section>
+  <h1>Spider-Man (PS4)</h1>
 
-    <section>
-        <h2>Características Principales</h2>
-        <ul>
-            <li>Intensas secuencias de combate y acción.</li>
-            <li>Mundo abierto donde puedes explorar Nueva York.</li>
-            <li>Habilidades de Spider-Man, como balancearse por la ciudad y usar telarañas.</li>
-            <li>Enemigos y personajes clásicos del universo Spider-Man.</li>
-        </ul>
-    </section>
+  <div class="contenido-principal">
+    <img src="spiderman.jpg" alt="Spider-Man" class="poster" onclick="openLightbox()">
 
-    <section>
-        <h2>Trailer</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KdFFdmKoU8I" frameborder="0" allowfullscreen></iframe>
-    </section>
+    <video class="trailer" controls preload="auto" playsinline>
+      <source src="spiderman_trailer.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+
+  <section>
+    <h2>Descripción</h2>
+    <p>Vive las aventuras de Peter Parker en <em>Spider-Man (PS4)</em>. Lucha contra villanos icónicos como Vulture y Kingpin mientras exploras Nueva York. El juego ofrece una jugabilidad fluida y una historia emocionante llena de acción.</p>
+  </section>
+
+  <section>
+    <h2>Características Principales</h2>
+    <ul>
+      <li>Intensas secuencias de combate y acción.</li>
+      <li>Mundo abierto donde puedes explorar Nueva York.</li>
+      <li>Habilidades de Spider-Man, como balancearse por la ciudad y usar telarañas.</li>
+      <li>Enemigos y personajes clásicos del universo Spider-Man.</li>
+    </ul>
+  </section>
 </main>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">×</span>
+  <img src="spiderman.jpg" alt="Spider-Man Ampliado">
+</div>
+
 <footer>
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
-    <a href="#">Instagram</a>
-    <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+  <a href="#">Facebook</a>
+  <a href="#">Twitter</a>
+  <a href="#">Instagram</a>
+  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  function openLightbox() {
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
