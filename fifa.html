@@ -1,158 +1,233 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA 25</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIFA 25</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background-color: #121212;
-            padding: 12px 24px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        }
+    header {
+      background-color: #121212;
+      padding: 12px 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
 
-        header div {
-            font-weight: 600;
-            font-size: 20px;
-            color: #F41020;
-        }
+    header div {
+      font-weight: 600;
+      font-size: 20px;
+      color: #76ff03;
+    }
 
-        header nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
+    header nav a {
+      color: #f1f1f1;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
 
-        header nav a:hover {
-            color: #F41020;
-        }
+    header nav a:hover {
+      color: #76ff03;
+    }
 
-        main {
-            padding: 80px 20px 40px;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
+    main {
+      padding: 100px 20px 40px;
+      margin: 0 auto;
+      max-width: none;
+    }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #e60012; /* Rojo FIFA */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #006400; /* Verde oscuro */
+    }
 
-        section h2 {
-            color: #e60012; /* Títulos en rojo FIFA */
-            margin-top: 30px;
-            font-size: 28px;
-            font-weight: 600;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
+    .contenido-principal {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
 
-        .juego-imagen {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px 0;
-            border-radius: 16px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-        }
+    .poster {
+      width: 400px;
+      height: 600px;
+      object-fit: fill;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(118, 255, 3, 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
 
-        section p {
-            font-size: 18px;
-            color: #ccc;
-        }
+    .trailer {
+      width: 900px !important;
+      height: 600px !important;
+      object-fit: fill;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(118, 255, 3, 0.1);
+      transition: transform 0.3s ease;
+    }
 
-        section ul {
-            padding-left: 20px;
-        }
+    .poster:hover,
+    .trailer:hover {
+      transform: scale(1.02);
+    }
 
-        section ul li {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
+    section h2 {
+      color: #006400; /* Verde oscuro */
+      margin-top: 30px;
+    }
 
-        section ul li::marker {
-            color: #e60012; /* Rojo FIFA */
-        }
+    section p, section ul {
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-        footer {
-            background-color: #121212;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+    ul {
+      padding-left: 20px;
+    }
 
-        footer a {
-            color: #F41020;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    ul li::marker {
+      color: #006400; /* Verde oscuro */
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    footer {
+      background-color: #121212;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #76ff03;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(118, 255, 3, 0.2);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: #76ff03;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <div><strong>BJ Video Games</strong></div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="registrarse.html">Registrarse</a>
-    </nav>
+  <div><strong>BJ Video Games</strong></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="registrarse.html">Registrarse</a>
+  </nav>
 </header>
 
 <main>
-    <h1>FIFA 25</h1>
-    <img src="https://via.placeholder.com/800x400?text=FIFA+25" alt="FIFA 25" class="juego-imagen">
-    
-    <section>
-        <h2>Descripción</h2>
-        <p>Disfruta del fútbol más realista con gráficos mejorados, jugabilidad más fluida y una experiencia auténtica de juego con todas las ligas y equipos más populares del mundo.</p>
-    </section>
+  <h1>FIFA 25</h1>
 
-    <section>
-        <h2>Características Principales</h2>
-        <ul>
-            <li>Modo de juego mejorado con mecánicas de fútbol más realistas.</li>
-            <li>Personalización de jugadores y equipos.</li>
-            <li>Competir en ligas, copas y otros torneos.</li>
-            <li>Modo multijugador online.</li>
-        </ul>
-    </section>
+  <div class="contenido-principal">
+    <img src="https://via.placeholder.com/400x600?text=FIFA+25" alt="FIFA 25" class="poster" onclick="openLightbox()">
 
+    <video class="trailer" controls preload="auto" playsinline>
+      <source src="fifa_25_trailer.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+
+  <section>
+    <h2>Descripción</h2>
+    <p>Disfruta del fútbol más realista con gráficos mejorados, jugabilidad más fluida y una experiencia auténtica de juego con todas las ligas y equipos más populares del mundo.</p>
+  </section>
+
+  <section>
+    <h2>Características Principales</h2>
+    <ul>
+      <li>Modo de juego mejorado con mecánicas de fútbol más realistas.</li>
+      <li>Personalización de jugadores y equipos.</li>
+      <li>Competir en ligas, copas y otros torneos.</li>
+      <li>Modo multijugador online.</li>
+    </ul>
+  </section>
 </main>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">×</span>
+  <img src="https://via.placeholder.com/800x400?text=FIFA+25" alt="FIFA 25 Ampliado">
+</div>
+
 <footer>
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
-    <a href="#">Instagram</a>
-    <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+  <a href="#">Facebook</a>
+  <a href="#">Twitter</a>
+  <a href="#">Instagram</a>
+  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  function openLightbox() {
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
+
 
