@@ -1,61 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Witcher 3: Wild Hunt</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #000; color: #fff; margin: 0; padding: 0; }
-        header { background-color: #1a1a1a; padding: 10px 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        header nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        main { padding: 80px 20px; margin: 0 auto; max-width: 1200px; }
-        .juego-imagen { width: 100%; max-width: 800px; margin: 20px 0; }
-        footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; }
-        footer a { color: #fff; margin: 0 10px; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Witcher 3: Wild Hunt</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e; /* Fondo oscuro */
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c2c2c; /* Encabezado oscuro */
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: #f5f5f5;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 80px 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .juego-imagen {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px 0;
+      border: 2px solid #AD1D1A; /* Borde rojo carmesí */
+    }
+    footer {
+      background-color: #2c2c2c;
+      color: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a {
+      color: #f5f5f5;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    video {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px 0;
+      border: 2px solid #AD1D1A; /* Borde rojo carmesí */
+    }
+    h1, h2 {
+      color: #AD1D1A; /* Rojo carmesí */
+    }
+    ul li::marker {
+      color: #AD1D1A; /* Rojo carmesí */
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <div><strong>BJ Video Games</strong></div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="registrarse.html">Registrarse</a>
-    </nav>
+  <div><strong>BJ Video Games</strong></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="registrarse.html">Registrarse</a>
+  </nav>
 </header>
 
 <main>
-    <h1>The Witcher 3: Wild Hunt</h1>
-    <img src="https://via.placeholder.com/800x400?text=The+Witcher+3" alt="The Witcher 3" class="juego-imagen">
-    
-    <section>
-        <h2>Descripción</h2>
-        <p>En *The Witcher 3: Wild Hunt*, toma el papel de Geralt de Rivia, un cazador de monstruos en un mundo de fantasía. Con un vasto mundo abierto y una narrativa profunda, vivirás una de las experiencias RPG más inmersivas de todos los tiempos.</p>
-    </section>
+  <h1>The Witcher 3: Wild Hunt</h1>
+  <img src="https://via.placeholder.com/800x400?text=The+Witcher+3" alt="The Witcher 3" class="juego-imagen" />
+  
+  <section>
+    <h2>Descripción</h2>
+    <p>En <em>The Witcher 3: Wild Hunt</em>, encarnas a Geralt de Rivia, un cazador de monstruos en un mundo de fantasía lleno de peligros y decisiones morales complejas. Explora vastas regiones, enfrenta criaturas míticas y toma decisiones que afectarán el destino del mundo.</p>
+  </section>
 
-    <section>
-        <h2>Características Principales</h2>
-        <ul>
-            <li>Mundo abierto y un sistema de misiones flexible.</li>
-            <li>Combatir monstruos y tomar decisiones que afectan la historia.</li>
-            <li>Gráficos asombrosos y una banda sonora épica.</li>
-            <li>Expansiones adicionales que amplían la historia y el contenido.</li>
-        </ul>
-    </section>
+  <section>
+    <h2>Características Principales</h2>
+    <ul>
+      <li>Mundo abierto inmenso y detallado.</li>
+      <li>Sistema de combate dinámico con magia y espadas.</li>
+      <li>Historia profunda con múltiples finales.</li>
+      <li>Misiones secundarias ricas y variadas.</li>
+      <li>Expansiones: Hearts of Stone y Blood and Wine.</li>
+    </ul>
+  </section>
 
-    <section>
-        <h2>Trailer</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/rWztZaZmx68" frameborder="0" allowfullscreen></iframe>
-    </section>
+  <section>
+    <h2>Tráiler</h2>
+    <video controls>
+      <source src="witcher3_trailer.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+  </section>
 </main>
 
 <footer>
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
-    <a href="#">Instagram</a>
-    <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+  <a href="#">Facebook</a>
+  <a href="#">Twitter</a>
+  <a href="#">Instagram</a>
+  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
 </footer>
 
 </body>
 </html>
+
+
+
