@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>The Witcher 3: Wild Hunt</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #2e2e2e, #383838);
-            color: #dcdcdc;
+            background: linear-gradient(135deg, #272727, #9BAFB2);
+            color: #ACB8BB;
             margin: 0;
             padding: 0;
         }
-
         header {
-            background-color: #2a2a2a;
+            background-color: #121212;
             padding: 12px 24px;
             position: fixed;
             top: 0;
@@ -27,37 +26,31 @@
             align-items: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
-
         header div {
             font-weight: 600;
             font-size: 20px;
-            color: #76ff03;
+            color: #F41020;
         }
-
         header nav a {
-            color: #dcdcdc;
+            color: #ACB8BB;
             margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s ease;
         }
-
         header nav a:hover {
-            color: #76ff03;
+            color: #F41020;
         }
-
         main {
             padding: 100px 20px 40px;
             margin: 0 auto;
             max-width: none;
         }
-
         h1 {
             font-size: 32px;
             margin-bottom: 20px;
-            color: #76ff03;
+            color: #F41020;
         }
-
         .contenido-principal {
             display: flex;
             flex-wrap: nowrap;
@@ -66,69 +59,57 @@
             align-items: flex-start;
             margin-bottom: 40px;
         }
-
         .poster {
             width: 400px;
             height: 600px;
             object-fit: fill;
             border-radius: 16px;
-            box-shadow: 0 0 30px rgba(118, 255, 3, 0.15);
+            box-shadow: 0 0 30px rgba(244, 16, 32, 0.15);
             transition: transform 0.3s ease;
             cursor: pointer;
         }
-
         .trailer {
             width: 900px !important;
             height: 600px !important;
             object-fit: fill;
             border-radius: 16px;
-            box-shadow: 0 0 30px rgba(118, 255, 3, 0.1);
+            box-shadow: 0 0 30px rgba(244, 16, 32, 0.1);
             transition: transform 0.3s ease;
         }
-
         .poster:hover,
         .trailer:hover {
             transform: scale(1.02);
         }
-
         section h2 {
-            color: #76ff03;
+            color: #F41020;
             margin-top: 30px;
         }
-
-        section p,
-        section ul {
+        section p, section ul {
             line-height: 1.6;
             font-size: 16px;
         }
-
         ul {
             padding-left: 20px;
         }
-
         ul li::marker {
-            color: #76ff03;
+            color: #F41020;
         }
-
         footer {
-            background-color: #2a2a2a;
-            color: #ccc;
+            background-color: #121212;
+            color: #ACB8BB;
             text-align: center;
             padding: 20px;
             margin-top: 40px;
         }
-
         footer a {
-            color: #76ff03;
+            color: #F41020;
             margin: 0 10px;
             text-decoration: none;
             font-weight: 500;
         }
-
         footer a:hover {
             text-decoration: underline;
         }
-
         /* Lightbox */
         .lightbox {
             display: none;
@@ -143,14 +124,12 @@
             align-items: center;
             backdrop-filter: blur(4px);
         }
-
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 16px;
-            box-shadow: 0 0 40px rgba(118, 255, 3, 0.2);
+            box-shadow: 0 0 40px rgba(244, 16, 32, 0.2);
         }
-
         .close-btn {
             position: absolute;
             top: 30px;
@@ -160,9 +139,8 @@
             cursor: pointer;
             font-weight: bold;
         }
-
         .close-btn:hover {
-            color: #76ff03;
+            color: #F41020;
         }
     </style>
 </head>
@@ -179,7 +157,6 @@
 
 <main>
     <h1>The Witcher 3: Wild Hunt</h1>
-
     <div class="contenido-principal">
         <img src="witcher.jpg" alt="The Witcher 3" class="poster" onclick="openLightbox()">
         <video class="trailer" controls preload="auto" playsinline>
@@ -190,16 +167,16 @@
 
     <section>
         <h2>Descripción</h2>
-        <p>En *The Witcher 3: Wild Hunt*, toma el papel de Geralt de Rivia, un cazador de monstruos en un mundo de fantasía. Con un vasto mundo abierto y una narrativa profunda, vivirás una de las experiencias RPG más inmersivas de todos los tiempos.</p>
+        <p>En *The Witcher 3: Wild Hunt*, asumes el papel de Geralt de Rivia, un cazador de monstruos en un mundo abierto lleno de magia, política y criaturas fantásticas. Explora vastos paisajes, toma decisiones que afectan la narrativa y enfréntate a desafíos épicos.</p>
     </section>
 
     <section>
         <h2>Características Principales</h2>
         <ul>
-            <li>Mundo abierto y un sistema de misiones flexible.</li>
-            <li>Combatir monstruos y tomar decisiones que afectan la historia.</li>
-            <li>Gráficos asombrosos y una banda sonora épica.</li>
-            <li>Expansiones adicionales que amplían la historia y el contenido.</li>
+            <li>Mundo abierto con misiones principales y secundarias.</li>
+            <li>Combate dinámico y sistema de decisiones morales.</li>
+            <li>Gráficos detallados y una banda sonora envolvente.</li>
+            <li>Expansiones y contenido adicional que enriquecen la experiencia.</li>
         </ul>
     </section>
 </main>
@@ -207,7 +184,7 @@
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
     <span class="close-btn" onclick="closeLightbox()">×</span>
-    <img src="the_witcher_3.jpg" alt="The Witcher 3 Ampliada">
+    <img src="witcher.jpg" alt="The Witcher 3 Ampliado">
 </div>
 
 <footer>
@@ -229,6 +206,7 @@
 
 </body>
 </html>
+
 
 
 
