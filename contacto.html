@@ -4,74 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contáctanos - BJ Video Games</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
+      background-color: #000;
+      color: #fff;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
     }
 
-    header {
-      background-color: #1a1a1a;
-      padding: 20px;
+    h1 {
+      color: #ffcc00;
+      margin-bottom: 30px;
     }
 
-    main {
-      padding: 50px 20px;
+    .redes {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .redes-sociales a {
-      margin: 0 15px;
-      display: inline-block;
+    .redes a {
+      color: #fff;
+      font-size: 40px;
+      transition: transform 0.3s, color 0.3s;
     }
 
-    .redes-sociales img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s;
-    }
-
-    .redes-sociales img:hover {
+    .redes a:hover {
       transform: scale(1.2);
+      color: #ffcc00;
     }
 
     footer {
-      background-color: #1a1a1a;
-      padding: 20px;
-      color: #fff;
+      margin-top: 50px;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Contáctanos</h1>
-</header>
-
-<main>
-  <p>Síguenos y contáctanos en nuestras redes sociales:</p>
-  <div class="redes-sociales">
-    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-      <img src="facebook.png" alt="Facebook">
-    </a>
-    <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
-      <img src="twitter.png" alt="Twitter">
-    </a>
-    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-      <img src="instagram.png" alt="Instagram">
-    </a>
-    <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
-      <img src="tiktok.png" alt="TikTok">
-    </a>
+  <h1>Contáctanos en nuestras redes</h1>
+  <div class="redes">
+    <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="mailto:contacto@bjvideogames.com" title="Correo"><i class="fas fa-envelope"></i></a>
   </div>
-</main>
 
-<footer>
-  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
-</footer>
+  <footer>
+    &copy; 2025 BJ Video Games
+  </footer>
 
 </body>
 </html>
