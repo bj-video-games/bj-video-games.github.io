@@ -48,9 +48,36 @@
       margin-top: 50px;
       color: #888;
     }
+
+    .btn-inicio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #222;
+      color: #ffcc00;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn-inicio:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
+
+  <!-- Botón de volver al inicio -->
+  <a href="index.html" class="btn-inicio">
+    <i class="fas fa-home"></i> Inicio
+  </a>
 
   <h1>Contáctanos en nuestras redes</h1>
   <div class="redes">
@@ -67,3 +94,4 @@
 
 </body>
 </html>
+
