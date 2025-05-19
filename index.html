@@ -51,16 +51,62 @@
     /* Carrusel de imágenes */
     .carousel {
       display: flex;
-      overflow: hidden;
-      margin: 20px 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px;
+      background-color: #1a1a1a;
     }
-    .carousel img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s ease;
+
+    .slide {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      text-align: center;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
     }
-    .carousel:hover img {
+
+    .slide:hover {
       transform: scale(1.05);
+    }
+
+    .slide img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .slide p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .slide a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Sección "¿Quiénes somos?" */
+    section.info {
+      padding: 40px 20px;
+      background-color: #181818;
+      text-align: center;
+    }
+
+    section.info h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    section.info p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1.1rem;
+      color: #ccc;
     }
 
     /* Botón para ir a la tienda */
@@ -72,9 +118,9 @@
       text-decoration: none;
       font-size: 1.2rem;
       border-radius: 5px;
-      margin-top: 20px;
       transition: background-color 0.3s;
     }
+
     .btn-tienda:hover {
       background-color: #e6b800;
     }
@@ -92,12 +138,27 @@
   </div>
 
   <section class="carousel">
-    <img src="hollow.jpg" alt="Juego 1">
-    <img src="doom.jpg" alt="Juego 2">
-    <img src="zelda.jpg" alt="Juego 3">
+    <div class="slide">
+      <a href="tienda.html#aprendi-a-pensar">
+        <img src="hollow.jpg" alt="Hollow Knight">
+        <p>Hollow Knight</p>
+      </a>
+    </div>
+    <div class="slide">
+      <a href="tienda.html#aprendi-a-pensar">
+        <img src="doom.jpg" alt="Doom Eternal">
+        <p>Doom Eternal</p>
+      </a>
+    </div>
+    <div class="slide">
+      <a href="tienda.html#aprendi-a-pensar">
+        <img src="zelda.jpg" alt="The Legend of Zelda">
+        <p>The Legend of Zelda</p>
+      </a>
+    </div>
   </section>
 
-  <section>
+  <section class="info">
     <h2>¿Quiénes somos?</h2>
     <p>En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.</p>
     <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
