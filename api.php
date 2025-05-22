@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "test_db";
+$db = "cfs";
 
 // Crear conexión
 $conn = new mysqli($host, $user, $pass, $db);
