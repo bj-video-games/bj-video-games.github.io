@@ -50,6 +50,27 @@
       font-size: 2.5rem;
       color: #ffcc00;
       cursor: default;
+      flex: 1 1 auto;
+    }
+
+    /* Selector de idioma */
+    #languageSelect {
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      flex: 0 0 auto;
+      margin-left: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #languageSelect:hover,
+    #languageSelect:focus {
+      background-color: #ffcc00;
+      color: #000;
+      outline: none;
     }
 
     /* Buscador */
@@ -280,12 +301,17 @@
 <body>
 
   <header>
-    <h1>BJ Video Games</h1>
+    <h1 id="siteTitle">BJ Video Games</h1>
 
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar juegos..." autocomplete="off" />
       <div id="searchResults"></div>
     </div>
+
+    <select id="languageSelect" aria-label="Cambiar idioma">
+      <option value="es" selected>Español</option>
+      <option value="en">English</option>
+    </select>
 
     <div class="icons" title="Cuenta">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
@@ -301,7 +327,7 @@
   </header>
 
   <div id="banner">
-    <h2>¡Ofertas especiales en juegos seleccionados!</h2>
+    <h2 id="bannerText">¡Ofertas especiales en juegos seleccionados!</h2>
   </div>
 
   <div class="carousel-container" aria-label="Carrusel de juegos destacados">
@@ -383,12 +409,12 @@
   </div>
 
   <section class="info">
-    <h2>¿Quiénes somos?</h2>
-    <p>
+    <h2 id="infoTitle">¿Quiénes somos?</h2>
+    <p id="infoText">
       En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015.
       Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.
     </p>
-    <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
+    <a href="tienda.html" class="btn-tienda" id="btnTienda">Ir a la tienda</a>
   </section>
 
   <footer>
@@ -445,15 +471,13 @@
       filtered.forEach((juego) => {
         const div = document.createElement("div");
         div.textContent = juego;
+        div.tabIndex = 0;
         div.addEventListener("click", () => {
-          searchInput.value = juego;
-          searchResults.style.display = "none";
-          // Redirige al html correspondiente
-          const url = juegoLinks[juego];
-          if (url) {
-            window.location.href = url;
-          } else {
-            alert("No hay página disponible para ese juego.");
+          window.location.href = juegoLinks[juego];
+        });
+        div.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            window.location.href = juegoLinks[juego];
           }
         });
         searchResults.appendChild(div);
@@ -462,14 +486,38 @@
       searchResults.style.display = "block";
     });
 
+    // Cerrar resultados al hacer click fuera
     document.addEventListener("click", (e) => {
       if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
         searchResults.style.display = "none";
       }
     });
+
+    // Cambio de idioma básico (solo para mostrar el concepto)
+    const languageSelect = document.getElementById("languageSelect");
+
+    languageSelect.addEventListener("change", () => {
+      const lang = languageSelect.value;
+      if (lang === "es") {
+        document.getElementById("siteTitle").textContent = "BJ Video Games";
+        document.getElementById("searchInput").placeholder = "Buscar juegos...";
+        document.getElementById("bannerText").textContent = "¡Ofertas especiales en juegos seleccionados!";
+        document.getElementById("infoTitle").textContent = "¿Quiénes somos?";
+        document.getElementById("infoText").textContent = "En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.";
+        document.getElementById("btnTienda").textContent = "Ir a la tienda";
+      } else if (lang === "en") {
+        document.getElementById("siteTitle").textContent = "BJ Video Games";
+        document.getElementById("searchInput").placeholder = "Search games...";
+        document.getElementById("bannerText").textContent = "Special offers on selected games!";
+        document.getElementById("infoTitle").textContent = "Who are we?";
+        document.getElementById("infoText").textContent = "At BJ Video Games, we've been selling video games since 2015. Our mission is to offer our customers a wide variety of titles for all platforms, with excellent customer service and competitive prices.";
+        document.getElementById("btnTienda").textContent = "Go to store";
+      }
+    });
   </script>
 </body>
 </html>
+
 
 
 
