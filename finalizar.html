@@ -5,72 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Finalizar Compra</title>
   <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #000;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
       color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: #121212;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+      padding: 40px 35px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
       color: #ffcc00;
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px #ffcc00;
     }
 
     form {
-      max-width: 500px;
-      margin: 0 auto;
-      background-color: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     label {
-      display: block;
-      margin-top: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-align: left;
+      color: #ffd633;
+      letter-spacing: 0.8px;
     }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: none;
+    input[type="text"],
+    input[type="email"] {
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1.5px solid #444;
+      background-color: #222;
+      color: #fff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+      font-weight: 500;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: #ffcc00;
+      box-shadow: 0 0 10px #ffcc00;
+      background-color: #1a1a1a;
     }
 
     button {
-      margin-top: 20px;
+      margin-top: 10px;
       background-color: #ffcc00;
       color: #000;
-      padding: 10px;
-      width: 100%;
+      font-weight: 700;
       border: none;
-      border-radius: 5px;
+      padding: 14px 0;
+      border-radius: 10px;
+      font-size: 1.2rem;
       cursor: pointer;
+      box-shadow: 0 0 15px #ffcc00;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    button:hover {
+      background-color: #e6b800;
+      box-shadow: 0 0 25px #e6b800;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .container {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
     }
   </style>
 </head>
 <body>
 
-<h1>Finalizar Compra</h1>
-<form action="api.php" method="POST">
-  <label for="id">ID:</label>
-  <input type="text" name="id" id="id" required />
+  <div class="container">
+    <h1>Finalizar Compra</h1>
+    <form action="api.php" method="POST" autocomplete="off">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required />
 
-  <label for="nombre">Nombre:</label>
-  <input type="text" name="nombre" id="nombre" required />
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" required />
 
-  <label for="apellido">Apellido:</label>
-  <input type="text" name="apellido" id="apellido" required />
+      <label for="correo">Correo:</label>
+      <input type="email" name="correo" id="correo" placeholder="ejemplo@correo.com" required />
 
-  <label for="correo">Correo:</label>
-  <input type="email" name="correo" id="correo" required />
+      <label for="direccion">Dirección:</label>
+      <input type="text" name="direccion" id="direccion" placeholder="Tu dirección" required />
 
-  <label for="direccion">Dirección:</label>
-  <input type="text" name="direccion" id="direccion" required />
-
-  <button type="submit">Enviar</button>
-</form>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 
 </body>
 </html>
