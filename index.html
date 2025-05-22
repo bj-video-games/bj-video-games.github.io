@@ -85,9 +85,10 @@
     .carousel {
       display: flex;
       gap: 25px;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-      padding-left: 20px;
+      animation: scrollRight 20s linear infinite;
+      /* el ancho total de las slides duplicadas debe ser más que 100% */
+      width: calc(200px * 12 + 25px * 11);
+      /* 12 slides (6 originales + 6 duplicados) * ancho + gaps */
     }
 
     .slide {
@@ -132,6 +133,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    @keyframes scrollRight {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50%));
+      }
     }
 
     /* Botón tienda */
@@ -247,13 +257,13 @@
       </div>
       <div class="slide">
         <a href="tienda.html#fifa-25">
-          <img src="fifa25.jpg" alt="FIFA 25" />
+          <img src="fifa.jpg" alt="FIFA 25" />
           <p>FIFA 25</p>
         </a>
       </div>
       <div class="slide">
         <a href="tienda.html#witcher-3">
-          <img src="witcher3.jpg" alt="The Witcher 3" />
+          <img src="witcher.jpg" alt="The Witcher 3" />
           <p>The Witcher 3</p>
         </a>
       </div>
@@ -307,28 +317,16 @@
   <section class="info">
     <h2>¿Quiénes somos?</h2>
     <p>
-      En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.
+      En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015.
+      Nuestra misión es ofrecer a nuestros clientes una amplia variedad de
+      títulos para todas las plataformas, con un excelente servicio al cliente
+      y precios competitivos.
     </p>
     <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
   </section>
-
-  <script>
-    const carousel = document.getElementById('carousel');
-    let scrollPosition = 0;
-
-    function smoothAutoScroll() {
-      scrollPosition += 4; // velocidad rápida
-      if (scrollPosition >= carousel.scrollWidth / 2) {
-        scrollPosition = 0; // loop infinito
-      }
-      carousel.style.transform = `translateX(-${scrollPosition}px)`;
-      requestAnimationFrame(smoothAutoScroll);
-    }
-
-    requestAnimationFrame(smoothAutoScroll);
-  </script>
 </body>
 </html>
+
 
 
 
