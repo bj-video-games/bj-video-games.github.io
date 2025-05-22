@@ -23,9 +23,168 @@
       padding: 0 20px 40px;
     }
 
+    /* Barra de navegación */
+    nav {
+      width: 100%;
+      max-width: 1200px;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+      margin: 20px 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #ffcc00;
+      letter-spacing: 2px;
+      user-select: none;
+      cursor: pointer;
+      text-shadow: 0 0 6px #ffcc00aa;
+    }
+
+    /* Menú principal */
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      position: relative;
+    }
+
+    nav ul.menu li {
+      position: relative;
+      cursor: pointer;
+      font-weight: 600;
+      color: #ddd;
+      transition: color 0.3s ease;
+    }
+    nav ul.menu li:hover {
+      color: #ffcc00;
+    }
+
+    /* Submenú desplegable */
+    nav ul.menu li ul.submenu {
+      display: none;
+      position: absolute;
+      top: 130%;
+      left: 0;
+      background-color: #333;
+      border-radius: 8px;
+      padding: 10px 0;
+      min-width: 150px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+      z-index: 2000;
+    }
+    nav ul.menu li:hover > ul.submenu {
+      display: block;
+    }
+
+    nav ul.menu li ul.submenu li {
+      padding: 8px 20px;
+      white-space: nowrap;
+      color: #eee;
+      font-weight: 400;
+      transition: background-color 0.3s ease;
+    }
+    nav ul.menu li ul.submenu li:hover {
+      background-color: #ffcc00;
+      color: #111;
+    }
+    nav ul.menu li ul.submenu li a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Barra de búsqueda */
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+      max-width: 350px;
+      margin: 0 30px;
+    }
+    .search-container input[type="search"] {
+      width: 100%;
+      padding: 8px 40px 8px 15px;
+      border-radius: 20px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      background-color: #333;
+      color: #eee;
+      box-shadow: inset 0 0 6px #000;
+      transition: background-color 0.3s ease;
+    }
+    .search-container input[type="search"]:focus {
+      background-color: #444;
+      box-shadow: 0 0 8px #ffcc00;
+      color: #ffcc00;
+    }
+    .search-container button {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #ffcc00;
+      font-size: 1.2rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Resultados de búsqueda simples */
+    .search-results {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background-color: #222;
+      border-radius: 8px;
+      max-height: 180px;
+      overflow-y: auto;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+      z-index: 3000;
+      display: none;
+    }
+    .search-results div {
+      padding: 10px 15px;
+      cursor: pointer;
+      color: #eee;
+      transition: background-color 0.25s;
+    }
+    .search-results div:hover {
+      background-color: #ffcc00;
+      color: #111;
+    }
+
+    /* Íconos carrito y usuario */
+    .nav-icons {
+      display: flex;
+      gap: 25px;
+      font-size: 1.7rem;
+      color: #eee;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .nav-icons:hover {
+      color: #ffcc00;
+    }
+
+    /* Resto de tu código original */
+
     header {
       text-align: center;
-      margin: 40px 0 30px;
+      margin: 0 0 30px;
     }
 
     header h1 {
@@ -35,6 +194,7 @@
       color: #ffcc00;
       text-shadow: 0 0 8px #ffcc00aa;
       margin-bottom: 10px;
+      display: none; /* Lo ocultamos porque tenemos logo en nav */
     }
 
     header p {
@@ -86,9 +246,7 @@
       display: flex;
       gap: 25px;
       animation: scrollRight 20s linear infinite;
-      /* el ancho total de las slides duplicadas debe ser más que 100% */
       width: calc(200px * 12 + 25px * 11);
-      /* 12 slides (6 originales + 6 duplicados) * ancho + gaps */
     }
 
     .slide {
@@ -180,51 +338,100 @@
     }
 
     section.info p {
-      font-size: 1.2rem;
-      color: #ccc;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      font-size: 1.25rem;
+      color: #ddd;
+      font-weight: 500;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    /* Scrollbar para carousel */
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #ffcc00;
+      border-radius: 10px;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
 
-      #banner {
-        height: 220px;
+    @media (max-width: 920px) {
+      nav {
+        padding: 10px 15px;
       }
-
-      #banner h2 {
-        font-size: 1.8rem;
+      nav ul.menu {
+        gap: 15px;
       }
-
+      .search-container {
+        max-width: 200px;
+        margin: 0 15px;
+      }
       .slide {
         flex: 0 0 150px;
       }
-
       .slide img {
         width: 140px;
         height: 190px;
       }
-
-      section.info h2 {
-        font-size: 2rem;
-      }
-
-      section.info p {
+      .slide p {
         font-size: 1rem;
       }
+    }
 
-      .btn-tienda {
-        font-size: 1.1rem;
-        padding: 12px 25px;
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+      }
+      nav ul.menu {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+      .search-container {
+        max-width: 100%;
+        margin: 0;
+      }
+      .nav-icons {
+        font-size: 1.5rem;
+        gap: 15px;
       }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo" onclick="location.href='index.html'">BJ Video Games</div>
+
+    <ul class="menu">
+      <li>
+        Categorías
+        <ul class="submenu">
+          <li><a href="tienda.html#accion">Acción</a></li>
+          <li><a href="tienda.html#aventura">Aventura</a></li>
+          <li><a href="tienda.html#deportes">Deportes</a></li>
+          <li><a href="tienda.html#rpg">RPG</a></li>
+          <li><a href="tienda.html#fps">FPS</a></li>
+        </ul>
+      </li>
+      <li><a href="ofertas.html" style="color:inherit; text-decoration:none;">Ofertas</a></li>
+      <li><a href="novedades.html" style="color:inherit; text-decoration:none;">Novedades</a></li>
+      <li><a href="contacto.html" style="color:inherit; text-decoration:none;">Contacto</a></li>
+    </ul>
+
+    <div class="search-container">
+      <input type="search" id="searchInput" placeholder="Buscar juegos..." autocomplete="off" />
+      <button aria-label="Buscar">&#128269;</button>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="nav-icons" title="Carrito de compras">&#128722;</div>
+    <div class="nav-icons" title="Perfil">&#128100;</div>
+  </nav>
+
   <header>
     <h1>BJ Video Games</h1>
     <p>Tu tienda de videojuegos confiable desde 2015</p>
@@ -236,7 +443,6 @@
 
   <div class="carousel-container">
     <div class="carousel" id="carousel">
-      <!-- Slides originales -->
       <div class="slide">
         <a href="tienda.html#hollow-knight">
           <img src="hollow.jpg" alt="Hollow Knight" />
@@ -273,8 +479,7 @@
           <p>Spiderman</p>
         </a>
       </div>
-
-      <!-- Slides duplicados para loop -->
+      <!-- Duplicados para scroll infinito -->
       <div class="slide">
         <a href="tienda.html#hollow-knight">
           <img src="hollow.jpg" alt="Hollow Knight" />
@@ -324,8 +529,62 @@
     </p>
     <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
   </section>
+
+  <script>
+    // Datos de juegos para búsqueda (puedes ampliar)
+    const juegos = [
+      "Hollow Knight",
+      "Doom Eternal",
+      "The Legend of Zelda",
+      "FIFA 25",
+      "The Witcher 3",
+      "Spiderman",
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      searchResults.innerHTML = "";
+      if (!query) {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      const filtered = juegos.filter(juego =>
+        juego.toLowerCase().includes(query)
+      );
+
+      if (filtered.length === 0) {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      filtered.forEach(juego => {
+        const div = document.createElement("div");
+        div.textContent = juego;
+        div.addEventListener("click", () => {
+          searchInput.value = juego;
+          searchResults.style.display = "none";
+          // Aquí podrías redirigir o filtrar catálogo
+          alert(`Buscando juego: ${juego}`);
+        });
+        searchResults.appendChild(div);
+      });
+
+      searchResults.style.display = "block";
+    });
+
+    document.addEventListener("click", e => {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
+
 
 
 
