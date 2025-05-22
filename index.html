@@ -226,6 +226,7 @@
 
   <div class="carousel-container">
     <div class="carousel" id="carousel">
+      <!-- Slides originales -->
       <div class="slide">
         <a href="tienda.html#hollow-knight">
           <img src="hollow.jpg" alt="Hollow Knight" />
@@ -262,6 +263,44 @@
           <p>Spiderman</p>
         </a>
       </div>
+
+      <!-- Slides duplicados para loop -->
+      <div class="slide">
+        <a href="tienda.html#hollow-knight">
+          <img src="hollow.jpg" alt="Hollow Knight" />
+          <p>Hollow Knight</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#doom-eternal">
+          <img src="doom.jpg" alt="Doom Eternal" />
+          <p>Doom Eternal</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#zelda">
+          <img src="zelda.jpg" alt="The Legend of Zelda" />
+          <p>The Legend of Zelda</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#fifa-25">
+          <img src="fifa.jpg" alt="FIFA 25" />
+          <p>FIFA 25</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#witcher-3">
+          <img src="witcher.jpg" alt="The Witcher 3" />
+          <p>The Witcher 3</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#spiderman">
+          <img src="spiderman.jpg" alt="Spiderman" />
+          <p>Spiderman</p>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -278,9 +317,9 @@
     let scrollPosition = 0;
 
     function smoothAutoScroll() {
-      scrollPosition += 2; // velocidad más rápida
-      if (scrollPosition >= carousel.scrollWidth - carousel.clientWidth) {
-        scrollPosition = 0; // vuelve al inicio cuando termina
+      scrollPosition += 4; // velocidad rápida
+      if (scrollPosition >= carousel.scrollWidth / 2) {
+        scrollPosition = 0; // loop infinito
       }
       carousel.style.transform = `translateX(-${scrollPosition}px)`;
       requestAnimationFrame(smoothAutoScroll);
@@ -290,6 +329,7 @@
   </script>
 </body>
 </html>
+
 
 
 
