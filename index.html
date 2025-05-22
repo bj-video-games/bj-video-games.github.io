@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BJ Video Games</title>
   <style>
-    /* Reset de márgenes y paddings */
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -13,210 +13,166 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #101010;
       color: #fff;
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    nav {
-      background-color: #222;
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: #ffcc00;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+    header {
+      background: #222;
+      padding: 20px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      color: #ffcc00;
-      font-weight: 700;
-      font-size: 20px;
-      user-select: none;
-    }
-
-    nav .logo {
-      cursor: pointer;
-    }
-
-    nav ul.menu {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul.menu li {
-      position: relative;
-      cursor: pointer;
-    }
-
-    nav ul.menu li a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav ul.menu li:hover > ul.submenu {
-      display: block;
-    }
-
-    ul.submenu {
-      display: none;
-      position: absolute;
-      background: #333;
-      top: 30px;
-      left: 0;
-      padding: 10px 0;
-      border-radius: 5px;
-      min-width: 140px;
-      box-shadow: 0 0 10px #000;
-      z-index: 20;
-    }
-
-    ul.submenu li {
-      padding: 8px 15px;
-      white-space: nowrap;
-    }
-
-    ul.submenu li a {
-      color: #ffcc00;
-      font-weight: 500;
-    }
-
-    ul.submenu li:hover {
-      background-color: #444;
-    }
-
-    .search-container {
-      position: relative;
-      max-width: 250px;
-      width: 100%;
-    }
-
-    .search-container input[type="search"] {
-      width: 100%;
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: none;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .search-container button {
-      position: absolute;
-      right: 6px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      color: #ffcc00;
-      font-size: 18px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .search-results {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: #222;
-      border: 1px solid #444;
-      max-height: 200px;
-      overflow-y: auto;
-      border-radius: 0 0 6px 6px;
-      display: none;
-      z-index: 30;
-    }
-
-    .search-results div {
-      padding: 8px 10px;
-      cursor: pointer;
-      color: #ffcc00;
-      font-weight: 600;
-    }
-
-    .search-results div:hover {
-      background-color: #444;
-    }
-
-    header {
-      background: #333;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+      flex-wrap: wrap;
     }
 
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
       color: #ffcc00;
-      text-shadow: 0 0 8px #ffcc00aa;
+      cursor: default;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #ddd;
+    /* Buscador */
+    .search-container {
+      position: relative;
+      flex: 1 1 300px;
+      max-width: 500px;
+      margin: 10px 20px;
     }
 
+    #searchInput {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    #searchResults {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background: #222;
+      border-radius: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      display: none;
+      z-index: 1000;
+    }
+
+    #searchResults div {
+      padding: 10px 15px;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+      color: #ccc;
+    }
+    #searchResults div:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    /* Iconos usuario y carrito */
+    .icons {
+      display: flex;
+      gap: 25px;
+      font-size: 1.6rem;
+      color: #ccc;
+      cursor: pointer;
+    }
+    .icons:hover {
+      color: #ffcc00;
+    }
+
+    /* Banner promocional */
     #banner {
       width: 100%;
       height: 300px;
       background: url('banner-promocional.jpg') no-repeat center center/cover;
       position: relative;
+      margin-top: 10px;
     }
-
     #banner h2 {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #ffcc00;
-      font-size: 2rem;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 0 20px;
     }
 
+    /* Carrusel */
     .carousel-container {
       overflow: hidden;
       background-color: #1a1a1a;
-      padding: 20px 0;
+      padding: 30px 0;
+      position: relative;
     }
 
     .carousel {
       display: flex;
       gap: 20px;
-      animation: scroll-left 20s linear infinite;
       padding-left: 20px;
+      animation: scroll-left 15s linear infinite;
     }
 
     .slide {
       flex: 0 0 auto;
+      text-align: center;
       background-color: #222;
       border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      transition: transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
       width: 200px;
     }
 
     .slide:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(255, 204, 0, 0.7);
+      cursor: pointer;
     }
 
     .slide img {
       width: 100%;
-      height: auto;
       border-radius: 10px;
-      user-select: none;
+      display: block;
+      margin: 0 auto;
     }
 
     .slide p {
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 1.1rem;
       color: #ccc;
       font-weight: 600;
     }
 
+    /* Animación carrusel */
     @keyframes scroll-left {
       0% {
         transform: translateX(0);
@@ -226,144 +182,129 @@
       }
     }
 
+    /* Sección info */
     section.info {
       padding: 40px 20px;
       background-color: #181818;
       text-align: center;
+      max-width: 900px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
     }
 
     section.info h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
       color: #ffcc00;
-      text-shadow: 0 0 8px #ffcc00aa;
     }
 
     section.info p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: #ddd;
-      font-weight: 500;
-      line-height: 1.7;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .btn-tienda {
-      display: inline-block;
       background-color: #ffcc00;
       color: #000;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 5px;
+      padding: 12px 28px;
+      font-size: 1.3rem;
       font-weight: 700;
-      transition: background-color 0.3s;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
-
     .btn-tienda:hover {
       background-color: #e6b800;
+      color: #000;
     }
 
-    /* Scrollbar para carousel */
-    .carousel::-webkit-scrollbar {
-      height: 8px;
+    /* FOOTER */
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 20px 40px;
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.9rem;
     }
 
-    .carousel::-webkit-scrollbar-thumb {
-      background-color: #ffcc00;
-      border-radius: 10px;
+    footer a {
+      color: #ffcc00;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
 
     /* Responsive */
-
-    @media (max-width: 920px) {
-      nav {
-        padding: 10px 15px;
-        font-size: 18px;
-      }
-
-      nav ul.menu {
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 15px;
       }
-
       .search-container {
-        max-width: 200px;
-        margin: 0 15px;
+        max-width: 100%;
+        order: 3;
+        width: 100%;
       }
-
-      .slide {
-        width: 150px;
+      .icons {
+        order: 2;
+        font-size: 1.4rem;
       }
-
-      .slide img {
-        width: 140px;
-        height: auto;
+      #banner h2 {
+        font-size: 1.8rem;
+        padding: 0 10px;
       }
-
-      .slide p {
-        font-size: 1rem;
+      .carousel {
+        animation-duration: 12s;
       }
     }
 
-    @media (max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        padding: 15px;
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
       }
-
-      nav ul.menu {
-        width: 100%;
-        justify-content: center;
-        gap: 10px;
+      .btn-tienda {
+        font-size: 1rem;
+        padding: 10px 20px;
       }
-
-      .search-container {
-        max-width: 100%;
-        margin: 0;
+      .slide {
+        width: 150px;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo" onclick="location.href='index.html'">BJ Video Games</div>
-
-    <ul class="menu">
-      <li>
-        Categorías
-        <ul class="submenu">
-          <li><a href="tienda.html#accion">Acción</a></li>
-          <li><a href="tienda.html#aventura">Aventura</a></li>
-          <li><a href="tienda.html#deportes">Deportes</a></li>
-          <li><a href="tienda.html#rpg">RPG</a></li>
-          <li><a href="tienda.html#fps">FPS</a></li>
-        </ul>
-      </li>
-      <li><a href="ofertas.html" style="color:inherit; text-decoration:none;">Ofertas</a></li>
-      <li><a href="novedades.html" style="color:inherit; text-decoration:none;">Novedades</a></li>
-      <li><a href="contacto.html" style="color:inherit; text-decoration:none;">Contacto</a></li>
-    </ul>
-
-    <div class="search-container">
-      <input type="search" id="searchInput" placeholder="Buscar juegos..." autocomplete="off" />
-      <button aria-label="Buscar">&#128269;</button>
-      <div class="search-results" id="searchResults"></div>
-    </div>
-  </nav>
 
   <header>
     <h1>BJ Video Games</h1>
-    <p>Tu tienda de videojuegos confiable desde 2015</p>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar juegos..." autocomplete="off" />
+      <div id="searchResults"></div>
+    </div>
+
+    <div class="icons" title="Cuenta">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.3 0-9.9 1.7-9.9 5v2.4h19.8v-2.4c0-3.3-6.6-5-9.9-5z"/>
+      </svg>
+    </div>
+
+    <div class="icons" title="Carrito de compras">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l-.94-4.02c-.07-.33-.35-.56-.69-.56H3V7h3.55l1.6 6.97h9.43l1.62-7.64h-13v-2H2v2h1.16l1.1 4.56c.05.21.23.36.44.36H19v-2H7.16z"/>
+      </svg>
+    </div>
   </header>
 
   <div id="banner">
     <h2>¡Ofertas especiales en juegos seleccionados!</h2>
   </div>
 
-  <div class="carousel-container">
+  <div class="carousel-container" aria-label="Carrusel de juegos destacados">
     <div class="carousel" id="carousel">
       <div class="slide">
         <a href="hollow.html">
@@ -401,8 +342,7 @@
           <p>Spiderman</p>
         </a>
       </div>
-
-      <!-- Duplicados para scroll infinito -->
+      <!-- Repetimos para animación infinita -->
       <div class="slide">
         <a href="hollow.html">
           <img src="hollow.jpg" alt="Hollow Knight" />
@@ -450,6 +390,16 @@
     </p>
     <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
   </section>
+
+  <footer>
+    <p>© 2025 BJ Video Games. Todos los derechos reservados.</p>
+    <p>
+      Síguenos en
+      <a href="#" aria-label="Facebook">Facebook</a> |
+      <a href="#" aria-label="Twitter">Twitter</a> |
+      <a href="#" aria-label="Instagram">Instagram</a>
+    </p>
+  </footer>
 
   <script>
     // Datos de juegos para búsqueda
@@ -513,16 +463,14 @@
     });
 
     document.addEventListener("click", (e) => {
-      if (
-        !searchInput.contains(e.target) &&
-        !searchResults.contains(e.target)
-      ) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
         searchResults.style.display = "none";
       }
     });
   </script>
 </body>
 </html>
+
 
 
 
