@@ -78,7 +78,6 @@
     }
 
     button {
-      margin-top: 10px;
       background-color: #ffcc00;
       color: #000;
       font-weight: 700;
@@ -96,6 +95,25 @@
     button:hover {
       background-color: #e6b800;
       box-shadow: 0 0 25px #e6b800;
+    }
+
+    .btn-volver {
+      margin-bottom: 10px;
+      background-color: transparent;
+      color: #ffcc00;
+      border: 2px solid #ffcc00;
+      box-shadow: none;
+      font-weight: 600;
+      padding: 10px 0;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #ffcc00;
+      color: #000;
+      box-shadow: 0 0 15px #ffcc00;
     }
 
     /* Responsive */
@@ -129,6 +147,8 @@
 
       <label for="direccion">Dirección:</label>
       <input type="text" name="direccion" id="direccion" placeholder="Tu dirección" required />
+
+      <a href="index.html#inicio" class="btn-volver" role="button">← Volver al inicio</a>
 
       <button type="submit">Enviar</button>
     </form>
