@@ -1,133 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BJ Video Games</title>
   <style>
-    /* Reset de márgenes y rellenos */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* Estilos generales */
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #101010;
-      color: #fff;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 40px;
     }
 
-    /* Encabezado */
     header {
-      background: #333;
-      color: #fff;
-      padding: 20px 0;
       text-align: center;
+      margin: 40px 0 30px;
     }
+
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00aa;
       margin-bottom: 10px;
     }
+
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      color: #bbb;
+      font-weight: 600;
+      font-style: italic;
     }
 
-    /* Banner promocional */
+    /* Banner */
     #banner {
       width: 100%;
-      height: 300px;
+      max-width: 1200px;
+      height: 320px;
       background: url('banner-promocional.jpg') no-repeat center center/cover;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
       position: relative;
+      margin-bottom: 50px;
     }
+
     #banner h2 {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #fff;
-      font-size: 2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      color: #ffcc00;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px #000;
+      text-align: center;
+      width: 90%;
     }
 
-    /* Carrusel de imágenes */
+    /* Carrusel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      overflow: hidden;
+      margin-bottom: 60px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+      background-color: #1f1f1f;
+      padding: 20px 0;
+    }
+
     .carousel {
       display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 20px;
-      padding: 20px;
-      background-color: #1a1a1a;
+      gap: 25px;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+      padding-left: 20px;
     }
 
     .slide {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-      text-align: center;
-      background-color: #222;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s;
+      flex: 0 0 200px;
+      background-color: #2a2a2a;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .slide:hover {
-      transform: scale(1.05);
+      transform: scale(1.12);
+      box-shadow: 0 10px 25px #ffcc00aa;
     }
 
     .slide img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
     }
 
     .slide p {
-      margin-top: 10px;
-      font-size: 16px;
-      color: #ccc;
+      margin: 12px 0 15px;
+      font-size: 1.1rem;
+      color: #ffcc00;
+      font-weight: 700;
+      text-align: center;
+      pointer-events: none;
     }
 
     .slide a {
       text-decoration: none;
       color: inherit;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Sección "¿Quiénes somos?" */
-    section.info {
-      padding: 40px 20px;
-      background-color: #181818;
-      text-align: center;
-    }
-
-    section.info h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    section.info p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    /* Botón para ir a la tienda */
+    /* Botón tienda */
     .btn-tienda {
-      display: inline-block;
       background-color: #ffcc00;
-      color: #000;
-      padding: 10px 20px;
+      color: #111;
+      padding: 15px 35px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border-radius: 50px;
       text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      box-shadow: 0 6px 15px #ffcc00aa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      margin: 0 auto;
     }
 
     .btn-tienda:hover {
       background-color: #e6b800;
+      box-shadow: 0 8px 25px #e6b800cc;
+    }
+
+    /* Sección info */
+    section.info {
+      max-width: 850px;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    section.info h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 25px;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00aa;
+    }
+
+    section.info p {
+      font-size: 1.2rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      #banner {
+        height: 220px;
+      }
+
+      #banner h2 {
+        font-size: 1.8rem;
+      }
+
+      .slide {
+        flex: 0 0 150px;
+      }
+
+      .slide img {
+        width: 140px;
+        height: 190px;
+      }
+
+      section.info h2 {
+        font-size: 2rem;
+      }
+
+      section.info p {
+        font-size: 1rem;
+      }
+
+      .btn-tienda {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>BJ Video Games</h1>
     <p>Tu tienda de videojuegos confiable desde 2015</p>
@@ -137,33 +224,71 @@
     <h2>¡Ofertas especiales en juegos seleccionados!</h2>
   </div>
 
-  <section class="carousel">
-    <div class="slide">
-      <a href="tienda.html#aprendi-a-pensar">
-        <img src="hollow.jpg" alt="Hollow Knight">
-        <p>Hollow Knight</p>
-      </a>
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <div class="slide">
+        <a href="tienda.html#hollow-knight">
+          <img src="hollow.jpg" alt="Hollow Knight" />
+          <p>Hollow Knight</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#doom-eternal">
+          <img src="doom.jpg" alt="Doom Eternal" />
+          <p>Doom Eternal</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#zelda">
+          <img src="zelda.jpg" alt="The Legend of Zelda" />
+          <p>The Legend of Zelda</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#fifa-25">
+          <img src="fifa25.jpg" alt="FIFA 25" />
+          <p>FIFA 25</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#witcher-3">
+          <img src="witcher3.jpg" alt="The Witcher 3" />
+          <p>The Witcher 3</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="tienda.html#spiderman">
+          <img src="spiderman.jpg" alt="Spiderman" />
+          <p>Spiderman</p>
+        </a>
+      </div>
     </div>
-    <div class="slide">
-      <a href="tienda.html#aprendi-a-pensar">
-        <img src="doom.jpg" alt="Doom Eternal">
-        <p>Doom Eternal</p>
-      </a>
-    </div>
-    <div class="slide">
-      <a href="tienda.html#aprendi-a-pensar">
-        <img src="zelda.jpg" alt="The Legend of Zelda">
-        <p>The Legend of Zelda</p>
-      </a>
-    </div>
-  </section>
+  </div>
 
   <section class="info">
     <h2>¿Quiénes somos?</h2>
-    <p>En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.</p>
+    <p>
+      En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.
+    </p>
     <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
   </section>
 
+  <script>
+    // Auto-slide carrusel simple
+    const carousel = document.getElementById('carousel');
+    const slideWidth = 225; // ancho de slide + gap (200 + 25)
+    let scrollPosition = 0;
+
+    function autoSlide() {
+      scrollPosition += slideWidth;
+      if (scrollPosition >= carousel.scrollWidth - carousel.clientWidth) {
+        scrollPosition = 0; // vuelve al inicio
+      }
+      carousel.style.transform = `translateX(-${scrollPosition}px)`;
+    }
+
+    setInterval(autoSlide, 3000); // cada 3 segundos cambia slide
+  </script>
 </body>
 </html>
 
