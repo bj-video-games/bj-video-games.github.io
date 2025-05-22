@@ -20,14 +20,15 @@ if ($nombre && $apellido && $correo && $direccion) {
     $stmt->bind_param("ssss", $nombre, $apellido, $correo, $direccion);
 
     if ($stmt->execute()) {
-        echo "Registro exitoso";
+        echo "<h2>Registro exitoso</h2>";
+        echo '<a href="finalizar.html" style="color:#ffcc00;">Volver al formulario</a>';
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<h2>Error: " . $stmt->error . "</h2>";
     }
 
     $stmt->close();
 } else {
-    echo "Faltan datos para registrar";
+    echo "<h2>Faltan datos para registrar</h2>";
 }
 
 $conn->close();
