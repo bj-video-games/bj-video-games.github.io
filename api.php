@@ -4,37 +4,31 @@ $user = "root";
 $pass = "";
 $db = "cfs";
 
-// Crear conexión
 $conn = new mysqli($host, $user, $pass, $db);
 
-// Verificar conexión
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Recoger y validar datos del formulario
 $nombre = $_POST['nombre'] ?? '';
 $apellido = $_POST['apellido'] ?? '';
 $correo = $_POST['correo'] ?? '';
 $direccion = $_POST['direccion'] ?? '';
 
-// Validación básica
-if (empty($nombre) || empty($apellido) || empty($correo) || empty($direccion)) {
-    die("Por favor completa todos los campos.");
-}
+if ($nombre && $apellido && $correo && $direccion) {
+    $stmt = $conn->prepare("INSERT INTO clientes (nombre, apellido, correo, direccion) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nombre, $apellido, $correo, $direccion);
 
-// Usar sentencia preparada para evitar inyección SQL
-$stmt = $conn->prepare("INSERT INTO usuarios (nombre, apellido, correo, direccion) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $nombre, $apellido, $correo, $direccion);
+    if ($stmt->execute()) {
+        echo "Registro exitoso";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 
-// Ejecutar y verificar
-if ($stmt->execute()) {
-    echo "<script>alert('¡Registro exitoso!'); window.location.href='index.html';</script>";
+    $stmt->close();
 } else {
-    echo "Error al registrar: " . $stmt->error;
+    echo "Faltan datos para registrar";
 }
 
-// Cerrar conexiones
-$stmt->close();
 $conn->close();
 ?>
