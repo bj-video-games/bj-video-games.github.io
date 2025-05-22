@@ -544,6 +544,483 @@
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
 
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BJ Video Games</title>
+  <style>
+    /* Reset de márgenes y paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #101010;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      color: #ffcc00;
+      font-weight: 700;
+      font-size: 20px;
+      user-select: none;
+    }
+
+    nav .logo {
+      cursor: pointer;
+    }
+
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul.menu li {
+      position: relative;
+      cursor: pointer;
+    }
+
+    nav ul.menu li a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav ul.menu li:hover > ul.submenu {
+      display: block;
+    }
+
+    ul.submenu {
+      display: none;
+      position: absolute;
+      background: #333;
+      top: 30px;
+      left: 0;
+      padding: 10px 0;
+      border-radius: 5px;
+      min-width: 140px;
+      box-shadow: 0 0 10px #000;
+      z-index: 20;
+    }
+
+    ul.submenu li {
+      padding: 8px 15px;
+      white-space: nowrap;
+    }
+
+    ul.submenu li a {
+      color: #ffcc00;
+      font-weight: 500;
+    }
+
+    ul.submenu li:hover {
+      background-color: #444;
+    }
+
+    .search-container {
+      position: relative;
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .search-container input[type="search"] {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-container button {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      color: #ffcc00;
+      font-size: 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #222;
+      border: 1px solid #444;
+      max-height: 200px;
+      overflow-y: auto;
+      border-radius: 0 0 6px 6px;
+      display: none;
+      z-index: 30;
+    }
+
+    .search-results div {
+      padding: 8px 10px;
+      cursor: pointer;
+      color: #ffcc00;
+      font-weight: 600;
+    }
+
+    .search-results div:hover {
+      background-color: #444;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00aa;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    #banner {
+      width: 100%;
+      height: 300px;
+      background: url('banner-promocional.jpg') no-repeat center center/cover;
+      position: relative;
+    }
+
+    #banner h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffcc00;
+      font-size: 2rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      background-color: #1a1a1a;
+      padding: 20px 0;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      animation: scroll-left 20s linear infinite;
+      padding-left: 20px;
+    }
+
+    .slide {
+      flex: 0 0 auto;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      transition: transform 0.3s;
+      width: 200px;
+    }
+
+    .slide:hover {
+      transform: scale(1.05);
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      user-select: none;
+    }
+
+    .slide p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    section.info {
+      padding: 40px 20px;
+      background-color: #181818;
+      text-align: center;
+    }
+
+    section.info h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00aa;
+    }
+
+    section.info p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1.25rem;
+      color: #ddd;
+      font-weight: 500;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .btn-tienda {
+      display: inline-block;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+
+    .btn-tienda:hover {
+      background-color: #e6b800;
+    }
+
+    /* Scrollbar para carousel */
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #ffcc00;
+      border-radius: 10px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 920px) {
+      nav {
+        padding: 10px 15px;
+        font-size: 18px;
+      }
+
+      nav ul.menu {
+        gap: 15px;
+      }
+
+      .search-container {
+        max-width: 200px;
+        margin: 0 15px;
+      }
+
+      .slide {
+        width: 150px;
+      }
+
+      .slide img {
+        width: 140px;
+        height: auto;
+      }
+
+      .slide p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+      }
+
+      nav ul.menu {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .search-container {
+        max-width: 100%;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo" onclick="location.href='index.html'">BJ Video Games</div>
+
+    <ul class="menu">
+      <li>
+        Categorías
+        <ul class="submenu">
+          <li><a href="tienda.html#accion">Acción</a></li>
+          <li><a href="tienda.html#aventura">Aventura</a></li>
+          <li><a href="tienda.html#deportes">Deportes</a></li>
+          <li><a href="tienda.html#rpg">RPG</a></li>
+          <li><a href="tienda.html#fps">FPS</a></li>
+        </ul>
+      </li>
+      <li><a href="ofertas.html" style="color:inherit; text-decoration:none;">Ofertas</a></li>
+      <li><a href="novedades.html" style="color:inherit; text-decoration:none;">Novedades</a></li>
+      <li><a href="contacto.html" style="color:inherit; text-decoration:none;">Contacto</a></li>
+    </ul>
+
+    <div class="search-container">
+      <input type="search" id="searchInput" placeholder="Buscar juegos..." autocomplete="off" />
+      <button aria-label="Buscar">&#128269;</button>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>BJ Video Games</h1>
+    <p>Tu tienda de videojuegos confiable desde 2015</p>
+  </header>
+
+  <div id="banner">
+    <h2>¡Ofertas especiales en juegos seleccionados!</h2>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <div class="slide">
+        <a href="hollow.html">
+          <img src="hollow.jpg" alt="Hollow Knight" />
+          <p>Hollow Knight</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="doom.html">
+          <img src="doom.jpg" alt="Doom Eternal" />
+          <p>Doom Eternal</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="zelda.html">
+          <img src="zelda.jpg" alt="The Legend of Zelda" />
+          <p>The Legend of Zelda</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="fifa.html">
+          <img src="fifa.jpg" alt="FIFA 25" />
+          <p>FIFA 25</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="witcher.html">
+          <img src="witcher.jpg" alt="The Witcher 3" />
+          <p>The Witcher 3</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="spiderman.html">
+          <img src="spiderman.jpg" alt="Spiderman" />
+          <p>Spiderman</p>
+        </a>
+      </div>
+
+      <!-- Duplicados para scroll infinito -->
+      <div class="slide">
+        <a href="hollow.html">
+          <img src="hollow.jpg" alt="Hollow Knight" />
+          <p>Hollow Knight</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="doom.html">
+          <img src="doom.jpg" alt="Doom Eternal" />
+          <p>Doom Eternal</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="zelda.html">
+          <img src="zelda.jpg" alt="The Legend of Zelda" />
+          <p>The Legend of Zelda</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="fifa.html">
+          <img src="fifa.jpg" alt="FIFA 25" />
+          <p>FIFA 25</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="witcher.html">
+          <img src="witcher.jpg" alt="The Witcher 3" />
+          <p>The Witcher 3</p>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="spiderman.html">
+          <img src="spiderman.jpg" alt="Spiderman" />
+          <p>Spiderman</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="info">
+    <h2>¿Quiénes somos?</h2>
+    <p>
+      En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015.
+      Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.
+    </p>
+    <a href="tienda.html" class="btn-tienda">Ir a la tienda</a>
+  </section>
+
+  <script>
+    // Datos de juegos para búsqueda
+    const juegos = [
+      "Hollow Knight",
+      "Doom Eternal",
+      "The Legend of Zelda",
+      "FIFA 25",
+      "The Witcher 3",
+      "Spiderman",
+    ];
+
+    // Mapa de juegos a sus archivos html
+    const juegoLinks = {
+      "Hollow Knight": "hollow.html",
+      "Doom Eternal": "doom.html",
+      "The Legend of Zelda": "zelda.html",
+      "FIFA 25": "fifa.html",
+      "The Witcher 3": "witcher.html",
+      "Spiderman": "spiderman.html",
+    };
+
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
     searchInput.addEventListener("input", () => {
       const query = searchInput.value.toLowerCase().trim();
       searchResults.innerHTML = "";
@@ -552,7 +1029,7 @@
         return;
       }
 
-      const filtered = juegos.filter(juego =>
+      const filtered = juegos.filter((juego) =>
         juego.toLowerCase().includes(query)
       );
 
@@ -561,14 +1038,19 @@
         return;
       }
 
-      filtered.forEach(juego => {
+      filtered.forEach((juego) => {
         const div = document.createElement("div");
         div.textContent = juego;
         div.addEventListener("click", () => {
           searchInput.value = juego;
           searchResults.style.display = "none";
-          // Aquí podrías redirigir o filtrar catálogo
-          alert(`Buscando juego: ${juego}`);
+          // Redirige al html correspondiente
+          const url = juegoLinks[juego];
+          if (url) {
+            window.location.href = url;
+          } else {
+            alert("No hay página disponible para ese juego.");
+          }
         });
         searchResults.appendChild(div);
       });
@@ -576,18 +1058,17 @@
       searchResults.style.display = "block";
     });
 
-    document.addEventListener("click", e => {
-      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+    document.addEventListener("click", (e) => {
+      if (
+        !searchInput.contains(e.target) &&
+        !searchResults.contains(e.target)
+      ) {
         searchResults.style.display = "none";
       }
     });
   </script>
 </body>
 </html>
-
-
-
-
 
 
 
