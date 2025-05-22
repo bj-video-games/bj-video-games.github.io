@@ -246,13 +246,13 @@
       </div>
       <div class="slide">
         <a href="tienda.html#fifa-25">
-          <img src="fifa25.jpg" alt="FIFA 25" />
+          <img src="fifa.jpg" alt="FIFA 25" />
           <p>FIFA 25</p>
         </a>
       </div>
       <div class="slide">
         <a href="tienda.html#witcher-3">
-          <img src="witcher3.jpg" alt="The Witcher 3" />
+          <img src="witcher.jpg" alt="The Witcher 3" />
           <p>The Witcher 3</p>
         </a>
       </div>
@@ -274,20 +274,19 @@
   </section>
 
   <script>
-    // Auto-slide carrusel simple
     const carousel = document.getElementById('carousel');
-    const slideWidth = 225; // ancho de slide + gap (200 + 25)
     let scrollPosition = 0;
 
-    function autoSlide() {
-      scrollPosition += slideWidth;
+    function smoothAutoScroll() {
+      scrollPosition += 1; // velocidad suave y constante
       if (scrollPosition >= carousel.scrollWidth - carousel.clientWidth) {
-        scrollPosition = 0; // vuelve al inicio
+        scrollPosition = 0; // vuelve al inicio cuando termina
       }
       carousel.style.transform = `translateX(-${scrollPosition}px)`;
+      requestAnimationFrame(smoothAutoScroll);
     }
 
-    setInterval(autoSlide, 3000); // cada 3 segundos cambia slide
+    requestAnimationFrame(smoothAutoScroll);
   </script>
 </body>
 </html>
