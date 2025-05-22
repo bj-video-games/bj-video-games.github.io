@@ -2,21 +2,18 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "cfs";
+$db = "test_db";
 
-// Conexión
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Obtener datos del formulario
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $direccion = $_POST['direccion'];
 
-// Insertar en la base de datos
 $sql = "INSERT INTO usuarios (nombre, apellido, correo, direccion) 
         VALUES ('$nombre', '$apellido', '$correo', '$direccion')";
 
