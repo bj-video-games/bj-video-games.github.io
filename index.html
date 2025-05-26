@@ -241,25 +241,82 @@
       color: #000;
     }
 
-    /* FOOTER */
+    /* FOOTER estilo Eneba */
     footer {
-      background: #222;
-      color: #ccc;
-      padding: 20px 40px;
-      text-align: center;
+      background-color: #121212;
+      color: #b3b3b3;
+      padding: 40px 60px;
       margin-top: auto;
       font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
     }
-
-    footer a {
+    footer .footer-section {
+      flex: 1 1 200px;
+      min-width: 180px;
+    }
+    footer h3 {
       color: #ffcc00;
-      margin: 0 10px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
-    footer a:hover {
+    footer ul {
+      list-style: none;
+    }
+    footer ul li {
+      margin-bottom: 10px;
+    }
+    footer ul li a {
+      color: #b3b3b3;
+      transition: color 0.3s ease;
+    }
+    footer ul li a:hover {
+      color: #ffcc00;
       text-decoration: underline;
     }
+    footer .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    footer .social-icons a {
+      color: #b3b3b3;
+      font-size: 1.4rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      color: #ffcc00;
+    }
+    footer .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+    }
 
-    /* Responsive */
+    /* Responsive footer */
+    @media (max-width: 768px) {
+      footer {
+        padding: 30px 30px;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer .footer-section {
+        min-width: 100%;
+        margin-bottom: 20px;
+      }
+      footer .footer-bottom {
+        margin-top: 20px;
+      }
+    }
+
+    /* Responsive Header y demás */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -297,6 +354,8 @@
       }
     }
   </style>
+  <!-- Añadí FontAwesome CDN para iconos sociales -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -311,6 +370,9 @@
     <select id="languageSelect" aria-label="Cambiar idioma">
       <option value="es" selected>Español</option>
       <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="it">Italiano</option>
     </select>
 
     <div class="icons" title="Cuenta">
@@ -326,194 +388,292 @@
     </div>
   </header>
 
-<div id="banner">
-  <img src="banner.jpg" alt="Banner promocional" style="width: 100%; height: auto; display: block;" />
-</div>
+  <div id="banner">
+    <img src="banner.jpg" alt="Promoción de juegos" style="width:100%;height:100%;object-fit:cover; border-radius:0 0 10px 10px;" />
+    <h2 id="bannerText">Juegos para todos los gustos</h2>
+  </div>
 
   <div class="carousel-container" aria-label="Carrusel de juegos destacados">
     <div class="carousel" id="carousel">
-      <div class="slide">
-        <a href="hollow.html">
-          <img src="hollow.jpg" alt="Hollow Knight" />
-          <p>Hollow Knight</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego Cyberpunk 2077">
+        <img src="cyberpunk.jpg" alt="Cyberpunk 2077" />
+        <p>Cyberpunk 2077</p>
       </div>
-      <div class="slide">
-        <a href="doom.html">
-          <img src="doom.jpg" alt="Doom Eternal" />
-          <p>Doom Eternal</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego The Witcher 3">
+        <img src="witcher3.jpg" alt="The Witcher 3" />
+        <p>The Witcher 3</p>
       </div>
-      <div class="slide">
-        <a href="zelda.html">
-          <img src="zelda.jpg" alt="The Legend of Zelda" />
-          <p>The Legend of Zelda</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego Elden Ring">
+        <img src="eldenring.jpg" alt="Elden Ring" />
+        <p>Elden Ring</p>
       </div>
-      <div class="slide">
-        <a href="fifa.html">
-          <img src="fifa.jpg" alt="FIFA 25" />
-          <p>FIFA 25</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego Among Us">
+        <img src="amongus.jpg" alt="Among Us" />
+        <p>Among Us</p>
       </div>
-      <div class="slide">
-        <a href="witcher.html">
-          <img src="witcher.jpg" alt="The Witcher 3" />
-          <p>The Witcher 3</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego Minecraft">
+        <img src="minecraft.jpg" alt="Minecraft" />
+        <p>Minecraft</p>
       </div>
-      <div class="slide">
-        <a href="spiderman.html">
-          <img src="spiderman.jpg" alt="Spiderman" />
-          <p>Spiderman</p>
-        </a>
+      <!-- Repetimos para efecto continuo -->
+      <div class="slide" tabindex="0" aria-label="Juego Cyberpunk 2077">
+        <img src="cyberpunk.jpg" alt="Cyberpunk 2077" />
+        <p>Cyberpunk 2077</p>
       </div>
-      <!-- Repetimos para animación infinita -->
-      <div class="slide">
-        <a href="hollow.html">
-          <img src="hollow.jpg" alt="Hollow Knight" />
-          <p>Hollow Knight</p>
-        </a>
-      </div>
-      <div class="slide">
-        <a href="doom.html">
-          <img src="doom.jpg" alt="Doom Eternal" />
-          <p>Doom Eternal</p>
-        </a>
-      </div>
-      <div class="slide">
-        <a href="zelda.html">
-          <img src="zelda.jpg" alt="The Legend of Zelda" />
-          <p>The Legend of Zelda</p>
-        </a>
-      </div>
-      <div class="slide">
-        <a href="fifa.html">
-          <img src="fifa.jpg" alt="FIFA 25" />
-          <p>FIFA 25</p>
-        </a>
-      </div>
-      <div class="slide">
-        <a href="witcher.html">
-          <img src="witcher.jpg" alt="The Witcher 3" />
-          <p>The Witcher 3</p>
-        </a>
-      </div>
-      <div class="slide">
-        <a href="spiderman.html">
-          <img src="spiderman.jpg" alt="Spiderman" />
-          <p>Spiderman</p>
-        </a>
+      <div class="slide" tabindex="0" aria-label="Juego The Witcher 3">
+        <img src="witcher3.jpg" alt="The Witcher 3" />
+        <p>The Witcher 3</p>
       </div>
     </div>
   </div>
 
-  <section class="info">
-    <h2 id="infoTitle">¿Quiénes somos?</h2>
-    <p id="infoText">
-      En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015.
-      Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.
-    </p>
-    <a href="tienda.html" class="btn-tienda" id="btnTienda">Ir a la tienda</a>
+  <section class="info" aria-labelledby="infoTitle">
+    <h2 id="infoTitle">BJ Video Games</h2>
+    <p id="infoText">Tu tienda favorita de videojuegos, siempre con las mejores promociones y títulos exclusivos para todas las plataformas.</p>
+    <a href="#" class="btn-tienda" id="btnTienda">Ir a la tienda</a>
   </section>
 
-  <footer>
-    <p>© 2025 BJ Video Games. Todos los derechos reservados.</p>
-    <p>
-      Síguenos en
-      <a href="#" aria-label="Facebook">Facebook</a> |
-      <a href="#" aria-label="Twitter">Twitter</a> |
-      <a href="#" aria-label="Instagram">Instagram</a>
-    </p>
+  <footer aria-label="Pie de página principal">
+    <div class="footer-section">
+      <h3 id="footerAboutTitle">Sobre Nosotros</h3>
+      <p id="footerAboutText">BJ Video Games es tu mejor opción para comprar videojuegos online con las mejores ofertas y novedades.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3 id="footerLinksTitle">Enlaces</h3>
+      <ul>
+        <li><a href="#" id="footerLinkHome">Inicio</a></li>
+        <li><a href="#" id="footerLinkTienda">Tienda</a></li>
+        <li><a href="#" id="footerLinkOfertas">Ofertas</a></li>
+        <li><a href="#" id="footerLinkContacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3 id="footerHelpTitle">Ayuda</h3>
+      <ul>
+        <li><a href="#" id="footerHelpFAQ">Preguntas Frecuentes</a></li>
+        <li><a href="#" id="footerHelpShipping">Envíos y Devoluciones</a></li>
+        <li><a href="#" id="footerHelpTerms">Términos y Condiciones</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3 id="footerSocialTitle">Síguenos</h3>
+      <div class="social-icons" role="list">
+        <a href="#" aria-label="Facebook" role="listitem"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom" id="footerCopyright">
+      © 2025 BJ Video Games. Todos los derechos reservados.
+    </div>
   </footer>
 
   <script>
-    // Datos de juegos para búsqueda
-    const juegos = [
-      "Hollow Knight",
-      "Doom Eternal",
-      "The Legend of Zelda",
-      "FIFA 25",
-      "The Witcher 3",
-      "Spiderman",
-    ];
-
-    // Mapa de juegos a sus archivos html
-    const juegoLinks = {
-      "Hollow Knight": "hollow.html",
-      "Doom Eternal": "doom.html",
-      "The Legend of Zelda": "zelda.html",
-      "FIFA 25": "fifa.html",
-      "The Witcher 3": "witcher.html",
-      "Spiderman": "spiderman.html",
+    // Traducciones para la página
+    const translations = {
+      es: {
+        siteTitle: "BJ Video Games",
+        searchPlaceholder: "Buscar juegos...",
+        bannerText: "Juegos para todos los gustos",
+        infoTitle: "BJ Video Games",
+        infoText: "Tu tienda favorita de videojuegos, siempre con las mejores promociones y títulos exclusivos para todas las plataformas.",
+        btnTienda: "Ir a la tienda",
+        footerAboutTitle: "Sobre Nosotros",
+        footerAboutText: "BJ Video Games es tu mejor opción para comprar videojuegos online con las mejores ofertas y novedades.",
+        footerLinksTitle: "Enlaces",
+        footerLinkHome: "Inicio",
+        footerLinkTienda: "Tienda",
+        footerLinkOfertas: "Ofertas",
+        footerLinkContacto: "Contacto",
+        footerHelpTitle: "Ayuda",
+        footerHelpFAQ: "Preguntas Frecuentes",
+        footerHelpShipping: "Envíos y Devoluciones",
+        footerHelpTerms: "Términos y Condiciones",
+        footerSocialTitle: "Síguenos",
+        footerCopyright: "© 2025 BJ Video Games. Todos los derechos reservados."
+      },
+      en: {
+        siteTitle: "BJ Video Games",
+        searchPlaceholder: "Search games...",
+        bannerText: "Games for every taste",
+        infoTitle: "BJ Video Games",
+        infoText: "Your favorite video game store, always with the best deals and exclusive titles for all platforms.",
+        btnTienda: "Go to store",
+        footerAboutTitle: "About Us",
+        footerAboutText: "BJ Video Games is your best option to buy video games online with the best offers and news.",
+        footerLinksTitle: "Links",
+        footerLinkHome: "Home",
+        footerLinkTienda: "Store",
+        footerLinkOfertas: "Offers",
+        footerLinkContacto: "Contact",
+        footerHelpTitle: "Help",
+        footerHelpFAQ: "Frequently Asked Questions",
+        footerHelpShipping: "Shipping & Returns",
+        footerHelpTerms: "Terms & Conditions",
+        footerSocialTitle: "Follow Us",
+        footerCopyright: "© 2025 BJ Video Games. All rights reserved."
+      },
+      fr: {
+        siteTitle: "BJ Video Games",
+        searchPlaceholder: "Rechercher des jeux...",
+        bannerText: "Jeux pour tous les goûts",
+        infoTitle: "BJ Video Games",
+        infoText: "Votre boutique de jeux vidéo préférée, toujours avec les meilleures promotions et titres exclusifs pour toutes les plateformes.",
+        btnTienda: "Aller à la boutique",
+        footerAboutTitle: "À propos",
+        footerAboutText: "BJ Video Games est votre meilleure option pour acheter des jeux vidéo en ligne avec les meilleures offres et nouveautés.",
+        footerLinksTitle: "Liens",
+        footerLinkHome: "Accueil",
+        footerLinkTienda: "Boutique",
+        footerLinkOfertas: "Offres",
+        footerLinkContacto: "Contact",
+        footerHelpTitle: "Aide",
+        footerHelpFAQ: "Questions fréquentes",
+        footerHelpShipping: "Expédition et retours",
+        footerHelpTerms: "Termes et conditions",
+        footerSocialTitle: "Suivez-nous",
+        footerCopyright: "© 2025 BJ Video Games. Tous droits réservés."
+      },
+      de: {
+        siteTitle: "BJ Video Games",
+        searchPlaceholder: "Spiele suchen...",
+        bannerText: "Spiele für jeden Geschmack",
+        infoTitle: "BJ Video Games",
+        infoText: "Ihr Lieblingsvideospielgeschäft, immer mit den besten Angeboten und exklusiven Titeln für alle Plattformen.",
+        btnTienda: "Zum Shop",
+        footerAboutTitle: "Über uns",
+        footerAboutText: "BJ Video Games ist Ihre beste Option, Videospiele online mit den besten Angeboten und Neuigkeiten zu kaufen.",
+        footerLinksTitle: "Links",
+        footerLinkHome: "Startseite",
+        footerLinkTienda: "Shop",
+        footerLinkOfertas: "Angebote",
+        footerLinkContacto: "Kontakt",
+        footerHelpTitle: "Hilfe",
+        footerHelpFAQ: "Häufig gestellte Fragen",
+        footerHelpShipping: "Versand & Rückgabe",
+        footerHelpTerms: "Geschäftsbedingungen",
+        footerSocialTitle: "Folgen Sie uns",
+        footerCopyright: "© 2025 BJ Video Games. Alle Rechte vorbehalten."
+      },
+      it: {
+        siteTitle: "BJ Video Games",
+        searchPlaceholder: "Cerca giochi...",
+        bannerText: "Giochi per tutti i gusti",
+        infoTitle: "BJ Video Games",
+        infoText: "Il tuo negozio di videogiochi preferito, sempre con le migliori offerte e titoli esclusivi per tutte le piattaforme.",
+        btnTienda: "Vai al negozio",
+        footerAboutTitle: "Chi siamo",
+        footerAboutText: "BJ Video Games è la tua migliore opzione per acquistare videogiochi online con le migliori offerte e novità.",
+        footerLinksTitle: "Link",
+        footerLinkHome: "Home",
+        footerLinkTienda: "Negozio",
+        footerLinkOfertas: "Offerte",
+        footerLinkContacto: "Contatti",
+        footerHelpTitle: "Aiuto",
+        footerHelpFAQ: "Domande frequenti",
+        footerHelpShipping: "Spedizioni e resi",
+        footerHelpTerms: "Termini e condizioni",
+        footerSocialTitle: "Seguici",
+        footerCopyright: "© 2025 BJ Video Games. Tutti i diritti riservati."
+      }
     };
 
-    const searchInput = document.getElementById("searchInput");
-    const searchResults = document.getElementById("searchResults");
+    // Cambiar idioma
+    const languageSelect = document.getElementById('languageSelect');
 
-    searchInput.addEventListener("input", () => {
+    function updateTexts(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      document.getElementById('siteTitle').textContent = t.siteTitle;
+      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+      document.getElementById('bannerText').textContent = t.bannerText;
+      document.getElementById('infoTitle').textContent = t.infoTitle;
+      document.getElementById('infoText').textContent = t.infoText;
+      document.getElementById('btnTienda').textContent = t.btnTienda;
+
+      document.getElementById('footerAboutTitle').textContent = t.footerAboutTitle;
+      document.getElementById('footerAboutText').textContent = t.footerAboutText;
+      document.getElementById('footerLinksTitle').textContent = t.footerLinksTitle;
+      document.getElementById('footerLinkHome').textContent = t.footerLinkHome;
+      document.getElementById('footerLinkTienda').textContent = t.footerLinkTienda;
+      document.getElementById('footerLinkOfertas').textContent = t.footerLinkOfertas;
+      document.getElementById('footerLinkContacto').textContent = t.footerLinkContacto;
+      document.getElementById('footerHelpTitle').textContent = t.footerHelpTitle;
+      document.getElementById('footerHelpFAQ').textContent = t.footerHelpFAQ;
+      document.getElementById('footerHelpShipping').textContent = t.footerHelpShipping;
+      document.getElementById('footerHelpTerms').textContent = t.footerHelpTerms;
+      document.getElementById('footerSocialTitle').textContent = t.footerSocialTitle;
+      document.getElementById('footerCopyright').textContent = t.footerCopyright;
+    }
+
+    languageSelect.addEventListener('change', () => {
+      updateTexts(languageSelect.value);
+    });
+
+    // Inicializar textos en español
+    updateTexts('es');
+
+    // BUSCADOR básico sin backend
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    const games = [
+      "Cyberpunk 2077",
+      "The Witcher 3",
+      "Elden Ring",
+      "Among Us",
+      "Minecraft",
+      "FIFA 21",
+      "Call of Duty",
+      "League of Legends",
+      "God of War",
+      "Halo Infinite"
+    ];
+
+    searchInput.addEventListener('input', () => {
       const query = searchInput.value.toLowerCase().trim();
-      searchResults.innerHTML = "";
-      if (!query) {
-        searchResults.style.display = "none";
+      searchResults.innerHTML = '';
+      if (query.length === 0) {
+        searchResults.style.display = 'none';
         return;
       }
-
-      const filtered = juegos.filter((juego) =>
-        juego.toLowerCase().includes(query)
-      );
-
+      const filtered = games.filter(game => game.toLowerCase().includes(query));
       if (filtered.length === 0) {
-        searchResults.style.display = "none";
+        searchResults.style.display = 'none';
         return;
       }
-
-      filtered.forEach((juego) => {
-        const div = document.createElement("div");
-        div.textContent = juego;
+      filtered.forEach(game => {
+        const div = document.createElement('div');
+        div.textContent = game;
         div.tabIndex = 0;
-        div.addEventListener("click", () => {
-          window.location.href = juegoLinks[juego];
+        div.addEventListener('click', () => {
+          searchInput.value = game;
+          searchResults.style.display = 'none';
         });
-        div.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            window.location.href = juegoLinks[juego];
+        div.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            searchInput.value = game;
+            searchResults.style.display = 'none';
           }
         });
         searchResults.appendChild(div);
       });
-
-      searchResults.style.display = "block";
+      searchResults.style.display = 'block';
     });
 
-    // Cerrar resultados al hacer click fuera
-    document.addEventListener("click", (e) => {
-      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-        searchResults.style.display = "none";
-      }
+    // Ocultar resultados al perder foco (con delay para click)
+    searchInput.addEventListener('blur', () => {
+      setTimeout(() => {
+        searchResults.style.display = 'none';
+      }, 200);
     });
 
-    // Cambio de idioma básico (solo para mostrar el concepto)
-    const languageSelect = document.getElementById("languageSelect");
-
-    languageSelect.addEventListener("change", () => {
-      const lang = languageSelect.value;
-      if (lang === "es") {
-        document.getElementById("siteTitle").textContent = "BJ Video Games";
-        document.getElementById("searchInput").placeholder = "Buscar juegos...";
-        document.getElementById("bannerText").textContent = "¡Ofertas especiales en juegos seleccionados!";
-        document.getElementById("infoTitle").textContent = "¿Quiénes somos?";
-        document.getElementById("infoText").textContent = "En BJ Video Games nos dedicamos a la venta de videojuegos desde 2015. Nuestra misión es ofrecer a nuestros clientes una amplia variedad de títulos para todas las plataformas, con un excelente servicio al cliente y precios competitivos.";
-        document.getElementById("btnTienda").textContent = "Ir a la tienda";
-      } else if (lang === "en") {
-        document.getElementById("siteTitle").textContent = "BJ Video Games";
-        document.getElementById("searchInput").placeholder = "Search games...";
-        document.getElementById("bannerText").textContent = "Special offers on selected games!";
-        document.getElementById("infoTitle").textContent = "Who are we?";
-        document.getElementById("infoText").textContent = "At BJ Video Games, we've been selling video games since 2015. Our mission is to offer our customers a wide variety of titles for all platforms, with excellent customer service and competitive prices.";
-        document.getElementById("btnTienda").textContent = "Go to store";
-      }
-    });
   </script>
 </body>
 </html>
