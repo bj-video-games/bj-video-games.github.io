@@ -241,82 +241,25 @@
       color: #000;
     }
 
-    /* FOOTER estilo Eneba */
+    /* FOOTER */
     footer {
-      background-color: #121212;
-      color: #b3b3b3;
-      padding: 40px 60px;
+      background: #222;
+      color: #ccc;
+      padding: 20px 40px;
+      text-align: center;
       margin-top: auto;
       font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
     }
-    footer .footer-section {
-      flex: 1 1 200px;
-      min-width: 180px;
-    }
-    footer h3 {
+
+    footer a {
       color: #ffcc00;
-      margin-bottom: 15px;
-      font-weight: 700;
-      font-size: 1.1rem;
+      margin: 0 10px;
     }
-    footer ul {
-      list-style: none;
-    }
-    footer ul li {
-      margin-bottom: 10px;
-    }
-    footer ul li a {
-      color: #b3b3b3;
-      transition: color 0.3s ease;
-    }
-    footer ul li a:hover {
-      color: #ffcc00;
+    footer a:hover {
       text-decoration: underline;
     }
-    footer .social-icons {
-      display: flex;
-      gap: 15px;
-      margin-top: 10px;
-    }
-    footer .social-icons a {
-      color: #b3b3b3;
-      font-size: 1.4rem;
-      transition: color 0.3s ease;
-    }
-    footer .social-icons a:hover {
-      color: #ffcc00;
-    }
-    footer .footer-bottom {
-      width: 100%;
-      text-align: center;
-      margin-top: 30px;
-      color: #666;
-      font-size: 0.8rem;
-      border-top: 1px solid #333;
-      padding-top: 15px;
-    }
 
-    /* Responsive footer */
-    @media (max-width: 768px) {
-      footer {
-        padding: 30px 30px;
-        flex-direction: column;
-        align-items: center;
-      }
-      footer .footer-section {
-        min-width: 100%;
-        margin-bottom: 20px;
-      }
-      footer .footer-bottom {
-        margin-top: 20px;
-      }
-    }
-
-    /* Responsive Header y demás */
+    /* Responsive */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -354,8 +297,6 @@
       }
     }
   </style>
-  <!-- Añadí FontAwesome CDN para iconos sociales -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -370,313 +311,202 @@
     <select id="languageSelect" aria-label="Cambiar idioma">
       <option value="es" selected>Español</option>
       <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="it">Italiano</option>
     </select>
 
-    <div class="icons" title="Cuenta">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+    <div class="icons" title="Cuenta" role="button" tabindex="0" aria-label="Cuenta">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true">
         <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.3 0-9.9 1.7-9.9 5v2.4h19.8v-2.4c0-3.3-6.6-5-9.9-5z"/>
       </svg>
     </div>
 
-    <div class="icons" title="Carrito de compras">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+    <div class="icons" title="Carrito de compras" role="button" tabindex="0" aria-label="Carrito de compras">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true">
         <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l-.94-4.02c-.07-.33-.35-.56-.69-.56H3V7h3.55l1.6 6.97h9.43l1.62-7.64h-13v-2H2v2h1.16l1.1 4.56c.05.21.23.36.44.36H19v-2H7.16z"/>
       </svg>
     </div>
   </header>
 
   <div id="banner">
-    <img src="banner.jpg" alt="Promoción de juegos" style="width:100%;height:100%;object-fit:cover; border-radius:0 0 10px 10px;" />
-    <h2 id="bannerText">Juegos para todos los gustos</h2>
+    <img src="banner.jpg" alt="Banner promocional" style="width: 100%; height: auto; display: block;" />
   </div>
 
   <div class="carousel-container" aria-label="Carrusel de juegos destacados">
     <div class="carousel" id="carousel">
-      <div class="slide" tabindex="0" aria-label="Juego Cyberpunk 2077">
-        <img src="cyberpunk.jpg" alt="Cyberpunk 2077" />
-        <p>Cyberpunk 2077</p>
+      <div class="slide">
+        <a href="hollow.html">
+          <img src="hollow.jpg" alt="Hollow Knight" />
+          <p>Hollow Knight</p>
+        </a>
       </div>
-      <div class="slide" tabindex="0" aria-label="Juego The Witcher 3">
-        <img src="witcher3.jpg" alt="The Witcher 3" />
-        <p>The Witcher 3</p>
+      <div class="slide">
+        <a href="doom.html">
+          <img src="doom.jpg" alt="Doom Eternal" />
+          <p>Doom Eternal</p>
+        </a>
       </div>
-      <div class="slide" tabindex="0" aria-label="Juego Elden Ring">
-        <img src="eldenring.jpg" alt="Elden Ring" />
-        <p>Elden Ring</p>
+      <div class="slide">
+        <a href="zelda.html">
+          <img src="zelda.jpg" alt="The Legend of Zelda" />
+          <p>The Legend of Zelda</p>
+        </a>
       </div>
-      <div class="slide" tabindex="0" aria-label="Juego Among Us">
-        <img src="amongus.jpg" alt="Among Us" />
-        <p>Among Us</p>
+      <div class="slide">
+        <a href="fifa.html">
+          <img src="fifa.jpg" alt="FIFA 25" />
+          <p>FIFA 25</p>
+        </a>
       </div>
-      <div class="slide" tabindex="0" aria-label="Juego Minecraft">
-        <img src="minecraft.jpg" alt="Minecraft" />
-        <p>Minecraft</p>
+      <div class="slide">
+        <a href="witcher.html">
+          <img src="witcher.jpg" alt="The Witcher 3" />
+          <p>The Witcher 3</p>
+        </a>
       </div>
-      <!-- Repetimos para efecto continuo -->
-      <div class="slide" tabindex="0" aria-label="Juego Cyberpunk 2077">
-        <img src="cyberpunk.jpg" alt="Cyberpunk 2077" />
-        <p>Cyberpunk 2077</p>
-      </div>
-      <div class="slide" tabindex="0" aria-label="Juego The Witcher 3">
-        <img src="witcher3.jpg" alt="The Witcher 3" />
-        <p>The Witcher 3</p>
+      <div class="slide">
+        <a href="spiderman.html">
+          <img src="spiderman.jpg" alt="Spiderman" />
+          <p>Spiderman</p>
+        </a>
       </div>
     </div>
   </div>
 
-  <section class="info" aria-labelledby="infoTitle">
-    <h2 id="infoTitle">BJ Video Games</h2>
-    <p id="infoText">Tu tienda favorita de videojuegos, siempre con las mejores promociones y títulos exclusivos para todas las plataformas.</p>
-    <a href="#" class="btn-tienda" id="btnTienda">Ir a la tienda</a>
+  <section class="info" aria-label="Información sobre BJ Video Games">
+    <h2 id="infoTitle">Bienvenido a BJ Video Games</h2>
+    <p id="infoDescription">
+      En BJ Video Games encontrarás los mejores juegos de PC, Xbox y PS5. 
+      ¡Compra tus títulos favoritos con garantía y entrega rápida!
+    </p>
+    <a href="tienda.html" class="btn-tienda" id="btnShop">Ir a la tienda</a>
   </section>
 
-  <footer aria-label="Pie de página principal">
-    <div class="footer-section">
-      <h3 id="footerAboutTitle">Sobre Nosotros</h3>
-      <p id="footerAboutText">BJ Video Games es tu mejor opción para comprar videojuegos online con las mejores ofertas y novedades.</p>
-    </div>
-
-    <div class="footer-section">
-      <h3 id="footerLinksTitle">Enlaces</h3>
-      <ul>
-        <li><a href="#" id="footerLinkHome">Inicio</a></li>
-        <li><a href="#" id="footerLinkTienda">Tienda</a></li>
-        <li><a href="#" id="footerLinkOfertas">Ofertas</a></li>
-        <li><a href="#" id="footerLinkContacto">Contacto</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3 id="footerHelpTitle">Ayuda</h3>
-      <ul>
-        <li><a href="#" id="footerHelpFAQ">Preguntas Frecuentes</a></li>
-        <li><a href="#" id="footerHelpShipping">Envíos y Devoluciones</a></li>
-        <li><a href="#" id="footerHelpTerms">Términos y Condiciones</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3 id="footerSocialTitle">Síguenos</h3>
-      <div class="social-icons" role="list">
-        <a href="#" aria-label="Facebook" role="listitem"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-
-    <div class="footer-bottom" id="footerCopyright">
-      © 2025 BJ Video Games. Todos los derechos reservados.
-    </div>
+  <footer>
+    <p>&copy; 2025 BJ Video Games | <a href="terminos.html">Términos y Condiciones</a> | <a href="privacidad.html">Política de Privacidad</a></p>
   </footer>
 
   <script>
-    // Traducciones para la página
-    const translations = {
+    // Datos de juegos y sus links para el buscador
+    const juegos = [
+      "Hollow Knight",
+      "Doom Eternal",
+      "The Legend of Zelda",
+      "FIFA 25",
+      "The Witcher 3",
+      "Spiderman",
+    ];
+
+    const juegoLinks = {
+      "Hollow Knight": "hollow.html",
+      "Doom Eternal": "doom.html",
+      "The Legend of Zelda": "zelda.html",
+      "FIFA 25": "fifa.html",
+      "The Witcher 3": "witcher.html",
+      "Spiderman": "spiderman.html",
+    };
+
+    // Elementos DOM
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      if (!query) {
+        searchResults.style.display = "none";
+        searchResults.innerHTML = "";
+        return;
+      }
+
+      // Filtrar juegos que contengan el texto buscado
+      const filtered = juegos.filter(juego =>
+        juego.toLowerCase().includes(query)
+      );
+
+      if (filtered.length === 0) {
+        searchResults.innerHTML = `<div>No se encontraron resultados</div>`;
+        searchResults.style.display = "block";
+        return;
+      }
+
+      // Mostrar resultados
+      searchResults.innerHTML = filtered
+        .map(
+          juego =>
+            `<div tabindex="0" role="button" aria-label="Ir a la página de ${juego}">${juego}</div>`
+        )
+        .join("");
+      searchResults.style.display = "block";
+    });
+
+    // Manejar clicks en resultados
+    searchResults.addEventListener("click", e => {
+      if (e.target && e.target.matches("div[role='button']")) {
+        const juegoSeleccionado = e.target.textContent;
+        window.location.href = juegoLinks[juegoSeleccionado];
+      }
+    });
+
+    // Soportar selección con teclado (Enter)
+    searchResults.addEventListener("keydown", e => {
+      if (e.key === "Enter" && e.target.matches("div[role='button']")) {
+        const juegoSeleccionado = e.target.textContent;
+        window.location.href = juegoLinks[juegoSeleccionado];
+      }
+    });
+
+    // Cerrar resultados al perder foco
+    searchInput.addEventListener("blur", () => {
+      setTimeout(() => {
+        searchResults.style.display = "none";
+      }, 150);
+    });
+
+    // Multilenguaje
+    const languageSelect = document.getElementById("languageSelect");
+
+    const textos = {
       es: {
         siteTitle: "BJ Video Games",
         searchPlaceholder: "Buscar juegos...",
-        bannerText: "Juegos para todos los gustos",
-        infoTitle: "BJ Video Games",
-        infoText: "Tu tienda favorita de videojuegos, siempre con las mejores promociones y títulos exclusivos para todas las plataformas.",
-        btnTienda: "Ir a la tienda",
-        footerAboutTitle: "Sobre Nosotros",
-        footerAboutText: "BJ Video Games es tu mejor opción para comprar videojuegos online con las mejores ofertas y novedades.",
-        footerLinksTitle: "Enlaces",
-        footerLinkHome: "Inicio",
-        footerLinkTienda: "Tienda",
-        footerLinkOfertas: "Ofertas",
-        footerLinkContacto: "Contacto",
-        footerHelpTitle: "Ayuda",
-        footerHelpFAQ: "Preguntas Frecuentes",
-        footerHelpShipping: "Envíos y Devoluciones",
-        footerHelpTerms: "Términos y Condiciones",
-        footerSocialTitle: "Síguenos",
-        footerCopyright: "© 2025 BJ Video Games. Todos los derechos reservados."
+        infoTitle: "Bienvenido a BJ Video Games",
+        infoDescription:
+          "En BJ Video Games encontrarás los mejores juegos de PC, Xbox y PS5. ¡Compra tus títulos favoritos con garantía y entrega rápida!",
+        btnShop: "Ir a la tienda",
+        noResults: "No se encontraron resultados",
       },
       en: {
         siteTitle: "BJ Video Games",
         searchPlaceholder: "Search games...",
-        bannerText: "Games for every taste",
-        infoTitle: "BJ Video Games",
-        infoText: "Your favorite video game store, always with the best deals and exclusive titles for all platforms.",
-        btnTienda: "Go to store",
-        footerAboutTitle: "About Us",
-        footerAboutText: "BJ Video Games is your best option to buy video games online with the best offers and news.",
-        footerLinksTitle: "Links",
-        footerLinkHome: "Home",
-        footerLinkTienda: "Store",
-        footerLinkOfertas: "Offers",
-        footerLinkContacto: "Contact",
-        footerHelpTitle: "Help",
-        footerHelpFAQ: "Frequently Asked Questions",
-        footerHelpShipping: "Shipping & Returns",
-        footerHelpTerms: "Terms & Conditions",
-        footerSocialTitle: "Follow Us",
-        footerCopyright: "© 2025 BJ Video Games. All rights reserved."
+        infoTitle: "Welcome to BJ Video Games",
+        infoDescription:
+          "At BJ Video Games you'll find the best games for PC, Xbox and PS5. Buy your favorite titles with warranty and fast delivery!",
+        btnShop: "Go to store",
+        noResults: "No results found",
       },
-      fr: {
-        siteTitle: "BJ Video Games",
-        searchPlaceholder: "Rechercher des jeux...",
-        bannerText: "Jeux pour tous les goûts",
-        infoTitle: "BJ Video Games",
-        infoText: "Votre boutique de jeux vidéo préférée, toujours avec les meilleures promotions et titres exclusifs pour toutes les plateformes.",
-        btnTienda: "Aller à la boutique",
-        footerAboutTitle: "À propos",
-        footerAboutText: "BJ Video Games est votre meilleure option pour acheter des jeux vidéo en ligne avec les meilleures offres et nouveautés.",
-        footerLinksTitle: "Liens",
-        footerLinkHome: "Accueil",
-        footerLinkTienda: "Boutique",
-        footerLinkOfertas: "Offres",
-        footerLinkContacto: "Contact",
-        footerHelpTitle: "Aide",
-        footerHelpFAQ: "Questions fréquentes",
-        footerHelpShipping: "Expédition et retours",
-        footerHelpTerms: "Termes et conditions",
-        footerSocialTitle: "Suivez-nous",
-        footerCopyright: "© 2025 BJ Video Games. Tous droits réservés."
-      },
-      de: {
-        siteTitle: "BJ Video Games",
-        searchPlaceholder: "Spiele suchen...",
-        bannerText: "Spiele für jeden Geschmack",
-        infoTitle: "BJ Video Games",
-        infoText: "Ihr Lieblingsvideospielgeschäft, immer mit den besten Angeboten und exklusiven Titeln für alle Plattformen.",
-        btnTienda: "Zum Shop",
-        footerAboutTitle: "Über uns",
-        footerAboutText: "BJ Video Games ist Ihre beste Option, Videospiele online mit den besten Angeboten und Neuigkeiten zu kaufen.",
-        footerLinksTitle: "Links",
-        footerLinkHome: "Startseite",
-        footerLinkTienda: "Shop",
-        footerLinkOfertas: "Angebote",
-        footerLinkContacto: "Kontakt",
-        footerHelpTitle: "Hilfe",
-        footerHelpFAQ: "Häufig gestellte Fragen",
-        footerHelpShipping: "Versand & Rückgabe",
-        footerHelpTerms: "Geschäftsbedingungen",
-        footerSocialTitle: "Folgen Sie uns",
-        footerCopyright: "© 2025 BJ Video Games. Alle Rechte vorbehalten."
-      },
-      it: {
-        siteTitle: "BJ Video Games",
-        searchPlaceholder: "Cerca giochi...",
-        bannerText: "Giochi per tutti i gusti",
-        infoTitle: "BJ Video Games",
-        infoText: "Il tuo negozio di videogiochi preferito, sempre con le migliori offerte e titoli esclusivi per tutte le piattaforme.",
-        btnTienda: "Vai al negozio",
-        footerAboutTitle: "Chi siamo",
-        footerAboutText: "BJ Video Games è la tua migliore opzione per acquistare videogiochi online con le migliori offerte e novità.",
-        footerLinksTitle: "Link",
-        footerLinkHome: "Home",
-        footerLinkTienda: "Negozio",
-        footerLinkOfertas: "Offerte",
-        footerLinkContacto: "Contatti",
-        footerHelpTitle: "Aiuto",
-        footerHelpFAQ: "Domande frequenti",
-        footerHelpShipping: "Spedizioni e resi",
-        footerHelpTerms: "Termini e condizioni",
-        footerSocialTitle: "Seguici",
-        footerCopyright: "© 2025 BJ Video Games. Tutti i diritti riservati."
-      }
     };
 
-    // Cambiar idioma
-    const languageSelect = document.getElementById('languageSelect');
-
-    function updateTexts(lang) {
-      const t = translations[lang];
-      if (!t) return;
-
-      document.getElementById('siteTitle').textContent = t.siteTitle;
-      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-      document.getElementById('bannerText').textContent = t.bannerText;
-      document.getElementById('infoTitle').textContent = t.infoTitle;
-      document.getElementById('infoText').textContent = t.infoText;
-      document.getElementById('btnTienda').textContent = t.btnTienda;
-
-      document.getElementById('footerAboutTitle').textContent = t.footerAboutTitle;
-      document.getElementById('footerAboutText').textContent = t.footerAboutText;
-      document.getElementById('footerLinksTitle').textContent = t.footerLinksTitle;
-      document.getElementById('footerLinkHome').textContent = t.footerLinkHome;
-      document.getElementById('footerLinkTienda').textContent = t.footerLinkTienda;
-      document.getElementById('footerLinkOfertas').textContent = t.footerLinkOfertas;
-      document.getElementById('footerLinkContacto').textContent = t.footerLinkContacto;
-      document.getElementById('footerHelpTitle').textContent = t.footerHelpTitle;
-      document.getElementById('footerHelpFAQ').textContent = t.footerHelpFAQ;
-      document.getElementById('footerHelpShipping').textContent = t.footerHelpShipping;
-      document.getElementById('footerHelpTerms').textContent = t.footerHelpTerms;
-      document.getElementById('footerSocialTitle').textContent = t.footerSocialTitle;
-      document.getElementById('footerCopyright').textContent = t.footerCopyright;
+    function updateLanguage(lang) {
+      const t = textos[lang] || textos.es;
+      document.getElementById("siteTitle").textContent = t.siteTitle;
+      searchInput.placeholder = t.searchPlaceholder;
+      document.getElementById("infoTitle").textContent = t.infoTitle;
+      document.getElementById("infoDescription").textContent = t.infoDescription;
+      document.getElementById("btnShop").textContent = t.btnShop;
+      // Actualizar texto de no resultados en buscador
+      textos.es.noResults = t.noResults;
     }
 
-    languageSelect.addEventListener('change', () => {
-      updateTexts(languageSelect.value);
+    languageSelect.addEventListener("change", e => {
+      updateLanguage(e.target.value);
     });
 
-    // Inicializar textos en español
-    updateTexts('es');
-
-    // BUSCADOR básico sin backend
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    const games = [
-      "Cyberpunk 2077",
-      "The Witcher 3",
-      "Elden Ring",
-      "Among Us",
-      "Minecraft",
-      "FIFA 21",
-      "Call of Duty",
-      "League of Legends",
-      "God of War",
-      "Halo Infinite"
-    ];
-
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase().trim();
-      searchResults.innerHTML = '';
-      if (query.length === 0) {
-        searchResults.style.display = 'none';
-        return;
-      }
-      const filtered = games.filter(game => game.toLowerCase().includes(query));
-      if (filtered.length === 0) {
-        searchResults.style.display = 'none';
-        return;
-      }
-      filtered.forEach(game => {
-        const div = document.createElement('div');
-        div.textContent = game;
-        div.tabIndex = 0;
-        div.addEventListener('click', () => {
-          searchInput.value = game;
-          searchResults.style.display = 'none';
-        });
-        div.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            searchInput.value = game;
-            searchResults.style.display = 'none';
-          }
-        });
-        searchResults.appendChild(div);
-      });
-      searchResults.style.display = 'block';
-    });
-
-    // Ocultar resultados al perder foco (con delay para click)
-    searchInput.addEventListener('blur', () => {
-      setTimeout(() => {
-        searchResults.style.display = 'none';
-      }, 200);
-    });
-
+    // Inicializar idioma
+    updateLanguage(languageSelect.value);
   </script>
+
 </body>
 </html>
+
 
 
 
