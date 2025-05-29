@@ -589,6 +589,30 @@
     showSlide(0);
   </script>
 
+
+  <script>
+  const searchInput = document.getElementById('searchInput');
+  const games = document.querySelectorAll('#gameList .game-card');
+  const noResults = document.getElementById('noResults');
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.toLowerCase().trim();
+    let matchCount = 0;
+
+    games.forEach(game => {
+      const title = game.textContent.toLowerCase();
+      if (title.includes(query)) {
+        game.style.display = '';
+        matchCount++;
+      } else {
+        game.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = (matchCount === 0) ? 'block' : 'none';
+  });
+</script>
+
 </body>
 </html>
 
