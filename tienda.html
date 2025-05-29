@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BJ Video Games</title>
   <style>
     body {
@@ -12,27 +12,22 @@
       background-color: #000;
       color: #fff;
     }
-
     header {
       background-color: #1a1a1a;
       padding: 10px 20px;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      top: 0; left: 0; width: 100%;
       z-index: 1000;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     header nav a {
       color: #fff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
-
     #carrito-btn {
       background-color: #ffcc00;
       color: #000;
@@ -42,18 +37,15 @@
       cursor: pointer;
       position: relative;
     }
-
     #cart-count {
       background: red;
       color: white;
       border-radius: 50%;
       padding: 2px 6px;
       position: absolute;
-      top: -5px;
-      right: -5px;
+      top: -5px; right: -5px;
       font-size: 12px;
     }
-
     aside {
       position: fixed;
       top: 60px;
@@ -64,36 +56,29 @@
       padding: 20px;
       box-sizing: border-box;
     }
-
     aside h2 {
       color: #ffcc00;
     }
-
     aside ul {
       list-style: none;
       padding: 0;
     }
-
     aside ul li {
       margin-bottom: 10px;
     }
-
     aside ul li a {
       color: #fff;
       text-decoration: none;
     }
-
     main {
       margin-left: 270px;
       padding: 100px 20px 20px;
     }
-
     .juegos-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
       gap: 20px;
     }
-
     .juego {
       background-color: #111;
       border-radius: 10px;
@@ -101,12 +86,10 @@
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .juego:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(255, 204, 0, 0.4);
+      box-shadow: 0 4px 20px rgba(255,204,0,0.4);
     }
-
     .juego img {
       width: 100%;
       height: 200px;
@@ -114,15 +97,12 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
     .juego h3 {
       margin: 10px 0 5px;
     }
-
     .juego p {
       margin: 5px 0;
     }
-
     .juego button {
       background-color: #ffcc00;
       color: #000;
@@ -132,7 +112,6 @@
       cursor: pointer;
       margin-top: 8px;
     }
-
     #carrito-panel {
       position: fixed;
       top: 0;
@@ -147,17 +126,14 @@
       transition: right 0.3s ease;
       z-index: 2000;
     }
-
     #carrito-panel.active {
       right: 0;
     }
-
     .carrito-item {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
     }
-
     .carrito-item button {
       background-color: red;
       color: white;
@@ -167,7 +143,6 @@
       padding: 2px 6px;
       font-size: 12px;
     }
-
     footer {
       background-color: #1a1a1a;
       color: #fff;
@@ -176,13 +151,11 @@
       position: relative;
       margin-top: 40px;
     }
-
     footer a {
       color: #fff;
       margin: 0 10px;
       text-decoration: none;
     }
-
     #notificacion-carrito {
       position: fixed;
       top: 80px;
@@ -197,7 +170,6 @@
       z-index: 3000;
       font-weight: bold;
     }
-
     #notificacion-carrito.mostrar {
       opacity: 1;
       transform: translateY(0);
@@ -225,7 +197,7 @@
     <li><a href="spiderman.html">Acción: Spider-Man</a></li>
     <li><a href="witcher.html">RPG: The Witcher 3</a></li>
     <li><a href="doom.html">Shooter: DOOM Eternal</a></li>
-    <li><a href="fifa.html">Deportes: FIFA 23</a></li>
+    <li><a href="fifa.html">Deportes: FIFA 25</a></li>
     <li><a href="hollow.html">Indie: Hollow Knight</a></li>
   </ul>
 </aside>
@@ -237,23 +209,59 @@
   </section>
 
   <div class="juegos-container">
-    <!-- Zelda Tears of the Kingdom -->
+    <!-- Juegos originales -->
+
     <div class="juego">
-      <a href="zelda_tears_of_the_kingdom.html"><img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom"></a>
-      <h3>Zelda: Tears of the Kingdom</h3>
-      <p>$69.99</p>
-      <button onclick="añadirAlCarrito('Zelda: Tears of the Kingdom', 69.99)">Añadir al carrito</button>
+      <a href="fifa25.html"><img src="fifa25.jpg" alt="FIFA 25"></a>
+      <h3>FIFA 25</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('FIFA 25', 59.99)">Añadir al carrito</button>
     </div>
 
-    <!-- Celeste 1 -->
     <div class="juego">
-      <a href="celeste1.html"><img src="celeste1.jpg" alt="Celeste 1"></a>
-      <h3>Celeste 1</h3>
-      <p>$19.99</p>
-      <button onclick="añadirAlCarrito('Celeste 1', 19.99)">Añadir al carrito</button>
+      <a href="hollow_knight.html"><img src="hollow_knight.jpg" alt="Hollow Knight"></a>
+      <h3>Hollow Knight</h3>
+      <p>$14.99</p>
+      <button onclick="añadirAlCarrito('Hollow Knight', 14.99)">Añadir al carrito</button>
     </div>
 
-    <!-- Celeste 2 -->
+    <div class="juego">
+      <a href="doom_eternal.html"><img src="doom_eternal.jpg" alt="DOOM Eternal"></a>
+      <h3>DOOM Eternal</h3>
+      <p>$49.99</p>
+      <button onclick="añadirAlCarrito('DOOM Eternal', 49.99)">Añadir al carrito</button>
+    </div>
+
+    <div class="juego">
+      <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
+      <h3>Spider-Man</h3>
+      <p>$39.99</p>
+      <button onclick="añadirAlCarrito('Spider-Man', 39.99)">Añadir al carrito</button>
+    </div>
+
+    <div class="juego">
+      <a href="zelda_botw.html"><img src="zelda_botw.jpg" alt="Zelda BOTW"></a>
+      <h3>Zelda: Breath of the Wild</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('Zelda BOTW', 59.99)">Añadir al carrito</button>
+    </div>
+
+    <div class="juego">
+      <a href="witcher3.html"><img src="witcher3.jpg" alt="The Witcher 3"></a>
+      <h3>The Witcher 3</h3>
+      <p>$29.99</p>
+      <button onclick="añadirAlCarrito('The Witcher 3', 29.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Juegos nuevos -->
+
+    <div class="juego">
+      <a href="doom_dark_ages.html"><img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages"></a>
+      <h3>DOOM: The Dark Ages</h3>
+      <p>$39.99</p>
+      <button onclick="añadirAlCarrito('DOOM: The Dark Ages', 39.99)">Añadir al carrito</button>
+    </div>
+
     <div class="juego">
       <a href="celeste2.html"><img src="celeste2.jpg" alt="Celeste 2"></a>
       <h3>Celeste 2</h3>
@@ -261,39 +269,13 @@
       <button onclick="añadirAlCarrito('Celeste 2', 29.99)">Añadir al carrito</button>
     </div>
 
-    <!-- Red Dead Redemption 2 -->
     <div class="juego">
-      <a href="red_dead_redemption_2.html"><img src="red_dead_redemption_2.jpg" alt="Red Dead Redemption 2"></a>
-      <h3>Red Dead Redemption 2</h3>
-      <p>$59.99</p>
-      <button onclick="añadirAlCarrito('Red Dead Redemption 2', 59.99)">Añadir al carrito</button>
+      <a href="zelda_tears_of_the_kingdom.html"><img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom"></a>
+      <h3>Zelda: Tears of the Kingdom</h3>
+      <p>$69.99</p>
+      <button onclick="añadirAlCarrito('Zelda: Tears of the Kingdom', 69.99)">Añadir al carrito</button>
     </div>
 
-    <!-- Subnautica 2 -->
-    <div class="juego">
-      <a href="subnautica_2.html"><img src="subnautica_2.jpg" alt="Subnautica 2"></a>
-      <h3>Subnautica 2</h3>
-      <p>$49.99</p>
-      <button onclick="añadirAlCarrito('Subnautica 2', 49.99)">Añadir al carrito</button>
-    </div>
-
-    <!-- Minecraft -->
-    <div class="juego">
-      <a href="minecraft.html"><img src="minecraft.jpg" alt="Minecraft"></a>
-      <h3>Minecraft</h3>
-      <p>$26.95</p>
-      <button onclick="añadirAlCarrito('Minecraft', 26.95)">Añadir al carrito</button>
-    </div>
-
-    <!-- Hades 2 -->
-    <div class="juego">
-      <a href="hades_2.html"><img src="hades_2.jpg" alt="Hades 2"></a>
-      <h3>Hades 2</h3>
-      <p>$34.99</p>
-      <button onclick="añadirAlCarrito('Hades 2', 34.99)">Añadir al carrito</button>
-    </div>
-
-    <!-- Elden Ring -->
     <div class="juego">
       <a href="elden_ring.html"><img src="elden_ring.jpg" alt="Elden Ring"></a>
       <h3>Elden Ring</h3>
@@ -301,12 +283,18 @@
       <button onclick="añadirAlCarrito('Elden Ring', 59.99)">Añadir al carrito</button>
     </div>
 
-    <!-- DOOM The Dark Ages -->
     <div class="juego">
-      <a href="doom_dark_ages.html"><img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages"></a>
-      <h3>DOOM: The Dark Ages</h3>
-      <p>$39.99</p>
-      <button onclick="añadirAlCarrito('DOOM: The Dark Ages', 39.99)">Añadir al carrito</button>
+      <a href="hades2.html"><img src="hades2.jpg" alt="Hades II"></a>
+      <h3>Hades II</h3>
+      <p>$34.99</p>
+      <button onclick="añadirAlCarrito('Hades II', 34.99)">Añadir al carrito</button>
+    </div>
+
+    <div class="juego">
+      <a href="celeste1.html"><img src="celeste1.jpg" alt="Celeste 1"></a>
+      <h3>Celeste 1</h3>
+      <p>$19.99</p>
+      <button onclick="añadirAlCarrito('Celeste 1', 19.99)">Añadir al carrito</button>
     </div>
   </div>
 </main>
@@ -388,4 +376,3 @@
 
 </body>
 </html>
-
