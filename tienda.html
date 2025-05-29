@@ -210,14 +210,13 @@
   <nav style="display: flex; align-items: center; width: 100%;">
     <div style="display: flex; gap: 15px;">
       <a href="#inicio">Inicio</a>
-     <a href="contacto.html">Contáctanos</a>
+      <a href="contacto.html">Contáctanos</a>
     </div>
     <button id="carrito-btn" onclick="toggleCarrito()" style="margin-left: auto;">
       🛒 <span id="cart-count">0</span>
     </button>
   </nav>
 </header>
-
 
 <aside>
   <h2>Categorías</h2>
@@ -238,117 +237,155 @@
   </section>
 
   <div class="juegos-container">
+    <!-- Zelda Tears of the Kingdom -->
     <div class="juego">
-      <a href="zelda.html"><img src="zelda.jpg" alt="Zelda"></a>
-      <h3>Zelda</h3>
-      <p>$59.99</p>
-      <button onclick="añadirAlCarrito('Zelda', 59.99)">Añadir al carrito</button>
+      <a href="zelda_tears_of_the_kingdom.html"><img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom"></a>
+      <h3>Zelda: Tears of the Kingdom</h3>
+      <p>$69.99</p>
+      <button onclick="añadirAlCarrito('Zelda: Tears of the Kingdom', 69.99)">Añadir al carrito</button>
     </div>
+
+    <!-- Celeste 1 -->
     <div class="juego">
-      <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
-      <h3>Spider-Man</h3>
-      <p>$49.99</p>
-      <button onclick="añadirAlCarrito('Spider-Man', 49.99)">Añadir al carrito</button>
-    </div>
-    <div class="juego">
-      <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
-      <h3>The Witcher 3</h3>
-      <p>$39.99</p>
-      <button onclick="añadirAlCarrito('The Witcher 3', 39.99)">Añadir al carrito</button>
-    </div>
-    <div class="juego">
-      <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
-      <h3>DOOM Eternal</h3>
-      <p>$29.99</p>
-      <button onclick="añadirAlCarrito('DOOM Eternal', 29.99)">Añadir al carrito</button>
-    </div>
-    <div class="juego">
-      <a href="fifa.html"><img src="fifa.jpg" alt="FIFA 25"></a>
-      <h3>FIFA 25</h3>
-      <p>$39.99</p>
-      <button onclick="añadirAlCarrito('FIFA 25', 39.99)">Añadir al carrito</button>
-    </div>
-    <div class="juego">
-      <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
-      <h3>Hollow Knight</h3>
+      <a href="celeste1.html"><img src="celeste1.jpg" alt="Celeste 1"></a>
+      <h3>Celeste 1</h3>
       <p>$19.99</p>
-      <button onclick="añadirAlCarrito('Hollow Knight', 19.99)">Añadir al carrito</button>
+      <button onclick="añadirAlCarrito('Celeste 1', 19.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Celeste 2 -->
+    <div class="juego">
+      <a href="celeste2.html"><img src="celeste2.jpg" alt="Celeste 2"></a>
+      <h3>Celeste 2</h3>
+      <p>$29.99</p>
+      <button onclick="añadirAlCarrito('Celeste 2', 29.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Red Dead Redemption 2 -->
+    <div class="juego">
+      <a href="red_dead_redemption_2.html"><img src="red_dead_redemption_2.jpg" alt="Red Dead Redemption 2"></a>
+      <h3>Red Dead Redemption 2</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('Red Dead Redemption 2', 59.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Subnautica 2 -->
+    <div class="juego">
+      <a href="subnautica_2.html"><img src="subnautica_2.jpg" alt="Subnautica 2"></a>
+      <h3>Subnautica 2</h3>
+      <p>$49.99</p>
+      <button onclick="añadirAlCarrito('Subnautica 2', 49.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Minecraft -->
+    <div class="juego">
+      <a href="minecraft.html"><img src="minecraft.jpg" alt="Minecraft"></a>
+      <h3>Minecraft</h3>
+      <p>$26.95</p>
+      <button onclick="añadirAlCarrito('Minecraft', 26.95)">Añadir al carrito</button>
+    </div>
+
+    <!-- Hades 2 -->
+    <div class="juego">
+      <a href="hades_2.html"><img src="hades_2.jpg" alt="Hades 2"></a>
+      <h3>Hades 2</h3>
+      <p>$34.99</p>
+      <button onclick="añadirAlCarrito('Hades 2', 34.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- Elden Ring -->
+    <div class="juego">
+      <a href="elden_ring.html"><img src="elden_ring.jpg" alt="Elden Ring"></a>
+      <h3>Elden Ring</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('Elden Ring', 59.99)">Añadir al carrito</button>
+    </div>
+
+    <!-- DOOM The Dark Ages -->
+    <div class="juego">
+      <a href="doom_dark_ages.html"><img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages"></a>
+      <h3>DOOM: The Dark Ages</h3>
+      <p>$39.99</p>
+      <button onclick="añadirAlCarrito('DOOM: The Dark Ages', 39.99)">Añadir al carrito</button>
     </div>
   </div>
-
- 
+</main>
 
 <div id="carrito-panel">
   <h2>Carrito</h2>
-  <div id="carrito-contenido"></div>
-  <p><strong>Total:</strong> $<span id="carrito-total">0.00</span></p>
-  <a href="finalizar.html" style="display:block; margin-top:10px; text-align:center; background-color:#ffcc00; color:#000; padding:10px; border-radius:5px; text-decoration:none;">
-  Finalizar compra
-</a>
-
+  <div id="carrito-items"></div>
+  <p><strong>Total:</strong> $<span id="total-carrito">0.00</span></p>
+  <button onclick="vaciarCarrito()">Vaciar carrito</button>
+  <button onclick="alert('Gracias por su compra!')">Finalizar compra</button>
 </div>
-
-<footer>
-  <a href="#inicio">Inicio</a>
-  <a href="#carrito" onclick="toggleCarrito()">Carrito</a>
-  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
-</footer>
 
 <div id="notificacion-carrito"></div>
 
+<footer>
+  <p>© 2025 BJ Video Games - Todos los derechos reservados.</p>
+  <p>
+    <a href="https://www.bjvideogames.com/terminos">Términos y condiciones</a> |
+    <a href="https://www.bjvideogames.com/privacidad">Política de privacidad</a> |
+    <a href="https://www.bjvideogames.com/contacto">Contacto</a>
+  </p>
+</footer>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const carrito = [];
-    const carritoContenido = document.getElementById("carrito-contenido");
-    const cartCount = document.getElementById("cart-count");
-    const carritoPanel = document.getElementById("carrito-panel");
-    const carritoTotal = document.getElementById("carrito-total");
+  const carritoBtn = document.getElementById('carrito-btn');
+  const carritoPanel = document.getElementById('carrito-panel');
+  const carritoItems = document.getElementById('carrito-items');
+  const totalCarrito = document.getElementById('total-carrito');
+  const cartCount = document.getElementById('cart-count');
+  const notificacion = document.getElementById('notificacion-carrito');
 
-    window.añadirAlCarrito = function(nombre, precio) {
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-      mostrarNotificacion(`${nombre} fue añadido al carrito`);
-    }
+  let carrito = [];
 
-    window.toggleCarrito = function() {
-      carritoPanel.classList.toggle("active");
-    }
+  function toggleCarrito() {
+    carritoPanel.classList.toggle('active');
+  }
 
-    function actualizarCarrito() {
-      carritoContenido.innerHTML = "";
-      let total = 0;
+  function actualizarCarrito() {
+    carritoItems.innerHTML = '';
+    let total = 0;
+    carrito.forEach((item, index) => {
+      total += item.precio;
+      const div = document.createElement('div');
+      div.className = 'carrito-item';
+      div.innerHTML = `
+        <span>${item.nombre} - $${item.precio.toFixed(2)}</span>
+        <button onclick="quitarDelCarrito(${index})">X</button>
+      `;
+      carritoItems.appendChild(div);
+    });
+    totalCarrito.textContent = total.toFixed(2);
+    cartCount.textContent = carrito.length;
+  }
 
-      carrito.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.classList.add("carrito-item");
-        div.innerHTML = `
-          <span>${item.nombre} - $${item.precio.toFixed(2)}</span>
-          <button onclick="eliminarDelCarrito(${index})">X</button>
-        `;
-        carritoContenido.appendChild(div);
-        total += item.precio;
-      });
+  function añadirAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+    mostrarNotificacion(`"${nombre}" añadido al carrito`);
+  }
 
-      cartCount.textContent = carrito.length;
-      carritoTotal.textContent = total.toFixed(2);
-    }
+  function quitarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+  }
 
-    window.eliminarDelCarrito = function(index) {
-      carrito.splice(index, 1);
-      actualizarCarrito();
-    }
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+  }
 
-    function mostrarNotificacion(texto) {
-      const notif = document.getElementById("notificacion-carrito");
-      notif.textContent = texto;
-      notif.classList.add("mostrar");
-
-      setTimeout(() => {
-        notif.classList.remove("mostrar");
-      }, 2000);
-    }
-  });
+  function mostrarNotificacion(mensaje) {
+    notificacion.textContent = mensaje;
+    notificacion.classList.add('mostrar');
+    setTimeout(() => {
+      notificacion.classList.remove('mostrar');
+    }, 2000);
+  }
 </script>
 
 </body>
 </html>
+
