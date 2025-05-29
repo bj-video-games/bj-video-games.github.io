@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hades II</title>
+  <style>
+    :root {
+      --gris-oscuro: #1e1e2f;
+      --gris-medio: #4a4a68;
+      --gris-claro: #6e6e8c;
+      --gris-clarisimo: #a0a0b0;
+      --blanco: #f5f5f5;
+      --amarillo-luz: #fbbd23;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, var(--gris-oscuro), var(--gris-medio));
+      color: var(--blanco);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--gris-oscuro);
+      padding: 12px 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header div {
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--amarillo-luz);
+    }
+
+    header nav a {
+      color: var(--blanco);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    header nav a:hover {
+      color: var(--amarillo-luz);
+    }
+
+    main {
+      padding: 100px 20px 40px;
+      margin: 0 auto;
+      max-width: none;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--amarillo-luz);
+    }
+
+    .contenido-principal {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .poster {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(118, 255, 3, 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .trailer {
+      width: 1000px !important;
+      height: 600px !important;
+      object-fit: fill;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(118, 255, 3, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .poster:hover,
+    .trailer:hover {
+      transform: scale(1.02);
+    }
+
+    section h2 {
+      color: var(--amarillo-luz);
+      margin-top: 30px;
+    }
+
+    section p, section ul {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li::marker {
+      color: var(--amarillo-luz);
+    }
+
+    footer {
+      background-color: var(--gris-oscuro);
+      color: var(--blanco);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--amarillo-luz);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(118, 255, 3, 0.2);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 36px;
+      color: var(--blanco);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: var(--amarillo-luz);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>BJ Video Games</strong></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Hades II</h1>
+
+  <div class="contenido-principal">
+    <img src="hades_2.jpg" alt="Hades II" class="poster" onclick="openLightbox()">
+    <video class="trailer" controls preload="auto" playsinline>
+      <source src="hades_2_trailer.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+
+  <section>
+    <h2>Descripción</h2>
+    <p><em>Hades II</em> es la secuela del galardonado roguelike de acción, donde continuarás explorando el inframundo con combates frenéticos y una historia profunda y dinámica.</p>
+  </section>
+
+  <section>
+    <h2>Características Principales</h2>
+    <ul>
+      <li>Combate rápido y fluido con armas y poderes únicos.</li>
+      <li>Historia dinámica con personajes memorables.</li>
+      <li>Diseño roguelike con generación procedural.</li>
+      <li>Mejoras visuales y nuevas mecánicas respecto al original.</li>
+    </ul>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">×</span>
+    <img src="hades_2.jpg" alt="Hades II Ampliado">
+  </div>
+</main>
+
+<footer>
+  <a href="#">Facebook</a>
+  <a href="#">Twitter</a>
+  <a href="#">Instagram</a>
+  <p>&copy; 2025 BJ Video Games. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  function openLightbox() {
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
