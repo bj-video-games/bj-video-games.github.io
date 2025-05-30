@@ -92,151 +92,121 @@
     padding: 100px 20px 20px;
   }
 
-  /* Contenedor de juegos (grid responsive) */
-  .juegos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* Tarjeta individual de juego */
-  .juego {
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
+    body {
+      background-color: #121212;
+      padding: 20px;
+      color: #fff;
+    }
 
-  .juego:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 204, 0, 0.3);
-  }
+    .juegos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-  .juego img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
+    .juego {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
 
-  /* Información del juego */
-  .info-juego {
-    padding: 12px 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+    .juego:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(255, 204, 0, 0.2);
+    }
 
-  .info-juego h3 {
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 600;
-    margin: 0;
-  }
+    .juego img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-bottom: 1px solid #333;
+    }
 
-  .plataforma {
-    font-size: 0.85rem;
-    color: #aaa;
-    font-style: italic;
-  }
+    .juego-contenido {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-  /* Etiqueta global */
-  .global-label {
-    background-color: #ffcc00;
-    color: #000;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 6px;
-    white-space: nowrap;
-    margin-top: 2px;
-  }
+    .empresa {
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #aaa;
+    }
 
-  /* Contenedor para precios */
-  .info-juego .precio-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 4px;
-  }
+    .empresa img {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
 
-  .precio-original {
-    font-size: 0.85rem;
-    color: #888;
-    text-decoration: line-through;
-  }
+    .titulo-juego {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      min-height: 40px;
+    }
 
-  .precio-descuento {
-    font-size: 1.1rem;
-    color: #00ffcc;
-    font-weight: bold;
-  }
+    .global {
+      font-size: 0.7rem;
+      background-color: #ffd700;
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      width: fit-content;
+      font-weight: 600;
+    }
 
-  .descuento {
-    font-size: 0.85rem;
-    color: #ff5050;
-    font-weight: bold;
-    margin-left: 6px;
-  }
+    .precio-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  .favoritos {
-    font-size: 0.85rem;
-    color: #ccc;
-  }
+    .precio-anterior {
+      font-size: 0.75rem;
+      color: #999;
+      text-decoration: line-through;
+    }
 
-  /* Botones generales */
-  button {
-    margin: 10px 15px 15px;
-    background-color: #ffcc00;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
+    .descuento {
+      font-size: 0.75rem;
+      color: #ff5050;
+      font-weight: bold;
+    }
 
-  button:hover {
-    background-color: #e6b800;
-  }
+    .precio-actual {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00ffcc;
+    }
 
-  /* Icono favorito (corazón) */
-  .favorito {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    color: #aaa;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: color 0.3s;
-    user-select: none;
-    z-index: 10;
-  }
+    .favorito {
+      font-size: 1.2rem;
+      color: #999;
+      cursor: pointer;
+      margin-top: auto;
+      text-align: right;
+      transition: color 0.3s ease;
+    }
 
-  .favorito:hover {
-    color: red;
-  }
-
-  /* Panel carrito lateral */
-  #carrito-panel {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    background-color: #111;
-    color: white;
-    overflow-y: auto;
-    padding: 20px;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-    transition: right 0.3s ease;
-    z-index: 2000;
-  }
+    .favorito:hover,
+    .favorito.activo {
+      color: red;
+    }
 
   #carrito-panel.active {
     right: 0;
@@ -295,21 +265,6 @@
     transform: translateY(0);
   }
 
-  /* Layout para header-row dentro de info-juego */
-  .info-juego .header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* Empresa dentro info-juego */
-  .info-juego .empresa {
-    font-size: 0.85rem;
-    color: #ffcc00;
-    font-weight: bold;
-    white-space: nowrap;
-  }
 </style>
 
 <header>
