@@ -235,6 +235,83 @@
       transform: translateY(0);
     }
   </style>
+
+<style>
+.info-juego .header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Empresa */
+.info-juego .empresa {
+  font-size: 0.85rem;
+  color: #ffcc00;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Título (ya tienes .info-juego h3) */
+
+/* Etiqueta GLOBAL */
+.info-juego .global-label {
+  background-color: #ffcc00;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Contenedor para precios en fila */
+.info-juego .precio-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Ajuste para precios */
+.precio-original {
+  font-size: 0.85rem;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.precio-descuento {
+  font-size: 1.1rem;
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+.descuento {
+  font-size: 0.85rem;
+  color: #ff5050;
+  font-weight: bold;
+}
+
+/* Ajustar botón favorito (corazón) para que quede sobre la imagen */
+.favorito {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #aaa;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+  z-index: 10;
+}
+
+.favorito:hover {
+  color: red;
+}
+
+
+</style>
+
 </head>
 <body>
 
@@ -271,169 +348,226 @@
 <div class="juegos-container">
 
   <div class="juego">
-    <a href="fifa25.html"><img src="fifa.jpg" alt="FIFA 25"></a>
-    <div class="info-juego">
-      <h3>FIFA 25 PC Origin Key GLOBAL</h3>
-      <p class="plataforma">Origin</p>
-      <p class="precio-descuento">$250,000 COP</p>
-      <p class="favoritos">1,250 favoritos</p>
+  <img src="fifa.jpg" alt="FIFA 25">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="origin.png" alt="Origin">Origin</div>
+    <div class="titulo-juego">FIFA 25 PC Origin Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
     </div>
-    <button onclick="añadirAlCarrito('FIFA 25', 250000)">Añadir al carrito</button>
+    <div class="precio-actual">COP 250,000</div>
+    <i class="fas fa-heart favorito"></i>
   </div>
-
-  <div class="juego">
-    <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
-    <div class="info-juego">
-      <h3>Hollow Knight PC Steam Key GLOBAL</h3>
-      <p class="plataforma">Steam</p>
-      <p class="precio-original">$70,000 COP</p>
-      <p class="precio-descuento">$55,000 COP</p>
-      <p class="descuento">-21%</p>
-      <p class="favoritos">930 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Hollow Knight', 55000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
-    <div class="info-juego">
-      <h3>DOOM Eternal PC Bethesda Key GLOBAL</h3>
-      <p class="plataforma">Bethesda</p>
-      <p class="precio-descuento">$180,000 COP</p>
-      <p class="favoritos">1,150 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('DOOM Eternal', 180000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
-    <div class="info-juego">
-      <h3>Spider-Man PC Epic Games Key GLOBAL</h3>
-      <p class="plataforma">Epic Games</p>
-      <p class="precio-original">$130,000 COP</p>
-      <p class="precio-descuento">$110,000 COP</p>
-      <p class="descuento">-15%</p>
-      <p class="favoritos">870 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Spider-Man', 110000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="zelda.html"><img src="zelda.jpg" alt="Zelda BOTW"></a>
-    <div class="info-juego">
-      <h3>Zelda: Breath of the Wild Nintendo Switch Key</h3>
-      <p class="plataforma">Nintendo Switch</p>
-      <p class="precio-descuento">$220,000 COP</p>
-      <p class="favoritos">980 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Zelda BOTW', 220000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
-    <div class="info-juego">
-      <h3>The Witcher 3 PC GOG Key GLOBAL</h3>
-      <p class="plataforma">GOG</p>
-      <p class="precio-original">$120,000 COP</p>
-      <p class="precio-descuento">$90,000 COP</p>
-      <p class="descuento">-25%</p>
-      <p class="favoritos">1,100 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('The Witcher 3', 90000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="doom_dark_ages.html"><img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages"></a>
-    <div class="info-juego">
-      <h3>DOOM: The Dark Ages PC Bethesda Key GLOBAL</h3>
-      <p class="plataforma">Bethesda</p>
-      <p class="precio-descuento">$140,000 COP</p>
-      <p class="favoritos">700 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('DOOM: The Dark Ages', 140000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="zelda_tears.html"><img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom"></a>
-    <div class="info-juego">
-      <h3>Zelda: Tears of the Kingdom Nintendo Switch Key</h3>
-      <p class="plataforma">Nintendo Switch</p>
-      <p class="precio-descuento">$240,000 COP</p>
-      <p class="favoritos">820 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Zelda: Tears of the Kingdom', 240000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="elden_ring.html"><img src="elden_ring.jpg" alt="Elden Ring"></a>
-    <div class="info-juego">
-      <h3>Elden Ring PC Steam Key GLOBAL</h3>
-      <p class="plataforma">Steam</p>
-      <p class="precio-descuento">$220,000 COP</p>
-      <p class="favoritos">1,350 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Elden Ring', 220000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="hades_2.html"><img src="hades2.jpg" alt="Hades II"></a>
-    <div class="info-juego">
-      <h3>Hades II PC Steam Key GLOBAL</h3>
-      <p class="plataforma">Steam</p>
-      <p class="precio-original">$40,000 COP</p>
-      <p class="precio-descuento">$35,000 COP</p>
-      <p class="descuento">-13%</p>
-      <p class="favoritos">760 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Hades II', 35000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="Celeste.html"><img src="celeste.jpg" alt="Celeste"></a>
-    <div class="info-juego">
-      <h3>Celeste PC Steam Key GLOBAL</h3>
-      <p class="plataforma">Steam</p>
-      <p class="precio-descuento">$55,000 COP</p>
-      <p class="favoritos">620 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Celeste', 55000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="minecraft.html"><img src="minecraft.jpg" alt="Minecraft"></a>
-    <div class="info-juego">
-      <h3>Minecraft PC Key GLOBAL</h3>
-      <p class="precio-descuento">$75,000 COP</p>
-      <p class="favoritos">900 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Minecraft', 75000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="subnautica2.html"><img src="subnautica2.jpg" alt="Subnautica 2"></a>
-    <div class="info-juego">
-      <h3>Subnautica 2 PC Steam Key GLOBAL</h3>
-      <p class="plataforma">Steam</p>
-      <p class="precio-descuento">$100,000 COP</p>
-      <p class="favoritos">750 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Subnautica 2', 100000)">Añadir al carrito</button>
-  </div>
-
-  <div class="juego">
-    <a href="red_dead2.html"><img src="red.jpeg" alt="Red Dead Redemption 2"></a>
-    <div class="info-juego">
-      <h3>Red Dead Redemption 2 PC Rockstar Key GLOBAL</h3>
-      <p class="plataforma">Rockstar Games Launcher</p>
-      <p class="precio-original">$1,200,000 COP</p>
-      <p class="precio-descuento">$570,000 COP</p>
-      <p class="descuento">-52%</p>
-      <p class="favoritos">19,573 favoritos</p>
-    </div>
-    <button onclick="añadirAlCarrito('Red Dead Redemption 2', 570000)">Añadir al carrito</button>
-  </div>
-
 </div>
+
+  <div class="juego">
+  <img src="hollow.jpg" alt="Hollow Knight">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="steam.png" alt="Steam">Steam</div>
+    <div class="titulo-juego">Hollow Knight PC Steam Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior">COP 70,000</span>
+      <span class="descuento">-21%</span>
+    </div>
+    <div class="precio-actual">COP 55,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+ <div class="juego">
+  <img src="doom.jpg" alt="DOOM Eternal">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="bethesda.png" alt="Bethesda">Bethesda</div>
+    <div class="titulo-juego">DOOM Eternal PC Bethesda Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 180,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="spiderman.jpg" alt="Spider-Man">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="epicgames.png" alt="Epic Games">Epic Games</div>
+    <div class="titulo-juego">Spider-Man PC Epic Games Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior">COP 130,000</span>
+      <span class="descuento">-15%</span>
+    </div>
+    <div class="precio-actual">COP 110,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+ <div class="juego">
+  <img src="zelda.jpg" alt="Zelda BOTW">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="nintendo.png" alt="Nintendo Switch">Nintendo Switch</div>
+    <div class="titulo-juego">Zelda: Breath of the Wild Nintendo Switch Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 220,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+ <div class="juego">
+  <img src="witcher.jpg" alt="The Witcher 3">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="gog.png" alt="GOG">GOG</div>
+    <div class="titulo-juego">The Witcher 3 PC GOG Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior">COP 120,000</span>
+      <span class="descuento">-25%</span>
+    </div>
+    <div class="precio-actual">COP 90,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="bethesda.png" alt="Bethesda">Bethesda</div>
+    <div class="titulo-juego">DOOM: The Dark Ages PC Bethesda Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 140,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="nintendo.png" alt="Nintendo Switch">Nintendo Switch</div>
+    <div class="titulo-juego">Zelda: Tears of the Kingdom Nintendo Switch Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 240,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="elden_ring.jpg" alt="Elden Ring">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="steam.png" alt="Steam">Steam</div>
+    <div class="titulo-juego">Elden Ring PC Steam Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 220,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="hades2.jpg" alt="Hades II">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="steam.png" alt="Steam">Steam</div>
+    <div class="titulo-juego">Hades II PC Steam Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior">COP 40,000</span>
+      <span class="descuento">-13%</span>
+    </div>
+    <div class="precio-actual">COP 35,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+ <div class="juego">
+  <img src="celeste.jpg" alt="Celeste">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="steam.png" alt="Steam">Steam</div>
+    <div class="titulo-juego">Celeste PC Steam Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 55,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="minecraft.jpg" alt="Minecraft">
+  <div class="juego-contenido">
+    <div class="empresa"></div>
+    <div class="titulo-juego">Minecraft PC Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 75,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+  <div class="juego">
+  <img src="subnautica2.jpg" alt="Subnautica 2">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="steam.png" alt="Steam">Steam</div>
+    <div class="titulo-juego">Subnautica 2 PC Steam Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior"></span>
+      <span class="descuento"></span>
+    </div>
+    <div class="precio-actual">COP 100,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
+
+ <div class="juego">
+  <img src="red.jpeg" alt="Red Dead Redemption 2">
+  <div class="juego-contenido">
+    <div class="empresa"><img src="rockstar.png" alt="Rockstar Games Launcher">Rockstar Games Launcher</div>
+    <div class="titulo-juego">Red Dead Redemption 2 PC Rockstar Key</div>
+    <div class="global">GLOBAL</div>
+    <div class="precio-info">
+      <span class="precio-anterior">COP 1,200,000</span>
+      <span class="descuento">-52%</span>
+    </div>
+    <div class="precio-actual">COP 570,000</div>
+    <i class="fas fa-heart favorito"></i>
+  </div>
+</div>
+
 
 
 
