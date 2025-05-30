@@ -482,7 +482,7 @@ aside input[type="range"] {
     const filtrados = juegosData.filter(j =>
       (filtroCat === 'todos' || j.categoria === filtroCat) && j.precio <= filtroPrecio
     );
-   const visibles = filtrados.slice(0, juegosMostrados + juegosPorPagina);
+   const visibles = filtrados.slice(juegosMostrados, juegosMostrados + juegosPorPagina);
     visibles.forEach(j => {
       const div = document.createElement('div');
       div.className = 'juego';
@@ -499,7 +499,7 @@ aside input[type="range"] {
     juegosMostrados += juegosPorPagina;
     renderizarJuegos();
   }
-  document.getElementById('categoria').addEventListener('change', () => {
+ document.getElementById('categoria').addEventListener('change', () => {
   juegosMostrados = 0;
   document.querySelector('.juegos-container').innerHTML = '';
   renderizarJuegos();
