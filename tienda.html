@@ -495,24 +495,39 @@ aside input[type="range"] {
       contenedor.appendChild(div);
     });
   }
+  function cargarMasJuegos() 
   function cargarMasJuegos() {
-    juegosMostrados += juegosPorPagina;
+  const filtroCat = document.getElementById('categoria').value;
+  const filtroPrecio = parseFloat(document.getElementById('precio').value);
+  const filtrados = juegosData.filter(j =>
+    (filtroCat === 'todos' || j.categoria === filtroCat) && j.precio <= filtroPrecio
+  );
+  if (juegosMostrados >= filtrados.length) return; // ✅ no hay más que cargar
+  juegosMostrados += juegosPorPagina;
+  renderizarJuegos();
+}
+
+  
+  {
+juegosMostrados += juegosPorPagina;
     renderizarJuegos();
   }
- document.getElementById('categoria').addEventListener('change', () => {
+document.getElementById('categoria').addEventListener('change', () => {
   juegosMostrados = 0;
   document.querySelector('.juegos-container').innerHTML = '';
-  renderizarJuegos();
+  cargarMasJuegos(); // ✅ en lugar de renderizarJuegos
 });
 
 document.getElementById('precio').addEventListener('input', e => {
   document.getElementById('precio-valor').textContent = `$${e.target.value}`;
   juegosMostrados = 0;
   document.querySelector('.juegos-container').innerHTML = '';
-  renderizarJuegos();
+  cargarMasJuegos(); // ✅ también aquí
+});
+
 });
   window.addEventListener('DOMContentLoaded', () => {
-    renderizarJuegos();
+  cargarMasJuegos();
   });
 
 </script>
