@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BJ Video Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #carrito-btn {
+      background-color: #ffcc00;
+      color: #000;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+    #cart-count {
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      position: absolute;
+      top: -5px; right: -5px;
+      font-size: 12px;
+    }
+    aside {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 250px;
+      height: calc(100% - 60px);
+      background-color: #222;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    aside h2 {
+      color: #ffcc00;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside ul li {
+      margin-bottom: 10px;
+    }
+    aside ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    main {
+      margin-left: 270px;
+      padding: 100px 20px 20px;
+    }
+    .juegos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+      gap: 20px;
+    }
+    .juego {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 10px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .juego:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(255,204,0,0.4);
+    }
+    .juego img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .juego:hover img {
+      transform: scale(1.05);
+    }
+    .juego h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .juego p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #00ffcc;
+      font-weight: bold;
+    }
+    .juego button {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .juego button:hover {
+      background-color: #ffd700;
+    }
+    .juego::before {
+      content: "Oferta";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: red;
+      color: white;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    #carrito-panel {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100%;
+      background-color: #111;
+      color: white;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+      transition: right 0.3s ease;
+      z-index: 2000;
+    }
+    #carrito-panel.active {
+      right: 0;
+    }
+    #carrito-panel button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #carrito-panel button:hover {
+      background-color: #ffd700;
+    }
+    #cerrar-carrito {
+      background-color: #444 !important;
+      color: white !important;
+      font-weight: bold;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+    #cerrar-carrito:hover {
+      background-color: #666 !important;
+    }
+    .carrito-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .carrito-item button {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    #notificacion-carrito {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background-color: #00cc66;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 3000;
+      font-weight: bold;
+    }
+    #notificacion-carrito.mostrar {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav style="display: flex; align-items: center; width: 100%;">
+    <div style="display: flex; gap: 15px;">
+      <a href="#inicio">Inicio</a>
+      <a href="contacto.html">Contáctanos</a>
+    </div>
+    <button id="carrito-btn" onclick="toggleCarrito()" style="margin-left: auto;">
+      🛒 <span id="cart-count">0</span>
+    </button>
+  </nav>
+</header>
+
+<aside>
+  <h2>Categorías</h2>
+  <ul>
+    <li><a href="zelda.html">Aventura: Zelda</a></li>
+    <li><a href="spiderman.html">Acción: Spider-Man</a></li>
+    <li><a href="witcher.html">RPG: The Witcher 3</a></li>
+    <li><a href="doom.html">Shooter: DOOM Eternal</a></li>
+    <li><a href="fifa25.html">Deportes: FIFA 25</a></li>
+    <li><a href="hollow.html">Indie: Hollow Knight</a></li>
+  </ul>
+</aside>
+
+
+<aside>
+  <h2>Filtros</h2>
+  <label for="categoria">Categoría:</label>
+  <select id="categoria">
+    <option value="todos">Todos</option>
+    <option value="accion">Acción</option>
+    <option value="rpg">RPG</option>
+    <option value="indie">Indie</option>
+    <option value="deportes">Deportes</option>
+    <option value="aventura">Aventura</option>
+    <option value="shooter">Shooter</option>
+  </select>
+  <label for="precio">Precio máximo:</label>
+  <input type="range" id="precio" min="0" max="70" value="70">
+  <span id="precio-valor">$70</span>
+</aside>
+
+<main>
+  <section id="inicio">
+    <h1>Bienvenido a BJ Video Games</h1>
+    <p>Explora una amplia selección de videojuegos para todos los gustos.</p>
+  </section>
+  <div class="juegos-container">
+
+    <div class="juego">
+      <a href="fifa25.html"><img src="fifa.jpg" alt="FIFA 25"></a>
+      <h3>FIFA 25</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('FIFA 25', 59.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="hollow.html"><img src="hollow.jpg" alt="Hollow Knight"></a>
+      <h3>Hollow Knight</h3>
+      <p>$14.99</p>
+      <button onclick="añadirAlCarrito('Hollow Knight', 14.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="doom.html"><img src="doom.jpg" alt="DOOM Eternal"></a>
+      <h3>DOOM Eternal</h3>
+      <p>$49.99</p>
+      <button onclick="añadirAlCarrito('DOOM Eternal', 49.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="spiderman.html"><img src="spiderman.jpg" alt="Spider-Man"></a>
+      <h3>Spider-Man</h3>
+      <p>$39.99</p>
+      <button onclick="añadirAlCarrito('Spider-Man', 39.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="zelda.html"><img src="zelda.jpg" alt="Zelda BOTW"></a>
+      <h3>Zelda: Breath of the Wild</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('Zelda BOTW', 59.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="witcher.html"><img src="witcher.jpg" alt="The Witcher 3"></a>
+      <h3>The Witcher 3</h3>
+      <p>$29.99</p>
+      <button onclick="añadirAlCarrito('The Witcher 3', 29.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="doom_dark_ages.html"><img src="doom_dark_ages.jpg" alt="DOOM The Dark Ages"></a>
+      <h3>DOOM: The Dark Ages</h3>
+      <p>$39.99</p>
+      <button onclick="añadirAlCarrito('DOOM: The Dark Ages', 39.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="zelda_tears.html"><img src="zelda_tears_of_the_kingdom.jpg" alt="Zelda Tears of the Kingdom"></a>
+      <h3>Zelda: Tears of the Kingdom</h3>
+      <p>$69.99</p>
+      <button onclick="añadirAlCarrito('Zelda: Tears of the Kingdom', 69.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="elden_ring.html"><img src="elden_ring.jpg" alt="Elden Ring"></a>
+      <h3>Elden Ring</h3>
+      <p>$59.99</p>
+      <button onclick="añadirAlCarrito('Elden Ring', 59.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="hades_2.html"><img src="hades2.jpg" alt="Hades II"></a>
+      <h3>Hades II</h3>
+      <p>$34.99</p>
+      <button onclick="añadirAlCarrito('Hades II', 34.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="celeste.html"><img src="celeste.jpg" alt="Celeste"></a>
+      <h3>Celeste</h3>
+      <p>$19.99</p>
+      <button onclick="añadirAlCarrito('Celeste', 19.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="minecraft.html"><img src="minecraft.jpg" alt="Minecraft"></a>
+      <h3>Minecraft</h3>
+      <p>$26.95</p>
+      <button onclick="añadirAlCarrito('Minecraft', 26.95)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="subnautica2.html"><img src="subnautica2.jpg" alt="Subnautica 2"></a>
+      <h3>Subnautica 2</h3>
+      <p>$34.99</p>
+      <button onclick="añadirAlCarrito('Subnautica 2', 34.99)">Añadir al carrito</button>
+    </div>
+    <div class="juego">
+      <a href="red_dead2.html"><img src="red.jpeg" alt="Red Dead Redemption 2"></a>
+      <h3>Red Dead Redemption 2</h3>
+      <p>$49.99</p>
+      <button onclick="añadirAlCarrito('Red Dead Redemption 2', 49.99)">Añadir al carrito</button>
+    </div>
+  </div>
+
+<div style="text-align:center; margin-top:20px;">
+  <button onclick="cargarMasJuegos()" style="padding:10px 20px; background:#ffcc00; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Cargar más</button>
+</div>
+
+</main>
+<div id="carrito-panel">
+  <h2>Carrito</h2>
+  <button id="cerrar-carrito" onclick="toggleCarrito()">Cerrar ✖</button>
+  <div id="carrito-items"></div>
+  <p><strong>Total:</strong> $<span id="total-carrito">0.00</span></p>
+  <button onclick="vaciarCarrito()">Vaciar carrito</button>
+  <button onclick="alert('Gracias por su compra!')">Finalizar compra</button>
+</div>
+<div id="notificacion-carrito"></div>
+<footer>
+  <p>© 2025 BJ Video Games - Todos los derechos reservados.</p>
+</footer>
+<script>
+  const carrito = [];
+  function toggleCarrito() {
+    document.getElementById('carrito-panel').classList.toggle('active');
+  }
+  function actualizarCarrito() {
+    const items = document.getElementById('carrito-items');
+    const total = document.getElementById('total-carrito');
+    const contador = document.getElementById('cart-count');
+    items.innerHTML = '';
+    let suma = 0;
+    carrito.forEach((item, i) => {
+      suma += item.precio;
+      const div = document.createElement('div');
+      div.className = 'carrito-item';
+      div.innerHTML = `<span>${item.nombre} - $${item.precio.toFixed(2)}</span>
+                       <button onclick="quitarDelCarrito(${i})">X</button>`;
+      items.appendChild(div);
+    });
+    total.textContent = suma.toFixed(2);
+    contador.textContent = carrito.length;
+  }
+  function añadirAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+    mostrarNotificacion(`"${nombre}" añadido al carrito`);
+  }
+  function quitarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+  }
+  function vaciarCarrito() {
+    carrito.length = 0;
+    actualizarCarrito();
+  }
+  function mostrarNotificacion(mensaje) {
+    const noti = document.getElementById('notificacion-carrito');
+    noti.textContent = mensaje;
+    noti.classList.add('mostrar');
+    setTimeout(() => noti.classList.remove('mostrar'), 2000);
+  }
+
+  const juegosData = [
+    { titulo: "FIFA 25", precio: 59.99, categoria: "deportes", img: "fifa.jpg" },
+    { titulo: "Hollow Knight", precio: 14.99, categoria: "indie", img: "hollow.jpg" },
+    { titulo: "DOOM Eternal", precio: 49.99, categoria: "shooter", img: "doom.jpg" },
+    { titulo: "Spider-Man", precio: 39.99, categoria: "accion", img: "spiderman.jpg" },
+    { titulo: "Zelda BOTW", precio: 59.99, categoria: "aventura", img: "zelda.jpg" },
+    { titulo: "The Witcher 3", precio: 29.99, categoria: "rpg", img: "witcher.jpg" },
+    { titulo: "DOOM: The Dark Ages", precio: 39.99, categoria: "shooter", img: "doom_dark_ages.jpg" },
+    { titulo: "Zelda: Tears of the Kingdom", precio: 69.99, categoria: "aventura", img: "zelda_tears_of_the_kingdom.jpg" },
+    { titulo: "Elden Ring", precio: 59.99, categoria: "rpg", img: "elden_ring.jpg" },
+    { titulo: "Hades II", precio: 34.99, categoria: "indie", img: "hades2.jpg" },
+    { titulo: "Celeste", precio: 19.99, categoria: "indie", img: "celeste.jpg" },
+    { titulo: "Minecraft", precio: 26.95, categoria: "indie", img: "minecraft.jpg" },
+    { titulo: "Subnautica 2", precio: 34.99, categoria: "aventura", img: "subnautica2.jpg" },
+    { titulo: "Red Dead Redemption 2", precio: 49.99, categoria: "accion", img: "red.jpeg" }
+  ];
+  let juegosMostrados = 0;
+  const juegosPorPagina = 6;
+  function renderizarJuegos() {
+    const contenedor = document.querySelector('.juegos-container');
+    const filtroCat = document.getElementById('categoria').value;
+    const filtroPrecio = parseFloat(document.getElementById('precio').value);
+    const filtrados = juegosData.filter(j =>
+      (filtroCat === 'todos' || j.categoria === filtroCat) && j.precio <= filtroPrecio
+    );
+    const visibles = filtrados.slice(juegosMostrados, juegosMostrados + juegosPorPagina);
+    visibles.forEach(j => {
+      const div = document.createElement('div');
+      div.className = 'juego';
+      div.innerHTML = `
+        <a href="#"><img src="${j.img}" alt="${j.titulo}"></a>
+        <h3>${j.titulo}</h3>
+        <p>$${j.precio.toFixed(2)}</p>
+        <button onclick="añadirAlCarrito('${j.titulo}', ${j.precio})">Añadir al carrito</button>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+  function cargarMasJuegos() {
+    juegosMostrados += juegosPorPagina;
+    renderizarJuegos();
+  }
+  document.getElementById('categoria').addEventListener('change', () => {
+    juegosMostrados = 0;
+    document.querySelector('.juegos-container').innerHTML = '';
+    renderizarJuegos();
+  });
+  document.getElementById('precio').addEventListener('input', e => {
+    document.getElementById('precio-valor').textContent = `$${e.target.value}`;
+    juegosMostrados = 0;
+    document.querySelector('.juegos-container').innerHTML = '';
+    renderizarJuegos();
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    renderizarJuegos();
+  });
+
+</script>
+</body>
+</html>
