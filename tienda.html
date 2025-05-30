@@ -5,229 +5,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BJ Video Games</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
-    }
-    header {
-      background-color: #1a1a1a;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    header nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    #carrito-btn {
-      background-color: #ffcc00;
-      color: #000;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      position: relative;
-    }
-    #cart-count {
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-      position: absolute;
-      top: -5px; right: -5px;
-      font-size: 12px;
-    }
-    aside {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 250px;
-      height: calc(100% - 60px);
-      background-color: #222;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    aside h2 {
-      color: #ffcc00;
-    }
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-    aside ul li {
-      margin-bottom: 10px;
-    }
-    aside ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-    main {
-      margin-left: 270px;
-      padding: 100px 20px 20px;
-    }
-    .juegos-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-      gap: 20px;
-    }
-   .juego {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 12px;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e0e;
+  color: #ffffff;
+}
+
+header {
+  background-color: #1a1a1a;
+  padding: 12px 24px;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+header nav a {
+  color: #fff;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+header nav a:hover {
+  color: #ffcc00;
+}
+
+#carrito-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  color: #ffcc00;
+}
+#carrito-btn:hover {
+  color: #ffd700;
+}
+
+#cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px; right: -10px;
+  font-size: 12px;
+}
+
+aside {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 230px;
+  height: calc(100% - 60px);
+  background-color: #141414;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #333;
+}
+aside h2 {
+  color: #ffcc00;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+aside ul li {
+  margin-bottom: 12px;
+}
+aside ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+aside ul li a:hover {
+  color: #ffcc00;
+}
+
+main {
+  margin-left: 250px;
+  padding: 100px 30px 40px;
+}
+
+.juegos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.juego {
+  background-color: #1c1c1c;
+  border-radius: 16px;
   overflow: hidden;
-  padding: 10px;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .juego:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(255,204,0,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(255, 204, 0, 0.2);
 }
 
 .juego img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 8px;
+  display: block;
   transition: transform 0.3s ease;
 }
-
 .juego:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .juego h3 {
-  margin: 10px 0 5px;
   font-size: 1.1rem;
-  font-weight: bold;
+  margin: 12px 16px 4px;
   color: #ffcc00;
 }
 
 .juego p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #00ffcc;
-  font-weight: bold;
+  margin: 0 16px 12px;
+  color: #00ffd0;
+  font-weight: 600;
 }
 
 .juego button {
+  display: block;
+  margin: 0 16px 16px;
   background-color: #ffcc00;
   color: #000;
   border: none;
-  padding: 8px 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
   font-weight: bold;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-
 .juego button:hover {
   background-color: #ffd700;
 }
 
-/* Opcional: Etiqueta de oferta */
+/* Etiqueta de oferta */
 .juego::before {
   content: "Oferta";
   position: absolute;
   top: 10px;
   left: 10px;
+  background: linear-gradient(45deg, red, orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+/* Panel del carrito */
+#carrito-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background-color: #111;
+  color: white;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+  transition: right 0.3s ease;
+  z-index: 2000;
+}
+#carrito-panel.active {
+  right: 0;
+}
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.carrito-item button {
   background-color: red;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   padding: 3px 8px;
   font-size: 12px;
-  border-radius: 4px;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 1px solid #333;
+}
+footer a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #ffcc00;
+}
+
+#notificacion-carrito {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: #00cc66;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 3000;
   font-weight: bold;
 }
-    .juego h3 {
-      margin: 10px 0 5px;
-    }
-    .juego p {
-      margin: 5px 0;
-    }
-    .juego button {
-      background-color: #ffcc00;
-      color: #000;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-    #carrito-panel {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 300px;
-      height: 100%;
-      background-color: #111;
-      color: white;
-      overflow-y: auto;
-      padding: 20px;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-      transition: right 0.3s ease;
-      z-index: 2000;
-    }
-    #carrito-panel.active {
-      right: 0;
-    }
-    .carrito-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .carrito-item button {
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      padding: 2px 6px;
-      font-size: 12px;
-    }
-    footer {
-      background-color: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      margin-top: 40px;
-    }
-    footer a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    #notificacion-carrito {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background-color: #00cc66;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 3000;
-      font-weight: bold;
-    }
-    #notificacion-carrito.mostrar {
-      opacity: 1;
-      transform: translateY(0);
-    }
+#notificacion-carrito.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 <body>
