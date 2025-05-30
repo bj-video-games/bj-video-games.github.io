@@ -82,98 +82,101 @@
 }
 
 .juegos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.juego {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.juego:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.3);
-}
-
-.juego img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.juego-contenido {
-  padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.juego-empresa {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-.juego-empresa img {
-  width: 16px;
-  height: 16px;
-}
-
-.juego h3 {
-  font-size: 1rem;
-  color: #fff;
-  font-weight: 600;
-  margin: 0;
-}
-
-.global-label {
-  color: #ffcc00;
-  font-size: 0.85rem;
-  margin-top: 2px;
-}
-
-.precio-anterior {
-  font-size: 0.85rem;
-  color: #888;
-  text-decoration: line-through;
-}
-
-.descuento {
-  font-size: 0.85rem;
-  color: #ff5050;
-  font-weight: bold;
-  margin-left: 6px;
-}
-
-.precio-actual {
-  font-size: 1.2rem;
-  color: #00ffcc;
-  font-weight: bold;
-}
-
-.favorito {
-  margin-top: auto;
-  text-align: right;
-  color: #aaa;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.favorito:hover {
-  color: red;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  .juego {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  .juego:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 204, 0, 0.3);
+  }
+  .juego img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .info-juego {
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .info-juego h3 {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+  }
+  .plataforma {
+    font-size: 0.85rem;
+    color: #aaa;
+    font-style: italic;
+  }
+  .global-label {
+    color: #ffcc00;
+    font-size: 0.85rem;
+    margin-top: 2px;
+    font-weight: bold;
+  }
+  .precio-original {
+    font-size: 0.85rem;
+    color: #888;
+    text-decoration: line-through;
+  }
+  .precio-descuento {
+    font-size: 1.1rem;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  .descuento {
+    font-size: 0.85rem;
+    color: #ff5050;
+    font-weight: bold;
+    margin-left: 6px;
+  }
+  .favoritos {
+    font-size: 0.85rem;
+    color: #ccc;
+  }
+  button {
+    margin: 10px 15px 15px;
+    background-color: #ffcc00;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #e6b800;
+  }
+  .favorito {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #aaa;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    user-select: none;
+  }
+  .favorito:hover {
+    color: red;
+  }
+</style>
 
 
     #carrito-panel {
@@ -372,6 +375,7 @@
     <a href="elden_ring.html"><img src="elden_ring.jpg" alt="Elden Ring"></a>
     <div class="info-juego">
       <h3>Elden Ring PC Steam Key GLOBAL</h3>
+      <p class="plataforma">Steam</p>
       <p class="precio-descuento">$220,000 COP</p>
       <p class="favoritos">1,350 favoritos</p>
     </div>
@@ -395,6 +399,7 @@
     <a href="Celeste.html"><img src="celeste.jpg" alt="Celeste"></a>
     <div class="info-juego">
       <h3>Celeste PC Steam Key GLOBAL</h3>
+      <p class="plataforma">Steam</p>
       <p class="precio-descuento">$55,000 COP</p>
       <p class="favoritos">620 favoritos</p>
     </div>
@@ -415,6 +420,7 @@
     <a href="subnautica2.html"><img src="subnautica2.jpg" alt="Subnautica 2"></a>
     <div class="info-juego">
       <h3>Subnautica 2 PC Steam Key GLOBAL</h3>
+      <p class="plataforma">Steam</p>
       <p class="precio-descuento">$100,000 COP</p>
       <p class="favoritos">750 favoritos</p>
     </div>
@@ -435,6 +441,7 @@
   </div>
 
 </div>
+
 
 
 <div id="carrito-panel">
