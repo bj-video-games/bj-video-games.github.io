@@ -228,7 +228,39 @@
       opacity: 1;
       transform: translateY(0);
     }
-  </style>
+
+aside {
+  background-color: #141414;
+  padding: 20px;
+  width: 250px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
+aside h2 {
+  color: #ffcc00;
+  font-size: 18px;
+}
+aside label, aside select {
+  display: block;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+aside input[type="range"] {
+  width: 100%;
+}
+#precio-valor {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #00ffcc;
+  font-weight: bold;
+}
+</style>
 </head>
 <body>
 <header>
@@ -450,7 +482,7 @@
     const filtrados = juegosData.filter(j =>
       (filtroCat === 'todos' || j.categoria === filtroCat) && j.precio <= filtroPrecio
     );
-    const visibles = filtrados.slice(juegosMostrados, juegosMostrados + juegosPorPagina);
+   const visibles = filtrados.slice(0, juegosMostrados + juegosPorPagina);
     visibles.forEach(j => {
       const div = document.createElement('div');
       div.className = 'juego';
@@ -468,16 +500,17 @@
     renderizarJuegos();
   }
   document.getElementById('categoria').addEventListener('change', () => {
-    juegosMostrados = 0;
-    document.querySelector('.juegos-container').innerHTML = '';
-    renderizarJuegos();
-  });
-  document.getElementById('precio').addEventListener('input', e => {
-    document.getElementById('precio-valor').textContent = `$${e.target.value}`;
-    juegosMostrados = 0;
-    document.querySelector('.juegos-container').innerHTML = '';
-    renderizarJuegos();
-  });
+  juegosMostrados = 0;
+  document.querySelector('.juegos-container').innerHTML = '';
+  renderizarJuegos();
+});
+
+document.getElementById('precio').addEventListener('input', e => {
+  document.getElementById('precio-valor').textContent = `$${e.target.value}`;
+  juegosMostrados = 0;
+  document.querySelector('.juegos-container').innerHTML = '';
+  renderizarJuegos();
+});
   window.addEventListener('DOMContentLoaded', () => {
     renderizarJuegos();
   });
